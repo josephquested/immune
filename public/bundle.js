@@ -1,17 +1,151 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 'use strict';
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _jquery = require('jquery');
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+var _movePlayer = require('./movePlayer');
+
+var _movePlayer2 = _interopRequireDefault(_movePlayer);
+
+var _returnCellByDirection = require('./returnCellByDirection');
+
+var _returnCellByDirection2 = _interopRequireDefault(_returnCellByDirection);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = function () {
+  (0, _jquery2.default)(document).keyup(function (key) {
+    var direction = undefined;
+    if (key.which === 38) direction = 'north';
+    if (key.which === 39) direction = 'east';
+    if (key.which === 40) direction = 'south';
+    if (key.which === 37) direction = 'west';
+    if (direction !== undefined) {
+      var oldCell = (0, _jquery2.default)('.player');
+      var newCell = (0, _returnCellByDirection2.default)(oldCell, direction);
+      if (newCell === 'err') return;
+      (0, _movePlayer2.default)(oldCell, newCell);
+    }
+  });
+};
+
+},{"./movePlayer":4,"./returnCellByDirection":5,"jquery":7}],2:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
 var _jquery = require('jquery');
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-(0, _jquery2.default)(function () {
-  console.log('document ready');
+exports.default = function (exponent) {
+  for (var i = 0; i < exponent; i++) {
+    (0, _jquery2.default)('#board').append('<tr id="row_' + i + '"></tr>');
+    for (var j = 0; j < exponent; j++) {
+      (0, _jquery2.default)('#row_' + i).append('<td id="cell_' + i + '_' + j + '"></td>');
+    }
+  }
+};
+
+},{"jquery":7}],3:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
 });
 
-},{"jquery":2}],2:[function(require,module,exports){
+var _jquery = require('jquery');
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = function (cell) {
+  (0, _jquery2.default)(cell).addClass('player');
+};
+
+},{"jquery":7}],4:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _jquery = require('jquery');
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = function (oldCell, newCell) {
+  (0, _jquery2.default)(oldCell).removeClass('player');
+  (0, _jquery2.default)(newCell).addClass('player');
+};
+
+},{"jquery":7}],5:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _jquery = require('jquery');
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = function (oldCell, direction) {
+  // let oldIndex = $(oldCell).index()
+  var newCell = undefined;
+  if (direction === 'north') newCell = (0, _jquery2.default)(oldCell).closest('tr').prev().children().eq((0, _jquery2.default)(oldCell).index());
+  if (direction === 'east') newCell = (0, _jquery2.default)(oldCell).next();
+  if (direction === 'south') newCell = (0, _jquery2.default)(oldCell).closest('tr').next().children().eq((0, _jquery2.default)(oldCell).index());
+  if (direction === 'west') newCell = (0, _jquery2.default)(oldCell).prev();
+  if (!(0, _jquery2.default)(newCell).is('td')) {
+    console.log('ERROR: requested cell out of bounds');return 'err';
+  }
+  return newCell;
+};
+
+},{"jquery":7}],6:[function(require,module,exports){
+'use strict';
+
+var _jquery = require('jquery');
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+var _generateBoard = require('./generateBoard');
+
+var _generateBoard2 = _interopRequireDefault(_generateBoard);
+
+var _generatePlayer = require('./generatePlayer');
+
+var _generatePlayer2 = _interopRequireDefault(_generatePlayer);
+
+var _controlPlayerMovement = require('./controlPlayerMovement');
+
+var _controlPlayerMovement2 = _interopRequireDefault(_controlPlayerMovement);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+(0, _jquery2.default)(function () {
+  (0, _generateBoard2.default)(21);
+  (0, _generatePlayer2.default)((0, _jquery2.default)('#cell_9_10'));
+  (0, _controlPlayerMovement2.default)();
+});
+
+},{"./controlPlayerMovement":1,"./generateBoard":2,"./generatePlayer":3,"jquery":7}],7:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.2.1
  * http://jquery.com/
@@ -9844,4 +9978,4 @@ if ( !noGlobal ) {
 return jQuery;
 }));
 
-},{}]},{},[1]);
+},{}]},{},[6]);

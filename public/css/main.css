@@ -3,7 +3,23 @@ body {
   background-color: #ffe4b5;
 }
 
+table {
+  margin-right: center;
+  margin-left: center;
+  margin: 0 auto;
+}
+
 h1 {
   text-align: center;
-  font-size: 5vw;
+  font-size: 2vw;
+}
+
+td {
+  width: 1.7vw;
+  height: 1.7vw;
+  background-color: #cdaf95;
+}
+
+.player {
+  background-color: white;
 }
