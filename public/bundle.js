@@ -24,6 +24,7 @@ var _gameOver2 = _interopRequireDefault(_gameOver);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var playerSpeed = 200;
+var playerMovementInterval = undefined;
 
 exports.default = function (direction) {
   (0, _jquery2.default)(document).keydown(function (key) {
@@ -31,15 +32,19 @@ exports.default = function (direction) {
     if (key.which === 39) direction = 'east';
     if (key.which === 40) direction = 'south';
     if (key.which === 37) direction = 'west';
+    window.clearInterval(playerMovementInterval);
+    (0, _movePlayer2.default)((0, _jquery2.default)('.player'), (0, _returnCellByDirection2.default)((0, _jquery2.default)('.player'), direction));
+    startInterval(direction);
   });
 
-  window.setInterval(function () {
-    var newCell = (0, _returnCellByDirection2.default)((0, _jquery2.default)('.player'), direction);
-    // if (newCell === 'err') gameOver(4815162342)
-    if (newCell === 'err') return;
-    (0, _movePlayer2.default)((0, _jquery2.default)('.player'), newCell);
-  }, playerSpeed);
-  return direction;
+  var startInterval = function startInterval(direction) {
+    playerMovementInterval = window.setInterval(function () {
+      var newCell = (0, _returnCellByDirection2.default)((0, _jquery2.default)('.player'), direction);
+      (0, _movePlayer2.default)((0, _jquery2.default)('.player'), newCell);
+    }, playerSpeed);
+  };
+
+  startInterval(direction);
 };
 
 },{"./gameOver":2,"./movePlayer":5,"./returnCellByDirection":6,"jquery":9}],2:[function(require,module,exports){
@@ -50,7 +55,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 
 exports.default = function (score) {
-  alert('immune system compromised! score: ' + score);
+  // alert('immune system compromised! score: ' + score)
   location.reload();
 };
 
@@ -122,20 +127,23 @@ var _jquery = require('jquery');
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
+var _gameOver = require('./gameOver');
+
+var _gameOver2 = _interopRequireDefault(_gameOver);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = function (oldCell, direction) {
-  // let oldIndex = $(oldCell).index()
   var newCell = undefined;
   if (direction === 'north') newCell = (0, _jquery2.default)(oldCell).closest('tr').prev().children().eq((0, _jquery2.default)(oldCell).index());
   if (direction === 'east') newCell = (0, _jquery2.default)(oldCell).next();
   if (direction === 'south') newCell = (0, _jquery2.default)(oldCell).closest('tr').next().children().eq((0, _jquery2.default)(oldCell).index());
   if (direction === 'west') newCell = (0, _jquery2.default)(oldCell).prev();
-  if (!(0, _jquery2.default)(newCell).is('td')) return 'err';
+  if (!(0, _jquery2.default)(newCell).is('td')) (0, _gameOver2.default)((0, _jquery2.default)('#score').html());
   return newCell;
 };
 
-},{"jquery":9}],7:[function(require,module,exports){
+},{"./gameOver":2,"jquery":9}],7:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -149,7 +157,7 @@ var _jquery2 = _interopRequireDefault(_jquery);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = function () {
-  window.setInterval(function () {
+  var timerInterval = window.setInterval(function () {
     var currentCount = Number((0, _jquery2.default)('#score').html()) + 1;
     (0, _jquery2.default)('#score').html(currentCount);
   }, 1000);
