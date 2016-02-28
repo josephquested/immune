@@ -16,18 +16,22 @@ h1 {
   margin-bottom: 0;
 }
 
-#score {
-  text-align: center;
-  margin-bottom: 5px;
-}
-
 td {
   width: 1.7vw;
   height: 1.7vw;
   background-color: #cdaf95;
 }
 
+#score {
+  text-align: center;
+  margin-bottom: 5px;
+}
+
 .player {
   background-color: white;
+}
+
+.lazy {
+  background-color: #FF6666;
 }
 
