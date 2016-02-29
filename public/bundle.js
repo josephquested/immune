@@ -19,7 +19,7 @@ exports.default = function (tile) {
   if ((0, _jquery2.default)(tile).hasClass('player') && (0, _jquery2.default)(tile).hasClass('enemy')) (0, _gameOver2.default)();
 };
 
-},{"./gameOver":4,"jquery":16}],2:[function(require,module,exports){
+},{"./gameOver":4,"jquery":18}],2:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -58,7 +58,7 @@ exports.default = function () {
   }, 500);
 };
 
-},{"./lazyController":6,"./spawnEnemy":12,"jquery":16}],3:[function(require,module,exports){
+},{"./lazyController":6,"./spawnEnemy":14,"jquery":18}],3:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -85,7 +85,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var playerSpeed = 200;
 var playerMovementInterval = undefined;
-var autoMove = true;
+var autoMove = false;
 
 exports.default = function (direction) {
   (0, _jquery2.default)(document).keydown(function (key) {
@@ -108,7 +108,7 @@ exports.default = function (direction) {
   if (autoMove) startInterval(direction);
 };
 
-},{"./gameOver":4,"./moveActor":7,"./returnTileByDirection":10,"jquery":16}],4:[function(require,module,exports){
+},{"./gameOver":4,"./moveActor":7,"./returnTileByDirection":11,"jquery":18}],4:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -123,11 +123,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 exports.default = function () {
   // *** uncomment to display score on death *** //
-  alert('immune system compromised! score: ' + (0, _jquery2.default)('#score').html());
+  // alert('immune system compromised! score: ' + $('#score').html())
   location.reload();
 };
 
-},{"jquery":16}],5:[function(require,module,exports){
+},{"jquery":18}],5:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -152,7 +152,7 @@ exports.default = function (exponent) {
   }
 };
 
-},{"jquery":16}],6:[function(require,module,exports){
+},{"jquery":18}],6:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -197,7 +197,6 @@ exports.default = function (enemyTile, enemyType, firstMove) {
       var index = 0;
       var invalidDirections = (0, _returnInvalidDirections2.default)(enemyTile);
       while (invalidDirections.indexOf(direction) > -1 && index < 10) {
-        console.log('im moving away from the wall! attempt: ', index);
         direction = _utils2.default.returnRandomDirection();
         index++;
       }
@@ -209,7 +208,7 @@ exports.default = function (enemyTile, enemyType, firstMove) {
   }, movementSpeed);
 };
 
-},{"./moveActor":7,"./returnInvalidDirections":8,"./returnTileByDirection":10,"./spawnEnemy":12,"./utils":14,"jquery":16}],7:[function(require,module,exports){
+},{"./moveActor":7,"./returnInvalidDirections":8,"./returnTileByDirection":11,"./spawnEnemy":14,"./utils":16,"jquery":18}],7:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -239,7 +238,7 @@ exports.default = function (actor, oldTile, newTile) {
   (0, _controlCollisions2.default)(newTile);
 };
 
-},{"./controlCollisions":1,"jquery":16}],8:[function(require,module,exports){
+},{"./controlCollisions":1,"jquery":18}],8:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -264,16 +263,12 @@ exports.default = function (currentTile) {
   return invalidDirections;
 };
 
-},{"jquery":16}],9:[function(require,module,exports){
+},{"jquery":18}],9:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-
-var _returnRandomEdgeTile = require('./returnRandomEdgeTile');
-
-var _returnRandomEdgeTile2 = _interopRequireDefault(_returnRandomEdgeTile);
 
 var _utils = require('./utils');
 
@@ -296,7 +291,37 @@ exports.default = function () {
   return tile;
 };
 
-},{"./returnRandomEdgeTile":9,"./utils":14,"jquery":16}],10:[function(require,module,exports){
+},{"./utils":16,"jquery":18}],10:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _utils = require('./utils');
+
+var _utils2 = _interopRequireDefault(_utils);
+
+var _jquery = require('jquery');
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = function () {
+  var tableSize = (0, _jquery2.default)('#board tr').length;
+  var tiles = (0, _jquery2.default)('td').toArray();
+  var tile = (0, _jquery2.default)(tiles[_utils2.default.returnRandomInt(0, tiles.length)]);
+
+  while ((0, _jquery2.default)(tile).hasClass('player') || (0, _jquery2.default)(tile).hasClass('enemy')) {
+    tile = (0, _jquery2.default)(tiles[_utils2.default.returnRandomInt(0, tiles.length)]);
+  }
+
+  console.log(tile);
+  return tile;
+};
+
+},{"./utils":16,"jquery":18}],11:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -324,7 +349,7 @@ exports.default = function (oldTile, direction) {
   return newTile;
 };
 
-},{"./gameOver":4,"jquery":16}],11:[function(require,module,exports){
+},{"./gameOver":4,"jquery":18}],12:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -344,7 +369,24 @@ exports.default = function () {
   }, 1000);
 };
 
-},{"jquery":16}],12:[function(require,module,exports){
+},{"jquery":18}],13:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _jquery = require('jquery');
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = function (tile) {
+  (0, _jquery2.default)(tile).addClass('cell');
+};
+
+},{"jquery":18}],14:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -368,7 +410,7 @@ exports.default = function (enemy) {
   return tile;
 };
 
-},{"./returnRandomEdgeTile":9,"jquery":16}],13:[function(require,module,exports){
+},{"./returnRandomEdgeTile":9,"jquery":18}],15:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -385,7 +427,7 @@ exports.default = function (tile) {
   (0, _jquery2.default)(tile).addClass('player');
 };
 
-},{"jquery":16}],14:[function(require,module,exports){
+},{"jquery":18}],16:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -405,7 +447,7 @@ exports.default = {
   "returnRandomDirection": returnRandomDirection
 };
 
-},{}],15:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 'use strict';
 
 var _jquery = require('jquery');
@@ -432,6 +474,14 @@ var _runTimer = require('./runTimer');
 
 var _runTimer2 = _interopRequireDefault(_runTimer);
 
+var _returnRandomTile = require('./returnRandomTile');
+
+var _returnRandomTile2 = _interopRequireDefault(_returnRandomTile);
+
+var _spawnCell = require('./spawnCell');
+
+var _spawnCell2 = _interopRequireDefault(_spawnCell);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 (0, _jquery2.default)(function () {
@@ -440,9 +490,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
   (0, _spawnPlayer2.default)((0, _jquery2.default)('#tile_0_10'));
   (0, _controlPlayerMovement2.default)('south');
   (0, _controlEnemySpawn2.default)();
+  (0, _spawnCell2.default)((0, _returnRandomTile2.default)());
 });
 
-},{"./controlEnemySpawn":2,"./controlPlayerMovement":3,"./generateBoard":5,"./runTimer":11,"./spawnPlayer":13,"jquery":16}],16:[function(require,module,exports){
+},{"./controlEnemySpawn":2,"./controlPlayerMovement":3,"./generateBoard":5,"./returnRandomTile":10,"./runTimer":12,"./spawnCell":13,"./spawnPlayer":15,"jquery":18}],18:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.2.1
  * http://jquery.com/
@@ -10275,4 +10326,4 @@ if ( !noGlobal ) {
 return jQuery;
 }));
 
-},{}]},{},[15]);
+},{}]},{},[17]);
