@@ -9,17 +9,90 @@ var _jquery = require('jquery');
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
+var _moveActor = require('./moveActor');
+
+var _moveActor2 = _interopRequireDefault(_moveActor);
+
+var _returnTileByDirection = require('./returnTileByDirection');
+
+var _returnTileByDirection2 = _interopRequireDefault(_returnTileByDirection);
+
+var _utils = require('./utils');
+
+var _utils2 = _interopRequireDefault(_utils);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = function (enemyTile, enemyType, firstMove) {
+  window.cellChain = [];
+  // let chainController = window.setInterval(() => {
+  //   console.log('current chain ', window.cellChain)
+  //   }, 1000)
+};
+
+},{"./moveActor":9,"./returnTileByDirection":13,"./utils":19,"jquery":21}],2:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _jquery = require('jquery');
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+var _returnRandomTile = require('./returnRandomTile');
+
+var _returnRandomTile2 = _interopRequireDefault(_returnRandomTile);
+
+var _spawnCell = require('./spawnCell');
+
+var _spawnCell2 = _interopRequireDefault(_spawnCell);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = function () {
+  var cellSpawnController = window.setInterval(function () {
+    var gameTime = Number((0, _jquery2.default)('#score').html());
+    if (!(0, _jquery2.default)('td').hasClass('cell')) {
+      (0, _spawnCell2.default)((0, _returnRandomTile2.default)());
+    }
+  }, 2000);
+};
+
+},{"./returnRandomTile":12,"./spawnCell":15,"jquery":21}],3:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _jquery = require('jquery');
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
 var _gameOver = require('./gameOver');
 
 var _gameOver2 = _interopRequireDefault(_gameOver);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = function (tile) {
+exports.default = function (tile, previousTile) {
+  // *** handles gameover conditions *** //
   if ((0, _jquery2.default)(tile).hasClass('player') && (0, _jquery2.default)(tile).hasClass('enemy')) (0, _gameOver2.default)();
+
+  // *** handles chain conditions *** //
+  if ((0, _jquery2.default)(tile).hasClass('player') && (0, _jquery2.default)(tile).hasClass('chain')) (0, _gameOver2.default)();
+
+  // *** handles cell conditions *** //
+  if ((0, _jquery2.default)(tile).hasClass('player') && (0, _jquery2.default)(tile).hasClass('cell')) {
+    (0, _jquery2.default)(tile).removeClass('cell');
+    (0, _jquery2.default)(tile).addClass('chain');
+    window.cellChain.unshift((0, _jquery2.default)(tile).attr('id'));
+  }
 };
 
-},{"./gameOver":4,"jquery":18}],2:[function(require,module,exports){
+},{"./gameOver":6,"jquery":21}],4:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -58,7 +131,7 @@ exports.default = function () {
   }, 500);
 };
 
-},{"./lazyController":6,"./spawnEnemy":14,"jquery":18}],3:[function(require,module,exports){
+},{"./lazyController":8,"./spawnEnemy":16,"jquery":21}],5:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -108,7 +181,7 @@ exports.default = function (direction) {
   if (autoMove) startInterval(direction);
 };
 
-},{"./gameOver":4,"./moveActor":7,"./returnTileByDirection":11,"jquery":18}],4:[function(require,module,exports){
+},{"./gameOver":6,"./moveActor":9,"./returnTileByDirection":13,"jquery":21}],6:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -127,7 +200,7 @@ exports.default = function () {
   location.reload();
 };
 
-},{"jquery":18}],5:[function(require,module,exports){
+},{"jquery":21}],7:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -152,7 +225,7 @@ exports.default = function (exponent) {
   }
 };
 
-},{"jquery":18}],6:[function(require,module,exports){
+},{"jquery":21}],8:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -208,7 +281,7 @@ exports.default = function (enemyTile, enemyType, firstMove) {
   }, movementSpeed);
 };
 
-},{"./moveActor":7,"./returnInvalidDirections":8,"./returnTileByDirection":11,"./spawnEnemy":14,"./utils":16,"jquery":18}],7:[function(require,module,exports){
+},{"./moveActor":9,"./returnInvalidDirections":10,"./returnTileByDirection":13,"./spawnEnemy":16,"./utils":19,"jquery":21}],9:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -223,6 +296,10 @@ var _controlCollisions = require('./controlCollisions');
 
 var _controlCollisions2 = _interopRequireDefault(_controlCollisions);
 
+var _updateChain = require('./updateChain');
+
+var _updateChain2 = _interopRequireDefault(_updateChain);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = function (actor, oldTile, newTile) {
@@ -235,10 +312,11 @@ exports.default = function (actor, oldTile, newTile) {
     (0, _jquery2.default)(newTile).addClass('enemy');
   }
 
-  (0, _controlCollisions2.default)(newTile);
+  (0, _controlCollisions2.default)(newTile, oldTile);
+  if (actor === 'player') (0, _updateChain2.default)(oldTile);
 };
 
-},{"./controlCollisions":1,"jquery":18}],8:[function(require,module,exports){
+},{"./controlCollisions":3,"./updateChain":18,"jquery":21}],10:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -263,7 +341,7 @@ exports.default = function (currentTile) {
   return invalidDirections;
 };
 
-},{"jquery":18}],9:[function(require,module,exports){
+},{"jquery":21}],11:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -291,7 +369,7 @@ exports.default = function () {
   return tile;
 };
 
-},{"./utils":16,"jquery":18}],10:[function(require,module,exports){
+},{"./utils":19,"jquery":21}],12:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -317,11 +395,10 @@ exports.default = function () {
     tile = (0, _jquery2.default)(tiles[_utils2.default.returnRandomInt(0, tiles.length)]);
   }
 
-  console.log(tile);
   return tile;
 };
 
-},{"./utils":16,"jquery":18}],11:[function(require,module,exports){
+},{"./utils":19,"jquery":21}],13:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -349,7 +426,7 @@ exports.default = function (oldTile, direction) {
   return newTile;
 };
 
-},{"./gameOver":4,"jquery":18}],12:[function(require,module,exports){
+},{"./gameOver":6,"jquery":21}],14:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -369,7 +446,7 @@ exports.default = function () {
   }, 1000);
 };
 
-},{"jquery":18}],13:[function(require,module,exports){
+},{"jquery":21}],15:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -386,7 +463,7 @@ exports.default = function (tile) {
   (0, _jquery2.default)(tile).addClass('cell');
 };
 
-},{"jquery":18}],14:[function(require,module,exports){
+},{"jquery":21}],16:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -410,7 +487,7 @@ exports.default = function (enemy) {
   return tile;
 };
 
-},{"./returnRandomEdgeTile":9,"jquery":18}],15:[function(require,module,exports){
+},{"./returnRandomEdgeTile":11,"jquery":21}],17:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -427,7 +504,32 @@ exports.default = function (tile) {
   (0, _jquery2.default)(tile).addClass('player');
 };
 
-},{"jquery":18}],16:[function(require,module,exports){
+},{"jquery":21}],18:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _jquery = require('jquery');
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = function (newTile) {
+  var cellChain = window.cellChain;
+  var previousTile = undefined;
+  for (var i = 0; i < cellChain.length; i++) {
+    (0, _jquery2.default)(cellChain[i]).removeClass('chain');
+    (0, _jquery2.default)(newTile).addClass('chain');
+    previousTile = cellChain[i];
+    cellChain[i] = (0, _jquery2.default)(newTile);
+    newTile = previousTile;
+  }
+};
+
+},{"jquery":21}],19:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -447,7 +549,7 @@ exports.default = {
   "returnRandomDirection": returnRandomDirection
 };
 
-},{}],17:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 'use strict';
 
 var _jquery = require('jquery');
@@ -470,17 +572,17 @@ var _controlEnemySpawn = require('./controlEnemySpawn');
 
 var _controlEnemySpawn2 = _interopRequireDefault(_controlEnemySpawn);
 
+var _controlCellSpawn = require('./controlCellSpawn');
+
+var _controlCellSpawn2 = _interopRequireDefault(_controlCellSpawn);
+
 var _runTimer = require('./runTimer');
 
 var _runTimer2 = _interopRequireDefault(_runTimer);
 
-var _returnRandomTile = require('./returnRandomTile');
+var _controlCellChain = require('./controlCellChain');
 
-var _returnRandomTile2 = _interopRequireDefault(_returnRandomTile);
-
-var _spawnCell = require('./spawnCell');
-
-var _spawnCell2 = _interopRequireDefault(_spawnCell);
+var _controlCellChain2 = _interopRequireDefault(_controlCellChain);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -489,11 +591,12 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
   (0, _generateBoard2.default)(21);
   (0, _spawnPlayer2.default)((0, _jquery2.default)('#tile_0_10'));
   (0, _controlPlayerMovement2.default)('south');
+  (0, _controlCellSpawn2.default)();
   (0, _controlEnemySpawn2.default)();
-  (0, _spawnCell2.default)((0, _returnRandomTile2.default)());
+  (0, _controlCellChain2.default)();
 });
 
-},{"./controlEnemySpawn":2,"./controlPlayerMovement":3,"./generateBoard":5,"./returnRandomTile":10,"./runTimer":12,"./spawnCell":13,"./spawnPlayer":15,"jquery":18}],18:[function(require,module,exports){
+},{"./controlCellChain":1,"./controlCellSpawn":2,"./controlEnemySpawn":4,"./controlPlayerMovement":5,"./generateBoard":7,"./runTimer":14,"./spawnPlayer":17,"jquery":21}],21:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.2.1
  * http://jquery.com/
@@ -10326,4 +10429,4 @@ if ( !noGlobal ) {
 return jQuery;
 }));
 
-},{}]},{},[17]);
+},{}]},{},[20]);

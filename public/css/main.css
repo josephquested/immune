@@ -36,6 +36,10 @@ td {
 }
 
 .cell {
-  background-color: green;
+  background-color: #A0A651;
+}
+
+.chain {
+  background-color: #B7EE37;
 }
 
