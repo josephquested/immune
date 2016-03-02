@@ -45,6 +45,10 @@ td {
   background-color: #FF6666;
 }
 
+.active {
+  background-color: black;
+}
+
 .cell {
   background-color: #A0A651;
 }
