@@ -1,1 +1,1 @@
-console.error("SyntaxError: /Users/josephquested/Dropbox/games/immune/lib/index.js: Unterminated comment (27:0) while parsing file: /Users/josephquested/Dropbox/games/immune/lib/index.js");
+console.error("SyntaxError: /Users/josephquested/Dropbox/games/immune/lib/returnPathToPlayer.js: Unexpected token (33:0) while parsing file: /Users/josephquested/Dropbox/games/immune/lib/returnPathToPlayer.js");
