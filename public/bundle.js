@@ -444,11 +444,9 @@ exports.default = function (enemyTile, firstMove) {
     // *** checks if enemy should die *** //
     if (!(0, _jquery2.default)(enemyTile).hasClass('lazy')) {
       clearInterval(lazyController);
-      console.log('ENEMY KILLED');
       return;
     }
 
-    // direction = returnPathToPlayer(enemyTile, $('.player'))
     direction = _utils2.default.returnRandomDirection();
     var newTile = (0, _returnTileByDirection2.default)((0, _jquery2.default)(enemyTile), direction);
     (0, _moveActor2.default)('lazy', (0, _jquery2.default)(enemyTile), (0, _returnTileByDirection2.default)((0, _jquery2.default)(enemyTile), direction));

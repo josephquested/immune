@@ -37,8 +37,20 @@ td {
   margin-right: 40px;
 }
 
+.cell {
+  background-color: #A0A651;
+}
+
+.chain {
+  background-color: #B7EE37;
+}
+
 .player {
   background-color: white;
+}
+
+.enemyChain {
+  background-color: gray;
 }
 
 .lazy {
@@ -48,16 +60,3 @@ td {
 .active {
   background-color: black;
 }
-
-.cell {
-  background-color: #A0A651;
-}
-
-.chain {
-  background-color: #B7EE37;
-}
-
-.enemyChain {
-  background-color: gray;
-}
-
