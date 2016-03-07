@@ -60,6 +60,7 @@ exports.default = function (enemyTile) {
       if (window.chains[enemyID].chain[0]) {
         (0, _sliceChain2.default)(window.chains[enemyID].chain[0], enemyID);
       }
+      (0, _jquery2.default)(enemyTile).removeClass(enemyID);
       clearInterval(activeController);
       return;
     }
@@ -291,8 +292,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var playerSpeed = 200;
 var playerMovementInterval = undefined;
-var autoMove = true;
-// let autoMove = false
+// let autoMove = true
+var autoMove = false;
 
 var directions = new Map([[38, 'north'], [39, 'east'], [40, 'south'], [37, 'west']]);
 
@@ -355,7 +356,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 exports.default = function () {
   // *** uncomment to display score on death *** //
-  alert('immune system compromised! score: ' + (0, _jquery2.default)('#score').html());
+  // alert('immune system compromised! score: ' + $('#score').html())
   location.reload();
 };
 
@@ -463,7 +464,7 @@ var movementSpeed = 500;
 
 exports.default = function (enemyTile, firstMove) {
   var lazyController = window.setInterval(function () {
-    var direction = undefined;
+    var direction = _utils2.default.returnRandomDirection();
 
     // *** if this is the enemies first move, move away from the wall *** //
     if (firstMove) {
@@ -482,7 +483,7 @@ exports.default = function (enemyTile, firstMove) {
       return;
     }
 
-    direction = _utils2.default.returnRandomDirection();
+    // direction = utils.returnRandomDirection()
     var newTile = (0, _returnTileByDirection2.default)((0, _jquery2.default)(enemyTile), direction);
     (0, _moveActor2.default)('lazy', (0, _jquery2.default)(enemyTile), (0, _returnTileByDirection2.default)((0, _jquery2.default)(enemyTile), direction));
     enemyTile = (0, _jquery2.default)(newTile);
@@ -654,8 +655,28 @@ exports.default = function () {
   var tableSize = (0, _jquery2.default)('#board tr').length;
   var tiles = (0, _jquery2.default)('.edge').toArray();
   var tile = (0, _jquery2.default)(tiles[_utils2.default.returnRandomInt(0, tiles.length)]);
-  while ((0, _jquery2.default)(tile).hasClass('player') || (0, _jquery2.default)(tile).hasClass('enemy') || (0, _jquery2.default)(tile).hasClass('cell')) {
-    tile = (0, _jquery2.default)(tiles[_utils2.default.returnRandomInt(0, tiles.length)]);
+  var testTiles = undefined;
+  var invalidTile = true;
+
+  var _loop = function _loop() {
+    var safeTiles = 0;
+    testTiles = [(0, _jquery2.default)(tile), (0, _jquery2.default)(tile).closest('tr').prev().children().eq((0, _jquery2.default)(tile).index()), (0, _jquery2.default)(tile).next(), (0, _jquery2.default)(tile).closest('tr').next().children().eq((0, _jquery2.default)(tile).index()), (0, _jquery2.default)(tile).prev()];
+
+    testTiles.forEach(function (testTile) {
+      if (!(0, _jquery2.default)(testTile).hasClass('player') && !(0, _jquery2.default)(testTile).hasClass('enemy')) {
+        safeTiles++;
+      }
+    });
+
+    if (safeTiles === 5) {
+      invalidTile = false;
+    } else {
+      tile = (0, _jquery2.default)(tiles[_utils2.default.returnRandomInt(0, tiles.length)]);
+    }
+  };
+
+  while (invalidTile) {
+    _loop();
   }
 
   return tile;
@@ -948,18 +969,6 @@ var _initCellChain = require('./initCellChain');
 
 var _initCellChain2 = _interopRequireDefault(_initCellChain);
 
-var _returnPathToPlayer = require('./returnPathToPlayer');
-
-var _returnPathToPlayer2 = _interopRequireDefault(_returnPathToPlayer);
-
-var _spawnEnemy = require('./spawnEnemy');
-
-var _spawnEnemy2 = _interopRequireDefault(_spawnEnemy);
-
-var _activeController = require('./activeController');
-
-var _activeController2 = _interopRequireDefault(_activeController);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 (0, _jquery2.default)(function () {
@@ -972,14 +981,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
   (0, _controlEnemySpawn2.default)();
   (0, _controlCellSpawn2.default)();
   (0, _controlScore2.default)();
-  // activeController(spawnEnemy('active', $('#tile_10_10')), true)
 });
 
-/* bugs:
-an active enemy hit my single cell chain as I was moving forward, from behind, and the active peice of my tail fell off and stayed bright green.
-*/
-
-},{"./activeController":1,"./controlCellSpawn":3,"./controlEnemySpawn":5,"./controlPlayerMovement":6,"./controlScore":7,"./generateBoard":9,"./initCellChain":10,"./initTimer":11,"./returnPathToPlayer":15,"./spawnEnemy":21,"./spawnPlayer":22,"jquery":945}],28:[function(require,module,exports){
+},{"./controlCellSpawn":3,"./controlEnemySpawn":5,"./controlPlayerMovement":6,"./controlScore":7,"./generateBoard":9,"./initCellChain":10,"./initTimer":11,"./spawnPlayer":22,"jquery":945}],28:[function(require,module,exports){
 // since we are requiring the top level of faker, load all locales by default
 var Faker = require('./lib');
 var faker = new Faker({ locales: require('./lib/locales') });
