@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "babel-node test/*.js",
-    "start": "node --exec babel-node ./index.js",
-    "devstart": "nodemon --exec babel-node ./index.js",
+    "start": "./node_modules/babel-cli/bin/babel-node.js ./index.js",
     "createdb": "babel-node ./db/createDB.js",
     "buildwatch": "watchify ./lib -o public/bundle.js",
     "build": "browserify ./lib -o public/bundle.js",
