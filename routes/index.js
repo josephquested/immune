@@ -19,23 +19,17 @@ router.get('/', (req, res) => {
 
 router.get('/scores', (req, res) => {
   knex.select().table('Scores').then((scores) => {
-    let sortedScores = []
-    scores.forEach((item) => {
-      // sort the scores, maybe using sortArray()
-    })
-
-  res.render('scores', {scores: scores})
+    scores.sort((a, b) => { return parseInt(b.score) - parseInt(a.score)})
+    scores = scores.slice(0, 10)
+    res.render('scores', {scores: scores})
   })
 })
 
 router.post('/scores', (req, res) => {
-  console.log(req.body.name)
-  console.log(req.body.score)
-  // ^^ these aren't actually getting the information, something about url encodinfg maybe
-  // knex('Scores').insert({name: req.body.name, score: req.body.score})
-  // .then((user) => {
-  res.send('sucessfully posted user')
-  // })
+  knex('Scores').insert({name: req.body.name, score: req.body.score})
+  .then((user) => {
+  res.send('sucessfully posted user', user)
+  })
 })
 
 export default router
