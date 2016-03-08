@@ -28,7 +28,7 @@ router.get('/scores', (req, res) => {
 router.post('/scores', (req, res) => {
   knex('Scores').insert({name: req.body.name, score: req.body.score})
   .then((user) => {
-  res.send('sucessfully posted user', user)
+  res.send('sucessfully posted user')
   })
 })
 
