@@ -292,8 +292,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var playerSpeed = 200;
 var playerMovementInterval = undefined;
-// let autoMove = true
-var autoMove = false;
+var autoMove = true;
+// let autoMove = false
 
 var directions = new Map([[38, 'north'], [39, 'east'], [40, 'south'], [37, 'west']]);
 
@@ -359,16 +359,20 @@ var _superagent2 = _interopRequireDefault(_superagent);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = function () {
-  alert('immune system compromised! score: ' + (0, _jquery2.default)('#score').html());
-  // request
-  //   .post('/scores')
-  //   .send($('#score').html())
-  //   .end((err, res) => {
-  //     if (err) throw err
-  //     console.log(res)
-  //   })
+  var name = null;
+  name = prompt('immune system compromised! score: ' + (0, _jquery2.default)('#score').html() + ".\n" + "please enter your name...");
+  if (name === null || name === '') name = prompt('I said enter your name, numbskull.');
+  if (name === null || name === '') alert("fine, be that way.");
 
-  window.location.replace('/scores');
+  console.log("NAME", name);
+  if (name !== null && name !== '') {
+    _superagent2.default.post('/scores').type('form').send({ name: name, score: (0, _jquery2.default)('#score').html() }).end(function (err, res) {
+      if (err) throw err;
+      window.location.replace('/scores');
+    });
+  } else {
+    location.reload();
+  }
 };
 
 },{"jquery":947,"superagent":949}],9:[function(require,module,exports){
