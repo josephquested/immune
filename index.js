@@ -8,6 +8,8 @@ import parser from 'body-parser'
 import dotenv from 'dotenv'
 import routes from './routes'
 
+const port = process.env.port || 3000
+
 dotenv.load()
 
 const app = express()
@@ -25,8 +27,8 @@ app.engine('handlebars', exphbs({defaultLayout: 'main'}))
 app.set('view engine', 'handlebars')
 
 if (require.main === module) {
-  server.listen(3000, () => {
-    let port = server.address().port
+  server.listen(port, () => {
+    // let port = server.address().port
 
     console.log('immune system active on port %s', port)
   })
