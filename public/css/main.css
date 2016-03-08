@@ -11,9 +11,29 @@ table {
 
 h1 {
   text-align: center;
-  font-size: 2vw;
   margin-top: 0;
   margin-bottom: 0;
+}
+
+#main-h1 {
+  font-size: 2vw;
+}
+
+#score-h1 {
+  font-size: 5vw;
+}
+
+#score-h2 {
+  font-size: 3vw;
+  text-align: center;
+  margin-top: 0;
+}
+
+#scoreboard {
+  font-size: 2vw;
+  padding-left: 0;
+  text-align: center;
+  list-style-position: inside;
 }
 
 td {
@@ -60,3 +80,36 @@ td {
 .active {
   background-color: black;
 }
+
+span #center {
+  float: left;
+  display: inline-block;
+  width: 200px;
+}
+
+#container {
+  text-align: center;
+}
+
+#play-button {
+  margin-top: 50px;
+}
+
+.play-button {
+  text-align: center;
+  -moz-box-shadow:inset -2px -2px 2px 0px #a6827e;
+  -webkit-box-shadow:inset -2px -2px 2px 0px #a6827e;
+  box-shadow:inset -2px -2px 2px 0px #a6827e;
+  background-color:#c79b70;
+  -moz-border-radius:8px;
+  -webkit-border-radius:8px;
+  border-radius:8px;
+  border:3px solid #000000;
+  cursor:pointer;
+  color:#000000;
+  font-size:1.5vw;
+  padding:13px 46px;
+  text-decoration:none;
+}
+
+

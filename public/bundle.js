@@ -72,7 +72,7 @@ exports.default = function (enemyTile) {
   }, movementSpeed);
 };
 
-},{"./initCellChain":10,"./moveActor":13,"./returnInvalidDirections":14,"./returnPathToPlayer":15,"./returnTileByDirection":18,"./sliceChain":19,"./spawnEnemy":21,"./utils":25,"faker":28,"jquery":945}],2:[function(require,module,exports){
+},{"./initCellChain":10,"./moveActor":13,"./returnInvalidDirections":14,"./returnPathToPlayer":15,"./returnTileByDirection":18,"./sliceChain":19,"./spawnEnemy":21,"./utils":25,"faker":29,"jquery":947}],2:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -97,7 +97,7 @@ exports.default = function (tile) {
   }
 };
 
-},{"./returnTileByDirection":18,"jquery":945}],3:[function(require,module,exports){
+},{"./returnTileByDirection":18,"jquery":947}],3:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -127,7 +127,7 @@ exports.default = function () {
   }, 2000);
 };
 
-},{"./returnRandomTile":17,"./spawnCell":20,"jquery":945}],4:[function(require,module,exports){
+},{"./returnRandomTile":17,"./spawnCell":20,"jquery":947}],4:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -218,7 +218,7 @@ exports.default = function (tile, previousTile) {
   }
 };
 
-},{"./activeController":1,"./gameOver":8,"./sliceChain":19,"./spawnEnemy":21,"./wipeTileClass":26,"jquery":945}],5:[function(require,module,exports){
+},{"./activeController":1,"./gameOver":8,"./sliceChain":19,"./spawnEnemy":21,"./wipeTileClass":26,"jquery":947}],5:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -257,7 +257,7 @@ exports.default = function () {
   }, 500);
 };
 
-},{"./lazyController":12,"./spawnEnemy":21,"jquery":945}],6:[function(require,module,exports){
+},{"./lazyController":12,"./spawnEnemy":21,"jquery":947}],6:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -321,7 +321,7 @@ exports.default = function (direction) {
   if (autoMove) startInterval(direction);
 };
 
-},{"./checkForChainSkip":2,"./gameOver":8,"./moveActor":13,"./returnTileByDirection":18,"./updatePlayerSpeed":24,"jquery":945}],7:[function(require,module,exports){
+},{"./checkForChainSkip":2,"./gameOver":8,"./moveActor":13,"./returnTileByDirection":18,"./updatePlayerSpeed":24,"jquery":947}],7:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -341,7 +341,7 @@ exports.default = function () {
   }, 5000);
 };
 
-},{"jquery":945}],8:[function(require,module,exports){
+},{"jquery":947}],8:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -352,15 +352,26 @@ var _jquery = require('jquery');
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
+var _superagent = require('superagent');
+
+var _superagent2 = _interopRequireDefault(_superagent);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = function () {
-  // *** uncomment to display score on death *** //
-  // alert('immune system compromised! score: ' + $('#score').html())
-  location.reload();
+  alert('immune system compromised! score: ' + (0, _jquery2.default)('#score').html());
+  // request
+  //   .post('/scores')
+  //   .send($('#score').html())
+  //   .end((err, res) => {
+  //     if (err) throw err
+  //     console.log(res)
+  //   })
+
+  window.location.replace('/scores');
 };
 
-},{"jquery":945}],9:[function(require,module,exports){
+},{"jquery":947,"superagent":949}],9:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -385,7 +396,7 @@ exports.default = function (exponent) {
   }
 };
 
-},{"jquery":945}],10:[function(require,module,exports){
+},{"jquery":947}],10:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -423,7 +434,7 @@ exports.default = function () {
   }, 1000);
 };
 
-},{"jquery":945}],12:[function(require,module,exports){
+},{"jquery":947}],12:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -490,7 +501,7 @@ exports.default = function (enemyTile, firstMove) {
   }, movementSpeed);
 };
 
-},{"./moveActor":13,"./returnInvalidDirections":14,"./returnPathToPlayer":15,"./returnTileByDirection":18,"./spawnEnemy":21,"./utils":25,"jquery":945}],13:[function(require,module,exports){
+},{"./moveActor":13,"./returnInvalidDirections":14,"./returnPathToPlayer":15,"./returnTileByDirection":18,"./spawnEnemy":21,"./utils":25,"jquery":947}],13:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -542,7 +553,7 @@ exports.default = function (actor, oldTile, newTile, enemyID) {
   if (actor === 'player' || actor === 'active') (0, _updateChain2.default)(oldTile, enemyID);
 };
 
-},{"./controlCollisions":4,"./updateChain":23,"./wipeTileClass":26,"jquery":945}],14:[function(require,module,exports){
+},{"./controlCollisions":4,"./updateChain":23,"./wipeTileClass":26,"jquery":947}],14:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -567,7 +578,7 @@ exports.default = function (currentTile) {
   return invalidDirections;
 };
 
-},{"jquery":945}],15:[function(require,module,exports){
+},{"jquery":947}],15:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -634,7 +645,7 @@ exports.default = function (enemyTile, playerTile) {
   }
 };
 
-},{"./utils":25,"jquery":945}],16:[function(require,module,exports){
+},{"./utils":25,"jquery":947}],16:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -682,7 +693,7 @@ exports.default = function () {
   return tile;
 };
 
-},{"./utils":25,"jquery":945}],17:[function(require,module,exports){
+},{"./utils":25,"jquery":947}],17:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -711,7 +722,7 @@ exports.default = function () {
   return tile;
 };
 
-},{"./utils":25,"jquery":945}],18:[function(require,module,exports){
+},{"./utils":25,"jquery":947}],18:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -739,7 +750,7 @@ exports.default = function (oldTile, direction) {
   return newTile;
 };
 
-},{"./gameOver":8,"jquery":945}],19:[function(require,module,exports){
+},{"./gameOver":8,"jquery":947}],19:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -776,7 +787,7 @@ exports.default = function (tile, enemyID) {
   });
 };
 
-},{"jquery":945}],20:[function(require,module,exports){
+},{"jquery":947}],20:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -793,7 +804,7 @@ exports.default = function (tile) {
   (0, _jquery2.default)(tile).addClass('cell');
 };
 
-},{"jquery":945}],21:[function(require,module,exports){
+},{"jquery":947}],21:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -817,7 +828,7 @@ exports.default = function (enemyType, tile) {
   return tile;
 };
 
-},{"./returnRandomEdgeTile":16,"jquery":945}],22:[function(require,module,exports){
+},{"./returnRandomEdgeTile":16,"jquery":947}],22:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -834,7 +845,7 @@ exports.default = function (tile) {
   (0, _jquery2.default)(tile).addClass('player');
 };
 
-},{"jquery":945}],23:[function(require,module,exports){
+},{"jquery":947}],23:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -874,7 +885,7 @@ exports.default = function (newTile, enemyID) {
   }
 };
 
-},{"jquery":945}],24:[function(require,module,exports){
+},{"jquery":947}],24:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -930,7 +941,7 @@ exports.default = function (tile) {
     (0, _jquery2.default)(tile).removeClass('scary');
 };
 
-},{"jquery":945}],27:[function(require,module,exports){
+},{"jquery":947}],27:[function(require,module,exports){
 'use strict';
 
 var _jquery = require('jquery');
@@ -983,12 +994,175 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
   (0, _controlScore2.default)();
 });
 
-},{"./controlCellSpawn":3,"./controlEnemySpawn":5,"./controlPlayerMovement":6,"./controlScore":7,"./generateBoard":9,"./initCellChain":10,"./initTimer":11,"./spawnPlayer":22,"jquery":945}],28:[function(require,module,exports){
+},{"./controlCellSpawn":3,"./controlEnemySpawn":5,"./controlPlayerMovement":6,"./controlScore":7,"./generateBoard":9,"./initCellChain":10,"./initTimer":11,"./spawnPlayer":22,"jquery":947}],28:[function(require,module,exports){
+
+/**
+ * Expose `Emitter`.
+ */
+
+module.exports = Emitter;
+
+/**
+ * Initialize a new `Emitter`.
+ *
+ * @api public
+ */
+
+function Emitter(obj) {
+  if (obj) return mixin(obj);
+};
+
+/**
+ * Mixin the emitter properties.
+ *
+ * @param {Object} obj
+ * @return {Object}
+ * @api private
+ */
+
+function mixin(obj) {
+  for (var key in Emitter.prototype) {
+    obj[key] = Emitter.prototype[key];
+  }
+  return obj;
+}
+
+/**
+ * Listen on the given `event` with `fn`.
+ *
+ * @param {String} event
+ * @param {Function} fn
+ * @return {Emitter}
+ * @api public
+ */
+
+Emitter.prototype.on =
+Emitter.prototype.addEventListener = function(event, fn){
+  this._callbacks = this._callbacks || {};
+  (this._callbacks['$' + event] = this._callbacks['$' + event] || [])
+    .push(fn);
+  return this;
+};
+
+/**
+ * Adds an `event` listener that will be invoked a single
+ * time then automatically removed.
+ *
+ * @param {String} event
+ * @param {Function} fn
+ * @return {Emitter}
+ * @api public
+ */
+
+Emitter.prototype.once = function(event, fn){
+  function on() {
+    this.off(event, on);
+    fn.apply(this, arguments);
+  }
+
+  on.fn = fn;
+  this.on(event, on);
+  return this;
+};
+
+/**
+ * Remove the given callback for `event` or all
+ * registered callbacks.
+ *
+ * @param {String} event
+ * @param {Function} fn
+ * @return {Emitter}
+ * @api public
+ */
+
+Emitter.prototype.off =
+Emitter.prototype.removeListener =
+Emitter.prototype.removeAllListeners =
+Emitter.prototype.removeEventListener = function(event, fn){
+  this._callbacks = this._callbacks || {};
+
+  // all
+  if (0 == arguments.length) {
+    this._callbacks = {};
+    return this;
+  }
+
+  // specific event
+  var callbacks = this._callbacks['$' + event];
+  if (!callbacks) return this;
+
+  // remove all handlers
+  if (1 == arguments.length) {
+    delete this._callbacks['$' + event];
+    return this;
+  }
+
+  // remove specific handler
+  var cb;
+  for (var i = 0; i < callbacks.length; i++) {
+    cb = callbacks[i];
+    if (cb === fn || cb.fn === fn) {
+      callbacks.splice(i, 1);
+      break;
+    }
+  }
+  return this;
+};
+
+/**
+ * Emit `event` with the given args.
+ *
+ * @param {String} event
+ * @param {Mixed} ...
+ * @return {Emitter}
+ */
+
+Emitter.prototype.emit = function(event){
+  this._callbacks = this._callbacks || {};
+  var args = [].slice.call(arguments, 1)
+    , callbacks = this._callbacks['$' + event];
+
+  if (callbacks) {
+    callbacks = callbacks.slice(0);
+    for (var i = 0, len = callbacks.length; i < len; ++i) {
+      callbacks[i].apply(this, args);
+    }
+  }
+
+  return this;
+};
+
+/**
+ * Return array of callbacks for `event`.
+ *
+ * @param {String} event
+ * @return {Array}
+ * @api public
+ */
+
+Emitter.prototype.listeners = function(event){
+  this._callbacks = this._callbacks || {};
+  return this._callbacks['$' + event] || [];
+};
+
+/**
+ * Check if this emitter has `event` handlers.
+ *
+ * @param {String} event
+ * @return {Boolean}
+ * @api public
+ */
+
+Emitter.prototype.hasListeners = function(event){
+  return !! this.listeners(event).length;
+};
+
+},{}],29:[function(require,module,exports){
 // since we are requiring the top level of faker, load all locales by default
 var Faker = require('./lib');
 var faker = new Faker({ locales: require('./lib/locales') });
 module['exports'] = faker;
-},{"./lib":38,"./lib/locales":40}],29:[function(require,module,exports){
+},{"./lib":39,"./lib/locales":41}],30:[function(require,module,exports){
 function Address (faker) {
   var f = faker.fake,
       Helpers = faker.helpers;
@@ -1119,7 +1293,7 @@ function Address (faker) {
 
 module.exports = Address;
 
-},{}],30:[function(require,module,exports){
+},{}],31:[function(require,module,exports){
 var Commerce = function (faker) {
   var self = this;
 
@@ -1209,7 +1383,7 @@ var Commerce = function (faker) {
 };
 
 module['exports'] = Commerce;
-},{}],31:[function(require,module,exports){
+},{}],32:[function(require,module,exports){
 var Company = function (faker) {
   
   var self = this;
@@ -1274,7 +1448,7 @@ var Company = function (faker) {
 }
 
 module['exports'] = Company;
-},{}],32:[function(require,module,exports){
+},{}],33:[function(require,module,exports){
 var _Date = function (faker) {
   var self = this;
   self.past = function (years, refDate) {
@@ -1365,7 +1539,7 @@ var _Date = function (faker) {
 };
 
 module['exports'] = _Date;
-},{}],33:[function(require,module,exports){
+},{}],34:[function(require,module,exports){
 /*
   fake.js - generator method for combining faker methods based on string input
 
@@ -1429,7 +1603,7 @@ function Fake (faker) {
 }
 
 module['exports'] = Fake;
-},{}],34:[function(require,module,exports){
+},{}],35:[function(require,module,exports){
 var Finance = function (faker) {
   var Helpers = faker.helpers,
       self = this;
@@ -1516,7 +1690,7 @@ var Finance = function (faker) {
 }
 
 module['exports'] = Finance;
-},{}],35:[function(require,module,exports){
+},{}],36:[function(require,module,exports){
 var Hacker = function (faker) {
   var self = this;
   
@@ -1568,7 +1742,7 @@ var Hacker = function (faker) {
 };
 
 module['exports'] = Hacker;
-},{}],36:[function(require,module,exports){
+},{}],37:[function(require,module,exports){
 var Helpers = function (faker) {
 
   var self = this;
@@ -1770,7 +1944,7 @@ String.prototype.capitalize = function () { //v1.0
 */
 
 module['exports'] = Helpers;
-},{}],37:[function(require,module,exports){
+},{}],38:[function(require,module,exports){
 var Image = function (faker) {
 
   var self = this;
@@ -1834,7 +2008,7 @@ var Image = function (faker) {
 }
 
 module["exports"] = Image;
-},{}],38:[function(require,module,exports){
+},{}],39:[function(require,module,exports){
 /*
 
    this index.js file is used for including the faker library as a CommonJS module, instead of a bundle
@@ -1969,7 +2143,7 @@ Faker.prototype.seed = function(value) {
 }
 module['exports'] = Faker;
 
-},{"./address":29,"./commerce":30,"./company":31,"./date":32,"./fake":33,"./finance":34,"./hacker":35,"./helpers":36,"./image":37,"./internet":39,"./lorem":938,"./name":939,"./phone_number":940,"./random":941}],39:[function(require,module,exports){
+},{"./address":30,"./commerce":31,"./company":32,"./date":33,"./fake":34,"./finance":35,"./hacker":36,"./helpers":37,"./image":38,"./internet":40,"./lorem":939,"./name":940,"./phone_number":941,"./random":942}],40:[function(require,module,exports){
 var password_generator = require('../vendor/password-generator.js'),
     random_ua = require('../vendor/user-agent');
 
@@ -2084,7 +2258,7 @@ var Internet = function (faker) {
 
 module["exports"] = Internet;
 
-},{"../vendor/password-generator.js":943,"../vendor/user-agent":944}],40:[function(require,module,exports){
+},{"../vendor/password-generator.js":944,"../vendor/user-agent":945}],41:[function(require,module,exports){
 exports['de'] = require('./locales/de');
 exports['de_AT'] = require('./locales/de_AT');
 exports['de_CH'] = require('./locales/de_CH');
@@ -2120,7 +2294,7 @@ exports['vi'] = require('./locales/vi');
 exports['zh_CN'] = require('./locales/zh_CN');
 exports['zh_TW'] = require('./locales/zh_TW');
 
-},{"./locales/de":61,"./locales/de_AT":94,"./locales/de_CH":113,"./locales/en":183,"./locales/en_AU":212,"./locales/en_BORK":220,"./locales/en_CA":228,"./locales/en_GB":240,"./locales/en_IE":250,"./locales/en_IND":262,"./locales/en_US":274,"./locales/en_au_ocker":294,"./locales/es":326,"./locales/es_MX":370,"./locales/fa":389,"./locales/fr":415,"./locales/fr_CA":435,"./locales/ge":461,"./locales/it":496,"./locales/ja":518,"./locales/ko":539,"./locales/nb_NO":569,"./locales/nep":589,"./locales/nl":613,"./locales/pl":653,"./locales/pt_BR":682,"./locales/ru":719,"./locales/sk":759,"./locales/sv":803,"./locales/tr":829,"./locales/uk":862,"./locales/vi":889,"./locales/zh_CN":912,"./locales/zh_TW":931}],41:[function(require,module,exports){
+},{"./locales/de":62,"./locales/de_AT":95,"./locales/de_CH":114,"./locales/en":184,"./locales/en_AU":213,"./locales/en_BORK":221,"./locales/en_CA":229,"./locales/en_GB":241,"./locales/en_IE":251,"./locales/en_IND":263,"./locales/en_US":275,"./locales/en_au_ocker":295,"./locales/es":327,"./locales/es_MX":371,"./locales/fa":390,"./locales/fr":416,"./locales/fr_CA":436,"./locales/ge":462,"./locales/it":497,"./locales/ja":519,"./locales/ko":540,"./locales/nb_NO":570,"./locales/nep":590,"./locales/nl":614,"./locales/pl":654,"./locales/pt_BR":683,"./locales/ru":720,"./locales/sk":760,"./locales/sv":804,"./locales/tr":830,"./locales/uk":863,"./locales/vi":890,"./locales/zh_CN":913,"./locales/zh_TW":932}],42:[function(require,module,exports){
 module["exports"] = [
   "###",
   "##",
@@ -2130,7 +2304,7 @@ module["exports"] = [
   "##c"
 ];
 
-},{}],42:[function(require,module,exports){
+},{}],43:[function(require,module,exports){
 module["exports"] = [
   "#{city_prefix} #{Name.first_name}#{city_suffix}",
   "#{city_prefix} #{Name.first_name}",
@@ -2138,7 +2312,7 @@ module["exports"] = [
   "#{Name.last_name}#{city_suffix}"
 ];
 
-},{}],43:[function(require,module,exports){
+},{}],44:[function(require,module,exports){
 module["exports"] = [
   "Nord",
   "Ost",
@@ -2149,7 +2323,7 @@ module["exports"] = [
   "Bad"
 ];
 
-},{}],44:[function(require,module,exports){
+},{}],45:[function(require,module,exports){
 module["exports"] = [
   "stadt",
   "dorf",
@@ -2158,7 +2332,7 @@ module["exports"] = [
   "burg"
 ];
 
-},{}],45:[function(require,module,exports){
+},{}],46:[function(require,module,exports){
 module["exports"] = [
   "Ägypten",
   "Äquatorialguinea",
@@ -2399,12 +2573,12 @@ module["exports"] = [
   "Zypern"
 ];
 
-},{}],46:[function(require,module,exports){
+},{}],47:[function(require,module,exports){
 module["exports"] = [
   "Deutschland"
 ];
 
-},{}],47:[function(require,module,exports){
+},{}],48:[function(require,module,exports){
 var address = {};
 module['exports'] = address;
 address.city_prefix = require("./city_prefix");
@@ -2421,20 +2595,20 @@ address.street_name = require("./street_name");
 address.street_address = require("./street_address");
 address.default_country = require("./default_country");
 
-},{"./building_number":41,"./city":42,"./city_prefix":43,"./city_suffix":44,"./country":45,"./default_country":46,"./postcode":48,"./secondary_address":49,"./state":50,"./state_abbr":51,"./street_address":52,"./street_name":53,"./street_root":54}],48:[function(require,module,exports){
+},{"./building_number":42,"./city":43,"./city_prefix":44,"./city_suffix":45,"./country":46,"./default_country":47,"./postcode":49,"./secondary_address":50,"./state":51,"./state_abbr":52,"./street_address":53,"./street_name":54,"./street_root":55}],49:[function(require,module,exports){
 module["exports"] = [
   "#####",
   "#####"
 ];
 
-},{}],49:[function(require,module,exports){
+},{}],50:[function(require,module,exports){
 module["exports"] = [
   "Apt. ###",
   "Zimmer ###",
   "# OG"
 ];
 
-},{}],50:[function(require,module,exports){
+},{}],51:[function(require,module,exports){
 module["exports"] = [
   "Baden-Württemberg",
   "Bayern",
@@ -2454,7 +2628,7 @@ module["exports"] = [
   "Thüringen"
 ];
 
-},{}],51:[function(require,module,exports){
+},{}],52:[function(require,module,exports){
 module["exports"] = [
   "BW",
   "BY",
@@ -2474,17 +2648,17 @@ module["exports"] = [
   "TH"
 ];
 
-},{}],52:[function(require,module,exports){
+},{}],53:[function(require,module,exports){
 module["exports"] = [
   "#{street_name} #{building_number}"
 ];
 
-},{}],53:[function(require,module,exports){
+},{}],54:[function(require,module,exports){
 module["exports"] = [
   "#{street_root}"
 ];
 
-},{}],54:[function(require,module,exports){
+},{}],55:[function(require,module,exports){
 module["exports"] = [
   "Ackerweg",
   "Adalbert-Stifter-Str.",
@@ -3519,25 +3693,25 @@ module["exports"] = [
   "Zur alten Fabrik"
 ];
 
-},{}],55:[function(require,module,exports){
+},{}],56:[function(require,module,exports){
 module["exports"] = [
   "+49-1##-#######",
   "+49-1###-########"
 ];
 
-},{}],56:[function(require,module,exports){
+},{}],57:[function(require,module,exports){
 var cell_phone = {};
 module['exports'] = cell_phone;
 cell_phone.formats = require("./formats");
 
-},{"./formats":55}],57:[function(require,module,exports){
+},{"./formats":56}],58:[function(require,module,exports){
 var company = {};
 module['exports'] = company;
 company.suffix = require("./suffix");
 company.legal_form = require("./legal_form");
 company.name = require("./name");
 
-},{"./legal_form":58,"./name":59,"./suffix":60}],58:[function(require,module,exports){
+},{"./legal_form":59,"./name":60,"./suffix":61}],59:[function(require,module,exports){
 module["exports"] = [
   "GmbH",
   "AG",
@@ -3548,16 +3722,16 @@ module["exports"] = [
   "OHG"
 ];
 
-},{}],59:[function(require,module,exports){
+},{}],60:[function(require,module,exports){
 module["exports"] = [
   "#{Name.last_name} #{suffix}",
   "#{Name.last_name}-#{Name.last_name}",
   "#{Name.last_name}, #{Name.last_name} und #{Name.last_name}"
 ];
 
-},{}],60:[function(require,module,exports){
-arguments[4][58][0].apply(exports,arguments)
-},{"dup":58}],61:[function(require,module,exports){
+},{}],61:[function(require,module,exports){
+arguments[4][59][0].apply(exports,arguments)
+},{"dup":59}],62:[function(require,module,exports){
 var de = {};
 module['exports'] = de;
 de.title = "German";
@@ -3568,7 +3742,7 @@ de.lorem = require("./lorem");
 de.name = require("./name");
 de.phone_number = require("./phone_number");
 de.cell_phone = require("./cell_phone");
-},{"./address":47,"./cell_phone":56,"./company":57,"./internet":64,"./lorem":65,"./name":68,"./phone_number":74}],62:[function(require,module,exports){
+},{"./address":48,"./cell_phone":57,"./company":58,"./internet":65,"./lorem":66,"./name":69,"./phone_number":75}],63:[function(require,module,exports){
 module["exports"] = [
   "com",
   "info",
@@ -3579,25 +3753,25 @@ module["exports"] = [
   "ch"
 ];
 
-},{}],63:[function(require,module,exports){
+},{}],64:[function(require,module,exports){
 module["exports"] = [
   "gmail.com",
   "yahoo.com",
   "hotmail.com"
 ];
 
-},{}],64:[function(require,module,exports){
+},{}],65:[function(require,module,exports){
 var internet = {};
 module['exports'] = internet;
 internet.free_email = require("./free_email");
 internet.domain_suffix = require("./domain_suffix");
 
-},{"./domain_suffix":62,"./free_email":63}],65:[function(require,module,exports){
+},{"./domain_suffix":63,"./free_email":64}],66:[function(require,module,exports){
 var lorem = {};
 module['exports'] = lorem;
 lorem.words = require("./words");
 
-},{"./words":66}],66:[function(require,module,exports){
+},{"./words":67}],67:[function(require,module,exports){
 module["exports"] = [
   "alias",
   "consequatur",
@@ -3850,7 +4024,7 @@ module["exports"] = [
   "repellat"
 ];
 
-},{}],67:[function(require,module,exports){
+},{}],68:[function(require,module,exports){
 module["exports"] = [
   "Aaron",
   "Abdul",
@@ -5009,7 +5183,7 @@ module["exports"] = [
   "Zoé"
 ];
 
-},{}],68:[function(require,module,exports){
+},{}],69:[function(require,module,exports){
 var name = {};
 module['exports'] = name;
 name.first_name = require("./first_name");
@@ -5018,7 +5192,7 @@ name.prefix = require("./prefix");
 name.nobility_title_prefix = require("./nobility_title_prefix");
 name.name = require("./name");
 
-},{"./first_name":67,"./last_name":69,"./name":70,"./nobility_title_prefix":71,"./prefix":72}],69:[function(require,module,exports){
+},{"./first_name":68,"./last_name":70,"./name":71,"./nobility_title_prefix":72,"./prefix":73}],70:[function(require,module,exports){
 module["exports"] = [
   "Abel",
   "Abicht",
@@ -6711,7 +6885,7 @@ module["exports"] = [
   "Überacker"
 ];
 
-},{}],70:[function(require,module,exports){
+},{}],71:[function(require,module,exports){
 module["exports"] = [
   "#{prefix} #{first_name} #{last_name}",
   "#{first_name} #{nobility_title_prefix} #{last_name}",
@@ -6721,7 +6895,7 @@ module["exports"] = [
   "#{first_name} #{last_name}"
 ];
 
-},{}],71:[function(require,module,exports){
+},{}],72:[function(require,module,exports){
 module["exports"] = [
   "zu",
   "von",
@@ -6729,7 +6903,7 @@ module["exports"] = [
   "von der"
 ];
 
-},{}],72:[function(require,module,exports){
+},{}],73:[function(require,module,exports){
 module["exports"] = [
   "Hr.",
   "Fr.",
@@ -6737,7 +6911,7 @@ module["exports"] = [
   "Prof. Dr."
 ];
 
-},{}],73:[function(require,module,exports){
+},{}],74:[function(require,module,exports){
 module["exports"] = [
   "(0###) #########",
   "(0####) #######",
@@ -6745,19 +6919,19 @@ module["exports"] = [
   "+49-####-########"
 ];
 
-},{}],74:[function(require,module,exports){
+},{}],75:[function(require,module,exports){
 var phone_number = {};
 module['exports'] = phone_number;
 phone_number.formats = require("./formats");
 
-},{"./formats":73}],75:[function(require,module,exports){
-arguments[4][41][0].apply(exports,arguments)
-},{"dup":41}],76:[function(require,module,exports){
+},{"./formats":74}],76:[function(require,module,exports){
+arguments[4][42][0].apply(exports,arguments)
+},{"dup":42}],77:[function(require,module,exports){
 module["exports"] = [
   "#{city_name}"
 ];
 
-},{}],77:[function(require,module,exports){
+},{}],78:[function(require,module,exports){
 module["exports"] = [
   "Aigen im Mühlkreis",
   "Allerheiligen bei Wildon",
@@ -6879,14 +7053,14 @@ module["exports"] = [
   "Übersbach"
 ];
 
-},{}],78:[function(require,module,exports){
-arguments[4][45][0].apply(exports,arguments)
-},{"dup":45}],79:[function(require,module,exports){
+},{}],79:[function(require,module,exports){
+arguments[4][46][0].apply(exports,arguments)
+},{"dup":46}],80:[function(require,module,exports){
 module["exports"] = [
   "Österreich"
 ];
 
-},{}],80:[function(require,module,exports){
+},{}],81:[function(require,module,exports){
 var address = {};
 module['exports'] = address;
 address.country = require("./country");
@@ -6902,14 +7076,14 @@ address.street_name = require("./street_name");
 address.street_address = require("./street_address");
 address.default_country = require("./default_country");
 
-},{"./building_number":75,"./city":76,"./city_name":77,"./country":78,"./default_country":79,"./postcode":81,"./secondary_address":82,"./state":83,"./state_abbr":84,"./street_address":85,"./street_name":86,"./street_root":87}],81:[function(require,module,exports){
+},{"./building_number":76,"./city":77,"./city_name":78,"./country":79,"./default_country":80,"./postcode":82,"./secondary_address":83,"./state":84,"./state_abbr":85,"./street_address":86,"./street_name":87,"./street_root":88}],82:[function(require,module,exports){
 module["exports"] = [
   "####"
 ];
 
-},{}],82:[function(require,module,exports){
-arguments[4][49][0].apply(exports,arguments)
-},{"dup":49}],83:[function(require,module,exports){
+},{}],83:[function(require,module,exports){
+arguments[4][50][0].apply(exports,arguments)
+},{"dup":50}],84:[function(require,module,exports){
 module["exports"] = [
   "Burgenland",
   "Kärnten",
@@ -6922,7 +7096,7 @@ module["exports"] = [
   "Wien"
 ];
 
-},{}],84:[function(require,module,exports){
+},{}],85:[function(require,module,exports){
 module["exports"] = [
   "Bgld.",
   "Ktn.",
@@ -6935,11 +7109,11 @@ module["exports"] = [
   "W"
 ];
 
-},{}],85:[function(require,module,exports){
-arguments[4][52][0].apply(exports,arguments)
-},{"dup":52}],86:[function(require,module,exports){
+},{}],86:[function(require,module,exports){
 arguments[4][53][0].apply(exports,arguments)
 },{"dup":53}],87:[function(require,module,exports){
+arguments[4][54][0].apply(exports,arguments)
+},{"dup":54}],88:[function(require,module,exports){
 module["exports"] = [
   "Ahorn",
   "Ahorngasse (St. Andrä)",
@@ -7141,7 +7315,7 @@ module["exports"] = [
   "Ötzbruck"
 ];
 
-},{}],88:[function(require,module,exports){
+},{}],89:[function(require,module,exports){
 module["exports"] = [
   "+43-6##-#######",
   "06##-########",
@@ -7149,17 +7323,17 @@ module["exports"] = [
   "06##########"
 ];
 
-},{}],89:[function(require,module,exports){
-arguments[4][56][0].apply(exports,arguments)
-},{"./formats":88,"dup":56}],90:[function(require,module,exports){
+},{}],90:[function(require,module,exports){
 arguments[4][57][0].apply(exports,arguments)
-},{"./legal_form":91,"./name":92,"./suffix":93,"dup":57}],91:[function(require,module,exports){
+},{"./formats":89,"dup":57}],91:[function(require,module,exports){
 arguments[4][58][0].apply(exports,arguments)
-},{"dup":58}],92:[function(require,module,exports){
+},{"./legal_form":92,"./name":93,"./suffix":94,"dup":58}],92:[function(require,module,exports){
 arguments[4][59][0].apply(exports,arguments)
 },{"dup":59}],93:[function(require,module,exports){
-arguments[4][58][0].apply(exports,arguments)
-},{"dup":58}],94:[function(require,module,exports){
+arguments[4][60][0].apply(exports,arguments)
+},{"dup":60}],94:[function(require,module,exports){
+arguments[4][59][0].apply(exports,arguments)
+},{"dup":59}],95:[function(require,module,exports){
 var de_AT = {};
 module['exports'] = de_AT;
 de_AT.title = "German (Austria)";
@@ -7170,7 +7344,7 @@ de_AT.name = require("./name");
 de_AT.phone_number = require("./phone_number");
 de_AT.cell_phone = require("./cell_phone");
 
-},{"./address":80,"./cell_phone":89,"./company":90,"./internet":97,"./name":99,"./phone_number":105}],95:[function(require,module,exports){
+},{"./address":81,"./cell_phone":90,"./company":91,"./internet":98,"./name":100,"./phone_number":106}],96:[function(require,module,exports){
 module["exports"] = [
   "com",
   "info",
@@ -7182,27 +7356,27 @@ module["exports"] = [
   "at"
 ];
 
-},{}],96:[function(require,module,exports){
-arguments[4][63][0].apply(exports,arguments)
-},{"dup":63}],97:[function(require,module,exports){
+},{}],97:[function(require,module,exports){
 arguments[4][64][0].apply(exports,arguments)
-},{"./domain_suffix":95,"./free_email":96,"dup":64}],98:[function(require,module,exports){
-arguments[4][67][0].apply(exports,arguments)
-},{"dup":67}],99:[function(require,module,exports){
+},{"dup":64}],98:[function(require,module,exports){
+arguments[4][65][0].apply(exports,arguments)
+},{"./domain_suffix":96,"./free_email":97,"dup":65}],99:[function(require,module,exports){
 arguments[4][68][0].apply(exports,arguments)
-},{"./first_name":98,"./last_name":100,"./name":101,"./nobility_title_prefix":102,"./prefix":103,"dup":68}],100:[function(require,module,exports){
+},{"dup":68}],100:[function(require,module,exports){
 arguments[4][69][0].apply(exports,arguments)
-},{"dup":69}],101:[function(require,module,exports){
+},{"./first_name":99,"./last_name":101,"./name":102,"./nobility_title_prefix":103,"./prefix":104,"dup":69}],101:[function(require,module,exports){
 arguments[4][70][0].apply(exports,arguments)
 },{"dup":70}],102:[function(require,module,exports){
 arguments[4][71][0].apply(exports,arguments)
 },{"dup":71}],103:[function(require,module,exports){
+arguments[4][72][0].apply(exports,arguments)
+},{"dup":72}],104:[function(require,module,exports){
 module["exports"] = [
   "Dr.",
   "Prof. Dr."
 ];
 
-},{}],104:[function(require,module,exports){
+},{}],105:[function(require,module,exports){
 module["exports"] = [
   "01 #######",
   "01#######",
@@ -7214,9 +7388,9 @@ module["exports"] = [
   "+43 ########"
 ];
 
-},{}],105:[function(require,module,exports){
-arguments[4][74][0].apply(exports,arguments)
-},{"./formats":104,"dup":74}],106:[function(require,module,exports){
+},{}],106:[function(require,module,exports){
+arguments[4][75][0].apply(exports,arguments)
+},{"./formats":105,"dup":75}],107:[function(require,module,exports){
 module["exports"] = [
   "CH",
   "CH",
@@ -7230,19 +7404,19 @@ module["exports"] = [
   "VN"
 ];
 
-},{}],107:[function(require,module,exports){
+},{}],108:[function(require,module,exports){
 module["exports"] = [
   "Schweiz"
 ];
 
-},{}],108:[function(require,module,exports){
+},{}],109:[function(require,module,exports){
 var address = {};
 module['exports'] = address;
 address.country_code = require("./country_code");
 address.postcode = require("./postcode");
 address.default_country = require("./default_country");
 
-},{"./country_code":106,"./default_country":107,"./postcode":109}],109:[function(require,module,exports){
+},{"./country_code":107,"./default_country":108,"./postcode":110}],110:[function(require,module,exports){
 module["exports"] = [
   "1###",
   "2###",
@@ -7255,15 +7429,15 @@ module["exports"] = [
   "9###"
 ];
 
-},{}],110:[function(require,module,exports){
+},{}],111:[function(require,module,exports){
 var company = {};
 module['exports'] = company;
 company.suffix = require("./suffix");
 company.name = require("./name");
 
-},{"./name":111,"./suffix":112}],111:[function(require,module,exports){
-arguments[4][59][0].apply(exports,arguments)
-},{"dup":59}],112:[function(require,module,exports){
+},{"./name":112,"./suffix":113}],112:[function(require,module,exports){
+arguments[4][60][0].apply(exports,arguments)
+},{"dup":60}],113:[function(require,module,exports){
 module["exports"] = [
   "AG",
   "GmbH",
@@ -7275,7 +7449,7 @@ module["exports"] = [
   "Inc."
 ];
 
-},{}],113:[function(require,module,exports){
+},{}],114:[function(require,module,exports){
 var de_CH = {};
 module['exports'] = de_CH;
 de_CH.title = "German (Switzerland)";
@@ -7284,7 +7458,7 @@ de_CH.company = require("./company");
 de_CH.internet = require("./internet");
 de_CH.phone_number = require("./phone_number");
 
-},{"./address":108,"./company":110,"./internet":115,"./phone_number":117}],114:[function(require,module,exports){
+},{"./address":109,"./company":111,"./internet":116,"./phone_number":118}],115:[function(require,module,exports){
 module["exports"] = [
   "com",
   "net",
@@ -7297,12 +7471,12 @@ module["exports"] = [
   "ch"
 ];
 
-},{}],115:[function(require,module,exports){
+},{}],116:[function(require,module,exports){
 var internet = {};
 module['exports'] = internet;
 internet.domain_suffix = require("./domain_suffix");
 
-},{"./domain_suffix":114}],116:[function(require,module,exports){
+},{"./domain_suffix":115}],117:[function(require,module,exports){
 module["exports"] = [
   "0800 ### ###",
   "0800 ## ## ##",
@@ -7315,18 +7489,18 @@ module["exports"] = [
   "0041 79 ### ## ##"
 ];
 
-},{}],117:[function(require,module,exports){
-arguments[4][74][0].apply(exports,arguments)
-},{"./formats":116,"dup":74}],118:[function(require,module,exports){
+},{}],118:[function(require,module,exports){
+arguments[4][75][0].apply(exports,arguments)
+},{"./formats":117,"dup":75}],119:[function(require,module,exports){
 module["exports"] = [
   "#####",
   "####",
   "###"
 ];
 
-},{}],119:[function(require,module,exports){
-arguments[4][42][0].apply(exports,arguments)
-},{"dup":42}],120:[function(require,module,exports){
+},{}],120:[function(require,module,exports){
+arguments[4][43][0].apply(exports,arguments)
+},{"dup":43}],121:[function(require,module,exports){
 module["exports"] = [
   "North",
   "East",
@@ -7337,7 +7511,7 @@ module["exports"] = [
   "Port"
 ];
 
-},{}],121:[function(require,module,exports){
+},{}],122:[function(require,module,exports){
 module["exports"] = [
   "town",
   "ton",
@@ -7360,7 +7534,7 @@ module["exports"] = [
   "shire"
 ];
 
-},{}],122:[function(require,module,exports){
+},{}],123:[function(require,module,exports){
 module["exports"] = [
   "Afghanistan",
   "Albania",
@@ -7609,7 +7783,7 @@ module["exports"] = [
   "Zimbabwe"
 ];
 
-},{}],123:[function(require,module,exports){
+},{}],124:[function(require,module,exports){
 module["exports"] = [
   "AD",
   "AE",
@@ -7863,7 +8037,7 @@ module["exports"] = [
   "ZW"
 ];
 
-},{}],124:[function(require,module,exports){
+},{}],125:[function(require,module,exports){
 module["exports"] = [
   "Avon",
   "Bedfordshire",
@@ -7873,12 +8047,12 @@ module["exports"] = [
   "Cambridgeshire"
 ];
 
-},{}],125:[function(require,module,exports){
+},{}],126:[function(require,module,exports){
 module["exports"] = [
   "United States of America"
 ];
 
-},{}],126:[function(require,module,exports){
+},{}],127:[function(require,module,exports){
 var address = {};
 module['exports'] = address;
 address.city_prefix = require("./city_prefix");
@@ -7899,21 +8073,21 @@ address.street_name = require("./street_name");
 address.street_address = require("./street_address");
 address.default_country = require("./default_country");
 
-},{"./building_number":118,"./city":119,"./city_prefix":120,"./city_suffix":121,"./country":122,"./country_code":123,"./county":124,"./default_country":125,"./postcode":127,"./postcode_by_state":128,"./secondary_address":129,"./state":130,"./state_abbr":131,"./street_address":132,"./street_name":133,"./street_suffix":134,"./time_zone":135}],127:[function(require,module,exports){
+},{"./building_number":119,"./city":120,"./city_prefix":121,"./city_suffix":122,"./country":123,"./country_code":124,"./county":125,"./default_country":126,"./postcode":128,"./postcode_by_state":129,"./secondary_address":130,"./state":131,"./state_abbr":132,"./street_address":133,"./street_name":134,"./street_suffix":135,"./time_zone":136}],128:[function(require,module,exports){
 module["exports"] = [
   "#####",
   "#####-####"
 ];
 
-},{}],128:[function(require,module,exports){
-arguments[4][127][0].apply(exports,arguments)
-},{"dup":127}],129:[function(require,module,exports){
+},{}],129:[function(require,module,exports){
+arguments[4][128][0].apply(exports,arguments)
+},{"dup":128}],130:[function(require,module,exports){
 module["exports"] = [
   "Apt. ###",
   "Suite ###"
 ];
 
-},{}],130:[function(require,module,exports){
+},{}],131:[function(require,module,exports){
 module["exports"] = [
   "Alabama",
   "Alaska",
@@ -7967,7 +8141,7 @@ module["exports"] = [
   "Wyoming"
 ];
 
-},{}],131:[function(require,module,exports){
+},{}],132:[function(require,module,exports){
 module["exports"] = [
   "AL",
   "AK",
@@ -8021,18 +8195,18 @@ module["exports"] = [
   "WY"
 ];
 
-},{}],132:[function(require,module,exports){
+},{}],133:[function(require,module,exports){
 module["exports"] = [
   "#{building_number} #{street_name}"
 ];
 
-},{}],133:[function(require,module,exports){
+},{}],134:[function(require,module,exports){
 module["exports"] = [
   "#{Name.first_name} #{street_suffix}",
   "#{Name.last_name} #{street_suffix}"
 ];
 
-},{}],134:[function(require,module,exports){
+},{}],135:[function(require,module,exports){
 module["exports"] = [
   "Alley",
   "Avenue",
@@ -8261,7 +8435,7 @@ module["exports"] = [
   "Wells"
 ];
 
-},{}],135:[function(require,module,exports){
+},{}],136:[function(require,module,exports){
 module["exports"] = [
   "Pacific/Midway",
   "Pacific/Pago_Pago",
@@ -8408,20 +8582,20 @@ module["exports"] = [
   "Pacific/Apia"
 ];
 
-},{}],136:[function(require,module,exports){
+},{}],137:[function(require,module,exports){
 module["exports"] = [
   "#{Name.name}",
   "#{Company.name}"
 ];
 
-},{}],137:[function(require,module,exports){
+},{}],138:[function(require,module,exports){
 var app = {};
 module['exports'] = app;
 app.name = require("./name");
 app.version = require("./version");
 app.author = require("./author");
 
-},{"./author":136,"./name":138,"./version":139}],138:[function(require,module,exports){
+},{"./author":137,"./name":139,"./version":140}],139:[function(require,module,exports){
 module["exports"] = [
   "Redhold",
   "Treeflex",
@@ -8487,7 +8661,7 @@ module["exports"] = [
   "Keylex"
 ];
 
-},{}],139:[function(require,module,exports){
+},{}],140:[function(require,module,exports){
 module["exports"] = [
   "0.#.#",
   "0.##",
@@ -8496,7 +8670,7 @@ module["exports"] = [
   "#.#.#"
 ];
 
-},{}],140:[function(require,module,exports){
+},{}],141:[function(require,module,exports){
 module["exports"] = [
   "2011-10-12",
   "2012-11-12",
@@ -8504,7 +8678,7 @@ module["exports"] = [
   "2013-9-12"
 ];
 
-},{}],141:[function(require,module,exports){
+},{}],142:[function(require,module,exports){
 module["exports"] = [
   "1234-2121-1221-1211",
   "1212-1221-1121-1234",
@@ -8512,7 +8686,7 @@ module["exports"] = [
   "1228-1221-1221-1431"
 ];
 
-},{}],142:[function(require,module,exports){
+},{}],143:[function(require,module,exports){
 module["exports"] = [
   "visa",
   "mastercard",
@@ -8520,14 +8694,14 @@ module["exports"] = [
   "discover"
 ];
 
-},{}],143:[function(require,module,exports){
+},{}],144:[function(require,module,exports){
 var business = {};
 module['exports'] = business;
 business.credit_card_numbers = require("./credit_card_numbers");
 business.credit_card_expiry_dates = require("./credit_card_expiry_dates");
 business.credit_card_types = require("./credit_card_types");
 
-},{"./credit_card_expiry_dates":140,"./credit_card_numbers":141,"./credit_card_types":142}],144:[function(require,module,exports){
+},{"./credit_card_expiry_dates":141,"./credit_card_numbers":142,"./credit_card_types":143}],145:[function(require,module,exports){
 module["exports"] = [
   "###-###-####",
   "(###) ###-####",
@@ -8535,9 +8709,9 @@ module["exports"] = [
   "###.###.####"
 ];
 
-},{}],145:[function(require,module,exports){
-arguments[4][56][0].apply(exports,arguments)
-},{"./formats":144,"dup":56}],146:[function(require,module,exports){
+},{}],146:[function(require,module,exports){
+arguments[4][57][0].apply(exports,arguments)
+},{"./formats":145,"dup":57}],147:[function(require,module,exports){
 module["exports"] = [
   "red",
   "green",
@@ -8572,7 +8746,7 @@ module["exports"] = [
   "silver"
 ];
 
-},{}],147:[function(require,module,exports){
+},{}],148:[function(require,module,exports){
 module["exports"] = [
   "Books",
   "Movies",
@@ -8598,14 +8772,14 @@ module["exports"] = [
   "Industrial"
 ];
 
-},{}],148:[function(require,module,exports){
+},{}],149:[function(require,module,exports){
 var commerce = {};
 module['exports'] = commerce;
 commerce.color = require("./color");
 commerce.department = require("./department");
 commerce.product_name = require("./product_name");
 
-},{"./color":146,"./department":147,"./product_name":149}],149:[function(require,module,exports){
+},{"./color":147,"./department":148,"./product_name":150}],150:[function(require,module,exports){
 module["exports"] = {
   "adjective": [
     "Small",
@@ -8667,7 +8841,7 @@ module["exports"] = {
   ]
 };
 
-},{}],150:[function(require,module,exports){
+},{}],151:[function(require,module,exports){
 module["exports"] = [
   "Adaptive",
   "Advanced",
@@ -8771,7 +8945,7 @@ module["exports"] = [
   "Vision-oriented"
 ];
 
-},{}],151:[function(require,module,exports){
+},{}],152:[function(require,module,exports){
 module["exports"] = [
   "clicks-and-mortar",
   "value-added",
@@ -8840,7 +9014,7 @@ module["exports"] = [
   "rich"
 ];
 
-},{}],152:[function(require,module,exports){
+},{}],153:[function(require,module,exports){
 module["exports"] = [
   "synergies",
   "web-readiness",
@@ -8888,7 +9062,7 @@ module["exports"] = [
   "methodologies"
 ];
 
-},{}],153:[function(require,module,exports){
+},{}],154:[function(require,module,exports){
 module["exports"] = [
   "implement",
   "utilize",
@@ -8952,7 +9126,7 @@ module["exports"] = [
   "recontextualize"
 ];
 
-},{}],154:[function(require,module,exports){
+},{}],155:[function(require,module,exports){
 module["exports"] = [
   "24 hour",
   "24/7",
@@ -9057,7 +9231,7 @@ module["exports"] = [
   "zero tolerance"
 ];
 
-},{}],155:[function(require,module,exports){
+},{}],156:[function(require,module,exports){
 var company = {};
 module['exports'] = company;
 company.suffix = require("./suffix");
@@ -9069,14 +9243,14 @@ company.bs_adjective = require("./bs_adjective");
 company.bs_noun = require("./bs_noun");
 company.name = require("./name");
 
-},{"./adjective":150,"./bs_adjective":151,"./bs_noun":152,"./bs_verb":153,"./descriptor":154,"./name":156,"./noun":157,"./suffix":158}],156:[function(require,module,exports){
+},{"./adjective":151,"./bs_adjective":152,"./bs_noun":153,"./bs_verb":154,"./descriptor":155,"./name":157,"./noun":158,"./suffix":159}],157:[function(require,module,exports){
 module["exports"] = [
   "#{Name.last_name} #{suffix}",
   "#{Name.last_name}-#{Name.last_name}",
   "#{Name.last_name}, #{Name.last_name} and #{Name.last_name}"
 ];
 
-},{}],157:[function(require,module,exports){
+},{}],158:[function(require,module,exports){
 module["exports"] = [
   "ability",
   "access",
@@ -9184,7 +9358,7 @@ module["exports"] = [
   "workforce"
 ];
 
-},{}],158:[function(require,module,exports){
+},{}],159:[function(require,module,exports){
 module["exports"] = [
   "Inc",
   "and Sons",
@@ -9192,19 +9366,19 @@ module["exports"] = [
   "Group"
 ];
 
-},{}],159:[function(require,module,exports){
+},{}],160:[function(require,module,exports){
 module["exports"] = [
   "/34##-######-####L/",
   "/37##-######-####L/"
 ];
 
-},{}],160:[function(require,module,exports){
+},{}],161:[function(require,module,exports){
 module["exports"] = [
   "/30[0-5]#-######-###L/",
   "/368#-######-###L/"
 ];
 
-},{}],161:[function(require,module,exports){
+},{}],162:[function(require,module,exports){
 module["exports"] = [
   "/6011-####-####-###L/",
   "/65##-####-####-###L/",
@@ -9214,7 +9388,7 @@ module["exports"] = [
   "/64[4-9]#-62##-####-####-###L/"
 ];
 
-},{}],162:[function(require,module,exports){
+},{}],163:[function(require,module,exports){
 var credit_card = {};
 module['exports'] = credit_card;
 credit_card.visa = require("./visa");
@@ -9228,14 +9402,14 @@ credit_card.solo = require("./solo");
 credit_card.maestro = require("./maestro");
 credit_card.laser = require("./laser");
 
-},{"./american_express":159,"./diners_club":160,"./discover":161,"./jcb":163,"./laser":164,"./maestro":165,"./mastercard":166,"./solo":167,"./switch":168,"./visa":169}],163:[function(require,module,exports){
+},{"./american_express":160,"./diners_club":161,"./discover":162,"./jcb":164,"./laser":165,"./maestro":166,"./mastercard":167,"./solo":168,"./switch":169,"./visa":170}],164:[function(require,module,exports){
 module["exports"] = [
   "/3528-####-####-###L/",
   "/3529-####-####-###L/",
   "/35[3-8]#-####-####-###L/"
 ];
 
-},{}],164:[function(require,module,exports){
+},{}],165:[function(require,module,exports){
 module["exports"] = [
   "/6304###########L/",
   "/6706###########L/",
@@ -9247,46 +9421,46 @@ module["exports"] = [
   "/6709#########{5,6}L/"
 ];
 
-},{}],165:[function(require,module,exports){
+},{}],166:[function(require,module,exports){
 module["exports"] = [
   "/50#{9,16}L/",
   "/5[6-8]#{9,16}L/",
   "/56##{9,16}L/"
 ];
 
-},{}],166:[function(require,module,exports){
+},{}],167:[function(require,module,exports){
 module["exports"] = [
   "/5[1-5]##-####-####-###L/",
   "/6771-89##-####-###L/"
 ];
 
-},{}],167:[function(require,module,exports){
+},{}],168:[function(require,module,exports){
 module["exports"] = [
   "/6767-####-####-###L/",
   "/6767-####-####-####-#L/",
   "/6767-####-####-####-##L/"
 ];
 
-},{}],168:[function(require,module,exports){
+},{}],169:[function(require,module,exports){
 module["exports"] = [
   "/6759-####-####-###L/",
   "/6759-####-####-####-#L/",
   "/6759-####-####-####-##L/"
 ];
 
-},{}],169:[function(require,module,exports){
+},{}],170:[function(require,module,exports){
 module["exports"] = [
   "/4###########L/",
   "/4###-####-####-###L/"
 ];
 
-},{}],170:[function(require,module,exports){
+},{}],171:[function(require,module,exports){
 var date = {};
 module["exports"] = date;
 date.month = require("./month");
 date.weekday = require("./weekday");
 
-},{"./month":171,"./weekday":172}],171:[function(require,module,exports){
+},{"./month":172,"./weekday":173}],172:[function(require,module,exports){
 // Source: http://unicode.org/cldr/trac/browser/tags/release-27/common/main/en.xml#L1799
 module["exports"] = {
   wide: [
@@ -9351,7 +9525,7 @@ module["exports"] = {
   ]
 };
 
-},{}],172:[function(require,module,exports){
+},{}],173:[function(require,module,exports){
 // Source: http://unicode.org/cldr/trac/browser/tags/release-27/common/main/en.xml#L1847
 module["exports"] = {
   wide: [
@@ -9396,7 +9570,7 @@ module["exports"] = {
   ]
 };
 
-},{}],173:[function(require,module,exports){
+},{}],174:[function(require,module,exports){
 module["exports"] = [
   "Checking",
   "Savings",
@@ -9408,7 +9582,7 @@ module["exports"] = [
   "Personal Loan"
 ];
 
-},{}],174:[function(require,module,exports){
+},{}],175:[function(require,module,exports){
 module["exports"] = {
   "UAE Dirham": {
     "code": "AED",
@@ -10088,14 +10262,14 @@ module["exports"] = {
   }
 };
 
-},{}],175:[function(require,module,exports){
+},{}],176:[function(require,module,exports){
 var finance = {};
 module['exports'] = finance;
 finance.account_type = require("./account_type");
 finance.transaction_type = require("./transaction_type");
 finance.currency = require("./currency");
 
-},{"./account_type":173,"./currency":174,"./transaction_type":176}],176:[function(require,module,exports){
+},{"./account_type":174,"./currency":175,"./transaction_type":177}],177:[function(require,module,exports){
 module["exports"] = [
   "deposit",
   "withdrawal",
@@ -10103,7 +10277,7 @@ module["exports"] = [
   "invoice"
 ];
 
-},{}],177:[function(require,module,exports){
+},{}],178:[function(require,module,exports){
 module["exports"] = [
   "TCP",
   "HTTP",
@@ -10136,7 +10310,7 @@ module["exports"] = [
   "JBOD"
 ];
 
-},{}],178:[function(require,module,exports){
+},{}],179:[function(require,module,exports){
 module["exports"] = [
   "auxiliary",
   "primary",
@@ -10158,7 +10332,7 @@ module["exports"] = [
   "mobile"
 ];
 
-},{}],179:[function(require,module,exports){
+},{}],180:[function(require,module,exports){
 var hacker = {};
 module['exports'] = hacker;
 hacker.abbreviation = require("./abbreviation");
@@ -10167,7 +10341,7 @@ hacker.noun = require("./noun");
 hacker.verb = require("./verb");
 hacker.ingverb = require("./ingverb");
 
-},{"./abbreviation":177,"./adjective":178,"./ingverb":180,"./noun":181,"./verb":182}],180:[function(require,module,exports){
+},{"./abbreviation":178,"./adjective":179,"./ingverb":181,"./noun":182,"./verb":183}],181:[function(require,module,exports){
 module["exports"] = [
   "backing up",
   "bypassing",
@@ -10187,7 +10361,7 @@ module["exports"] = [
   "parsing"
 ];
 
-},{}],181:[function(require,module,exports){
+},{}],182:[function(require,module,exports){
 module["exports"] = [
   "driver",
   "protocol",
@@ -10215,7 +10389,7 @@ module["exports"] = [
   "matrix"
 ];
 
-},{}],182:[function(require,module,exports){
+},{}],183:[function(require,module,exports){
 module["exports"] = [
   "back up",
   "bypass",
@@ -10237,7 +10411,7 @@ module["exports"] = [
   "parse"
 ];
 
-},{}],183:[function(require,module,exports){
+},{}],184:[function(require,module,exports){
 var en = {};
 module['exports'] = en;
 en.title = "English";
@@ -10258,7 +10432,7 @@ en.app = require("./app");
 en.finance = require("./finance");
 en.date = require("./date");
 
-},{"./address":126,"./app":137,"./business":143,"./cell_phone":145,"./commerce":148,"./company":155,"./credit_card":162,"./date":170,"./finance":175,"./hacker":179,"./internet":187,"./lorem":188,"./name":192,"./phone_number":199,"./team":201}],184:[function(require,module,exports){
+},{"./address":127,"./app":138,"./business":144,"./cell_phone":146,"./commerce":149,"./company":156,"./credit_card":163,"./date":171,"./finance":176,"./hacker":180,"./internet":188,"./lorem":189,"./name":193,"./phone_number":200,"./team":202}],185:[function(require,module,exports){
 module["exports"] = [
   "https://s3.amazonaws.com/uifaces/faces/twitter/jarjan/128.jpg",
   "https://s3.amazonaws.com/uifaces/faces/twitter/mahdif/128.jpg",
@@ -11528,7 +11702,7 @@ module["exports"] = [
   "https://s3.amazonaws.com/uifaces/faces/twitter/areandacom/128.jpg"
 ];
 
-},{}],185:[function(require,module,exports){
+},{}],186:[function(require,module,exports){
 module["exports"] = [
   "com",
   "biz",
@@ -11538,22 +11712,22 @@ module["exports"] = [
   "org"
 ];
 
-},{}],186:[function(require,module,exports){
-arguments[4][63][0].apply(exports,arguments)
-},{"dup":63}],187:[function(require,module,exports){
+},{}],187:[function(require,module,exports){
+arguments[4][64][0].apply(exports,arguments)
+},{"dup":64}],188:[function(require,module,exports){
 var internet = {};
 module['exports'] = internet;
 internet.free_email = require("./free_email");
 internet.domain_suffix = require("./domain_suffix");
 internet.avatar_uri = require("./avatar_uri");
 
-},{"./avatar_uri":184,"./domain_suffix":185,"./free_email":186}],188:[function(require,module,exports){
+},{"./avatar_uri":185,"./domain_suffix":186,"./free_email":187}],189:[function(require,module,exports){
 var lorem = {};
 module['exports'] = lorem;
 lorem.words = require("./words");
 lorem.supplemental = require("./supplemental");
 
-},{"./supplemental":189,"./words":190}],189:[function(require,module,exports){
+},{"./supplemental":190,"./words":191}],190:[function(require,module,exports){
 module["exports"] = [
   "abbas",
   "abduco",
@@ -12397,9 +12571,9 @@ module["exports"] = [
   "xiphias"
 ];
 
-},{}],190:[function(require,module,exports){
-arguments[4][66][0].apply(exports,arguments)
-},{"dup":66}],191:[function(require,module,exports){
+},{}],191:[function(require,module,exports){
+arguments[4][67][0].apply(exports,arguments)
+},{"dup":67}],192:[function(require,module,exports){
 module["exports"] = [
   "Aaliyah",
   "Aaron",
@@ -15410,7 +15584,7 @@ module["exports"] = [
   "Zula"
 ];
 
-},{}],192:[function(require,module,exports){
+},{}],193:[function(require,module,exports){
 var name = {};
 module['exports'] = name;
 name.first_name = require("./first_name");
@@ -15420,7 +15594,7 @@ name.suffix = require("./suffix");
 name.title = require("./title");
 name.name = require("./name");
 
-},{"./first_name":191,"./last_name":193,"./name":194,"./prefix":195,"./suffix":196,"./title":197}],193:[function(require,module,exports){
+},{"./first_name":192,"./last_name":194,"./name":195,"./prefix":196,"./suffix":197,"./title":198}],194:[function(require,module,exports){
 module["exports"] = [
   "Abbott",
   "Abernathy",
@@ -15898,7 +16072,7 @@ module["exports"] = [
   "Zulauf"
 ];
 
-},{}],194:[function(require,module,exports){
+},{}],195:[function(require,module,exports){
 module["exports"] = [
   "#{prefix} #{first_name} #{last_name}",
   "#{first_name} #{last_name} #{suffix}",
@@ -15908,7 +16082,7 @@ module["exports"] = [
   "#{first_name} #{last_name}"
 ];
 
-},{}],195:[function(require,module,exports){
+},{}],196:[function(require,module,exports){
 module["exports"] = [
   "Mr.",
   "Mrs.",
@@ -15917,7 +16091,7 @@ module["exports"] = [
   "Dr."
 ];
 
-},{}],196:[function(require,module,exports){
+},{}],197:[function(require,module,exports){
 module["exports"] = [
   "Jr.",
   "Sr.",
@@ -15932,7 +16106,7 @@ module["exports"] = [
   "DVM"
 ];
 
-},{}],197:[function(require,module,exports){
+},{}],198:[function(require,module,exports){
 module["exports"] = {
   "descriptor": [
     "Lead",
@@ -16026,7 +16200,7 @@ module["exports"] = {
   ]
 };
 
-},{}],198:[function(require,module,exports){
+},{}],199:[function(require,module,exports){
 module["exports"] = [
   "###-###-####",
   "(###) ###-####",
@@ -16050,9 +16224,9 @@ module["exports"] = [
   "###.###.#### x#####"
 ];
 
-},{}],199:[function(require,module,exports){
-arguments[4][74][0].apply(exports,arguments)
-},{"./formats":198,"dup":74}],200:[function(require,module,exports){
+},{}],200:[function(require,module,exports){
+arguments[4][75][0].apply(exports,arguments)
+},{"./formats":199,"dup":75}],201:[function(require,module,exports){
 module["exports"] = [
   "ants",
   "bats",
@@ -16123,30 +16297,30 @@ module["exports"] = [
   "druids"
 ];
 
-},{}],201:[function(require,module,exports){
+},{}],202:[function(require,module,exports){
 var team = {};
 module['exports'] = team;
 team.creature = require("./creature");
 team.name = require("./name");
 
-},{"./creature":200,"./name":202}],202:[function(require,module,exports){
+},{"./creature":201,"./name":203}],203:[function(require,module,exports){
 module["exports"] = [
   "#{Address.state} #{creature}"
 ];
 
-},{}],203:[function(require,module,exports){
+},{}],204:[function(require,module,exports){
 module["exports"] = [
   "####",
   "###",
   "##"
 ];
 
-},{}],204:[function(require,module,exports){
+},{}],205:[function(require,module,exports){
 module["exports"] = [
   "Australia"
 ];
 
-},{}],205:[function(require,module,exports){
+},{}],206:[function(require,module,exports){
 var address = {};
 module['exports'] = address;
 address.state_abbr = require("./state_abbr");
@@ -16156,7 +16330,7 @@ address.building_number = require("./building_number");
 address.street_suffix = require("./street_suffix");
 address.default_country = require("./default_country");
 
-},{"./building_number":203,"./default_country":204,"./postcode":206,"./state":207,"./state_abbr":208,"./street_suffix":209}],206:[function(require,module,exports){
+},{"./building_number":204,"./default_country":205,"./postcode":207,"./state":208,"./state_abbr":209,"./street_suffix":210}],207:[function(require,module,exports){
 module["exports"] = [
   "0###",
   "2###",
@@ -16167,7 +16341,7 @@ module["exports"] = [
   "7###"
 ];
 
-},{}],207:[function(require,module,exports){
+},{}],208:[function(require,module,exports){
 module["exports"] = [
   "New South Wales",
   "Queensland",
@@ -16179,7 +16353,7 @@ module["exports"] = [
   "Victoria"
 ];
 
-},{}],208:[function(require,module,exports){
+},{}],209:[function(require,module,exports){
 module["exports"] = [
   "NSW",
   "QLD",
@@ -16191,7 +16365,7 @@ module["exports"] = [
   "VIC"
 ];
 
-},{}],209:[function(require,module,exports){
+},{}],210:[function(require,module,exports){
 module["exports"] = [
   "Avenue",
   "Boulevard",
@@ -16232,12 +16406,12 @@ module["exports"] = [
   "Way"
 ];
 
-},{}],210:[function(require,module,exports){
+},{}],211:[function(require,module,exports){
 var company = {};
 module['exports'] = company;
 company.suffix = require("./suffix");
 
-},{"./suffix":211}],211:[function(require,module,exports){
+},{"./suffix":212}],212:[function(require,module,exports){
 module["exports"] = [
   "Pty Ltd",
   "and Sons",
@@ -16247,7 +16421,7 @@ module["exports"] = [
   "Partners"
 ];
 
-},{}],212:[function(require,module,exports){
+},{}],213:[function(require,module,exports){
 var en_AU = {};
 module['exports'] = en_AU;
 en_AU.title = "Australia (English)";
@@ -16257,7 +16431,7 @@ en_AU.internet = require("./internet");
 en_AU.address = require("./address");
 en_AU.phone_number = require("./phone_number");
 
-},{"./address":205,"./company":210,"./internet":214,"./name":216,"./phone_number":219}],213:[function(require,module,exports){
+},{"./address":206,"./company":211,"./internet":215,"./name":217,"./phone_number":220}],214:[function(require,module,exports){
 module["exports"] = [
   "com.au",
   "com",
@@ -16267,9 +16441,9 @@ module["exports"] = [
   "org"
 ];
 
-},{}],214:[function(require,module,exports){
-arguments[4][115][0].apply(exports,arguments)
-},{"./domain_suffix":213,"dup":115}],215:[function(require,module,exports){
+},{}],215:[function(require,module,exports){
+arguments[4][116][0].apply(exports,arguments)
+},{"./domain_suffix":214,"dup":116}],216:[function(require,module,exports){
 module["exports"] = [
   "William",
   "Jack",
@@ -16473,13 +16647,13 @@ module["exports"] = [
   "Kiara"
 ];
 
-},{}],216:[function(require,module,exports){
+},{}],217:[function(require,module,exports){
 var name = {};
 module['exports'] = name;
 name.first_name = require("./first_name");
 name.last_name = require("./last_name");
 
-},{"./first_name":215,"./last_name":217}],217:[function(require,module,exports){
+},{"./first_name":216,"./last_name":218}],218:[function(require,module,exports){
 module["exports"] = [
   "Smith",
   "Jones",
@@ -16769,7 +16943,7 @@ module["exports"] = [
   "Wolf"
 ];
 
-},{}],218:[function(require,module,exports){
+},{}],219:[function(require,module,exports){
 module["exports"] = [
   "0# #### ####",
   "+61 # #### ####",
@@ -16777,17 +16951,17 @@ module["exports"] = [
   "+61 4## ### ###"
 ];
 
-},{}],219:[function(require,module,exports){
-arguments[4][74][0].apply(exports,arguments)
-},{"./formats":218,"dup":74}],220:[function(require,module,exports){
+},{}],220:[function(require,module,exports){
+arguments[4][75][0].apply(exports,arguments)
+},{"./formats":219,"dup":75}],221:[function(require,module,exports){
 var en_BORK = {};
 module['exports'] = en_BORK;
 en_BORK.title = "Bork (English)";
 en_BORK.lorem = require("./lorem");
 
-},{"./lorem":221}],221:[function(require,module,exports){
-arguments[4][65][0].apply(exports,arguments)
-},{"./words":222,"dup":65}],222:[function(require,module,exports){
+},{"./lorem":222}],222:[function(require,module,exports){
+arguments[4][66][0].apply(exports,arguments)
+},{"./words":223,"dup":66}],223:[function(require,module,exports){
 module["exports"] = [
   "Boot",
   "I",
@@ -16894,12 +17068,12 @@ module["exports"] = [
   "zeere-a"
 ];
 
-},{}],223:[function(require,module,exports){
+},{}],224:[function(require,module,exports){
 module["exports"] = [
   "Canada"
 ];
 
-},{}],224:[function(require,module,exports){
+},{}],225:[function(require,module,exports){
 var address = {};
 module['exports'] = address;
 address.state = require("./state");
@@ -16907,12 +17081,12 @@ address.state_abbr = require("./state_abbr");
 address.default_country = require("./default_country");
 address.postcode = require('./postcode.js');
 
-},{"./default_country":223,"./postcode.js":225,"./state":226,"./state_abbr":227}],225:[function(require,module,exports){
+},{"./default_country":224,"./postcode.js":226,"./state":227,"./state_abbr":228}],226:[function(require,module,exports){
 module["exports"] = [
   "?#? #?#"
 ];
 
-},{}],226:[function(require,module,exports){
+},{}],227:[function(require,module,exports){
 module["exports"] = [
   "Alberta",
   "British Columbia",
@@ -16929,7 +17103,7 @@ module["exports"] = [
   "Yukon"
 ];
 
-},{}],227:[function(require,module,exports){
+},{}],228:[function(require,module,exports){
 module["exports"] = [
   "AB",
   "BC",
@@ -16946,7 +17120,7 @@ module["exports"] = [
   "YT"
 ];
 
-},{}],228:[function(require,module,exports){
+},{}],229:[function(require,module,exports){
 var en_CA = {};
 module['exports'] = en_CA;
 en_CA.title = "Canada (English)";
@@ -16954,7 +17128,7 @@ en_CA.address = require("./address");
 en_CA.internet = require("./internet");
 en_CA.phone_number = require("./phone_number");
 
-},{"./address":224,"./internet":231,"./phone_number":233}],229:[function(require,module,exports){
+},{"./address":225,"./internet":232,"./phone_number":234}],230:[function(require,module,exports){
 module["exports"] = [
   "ca",
   "com",
@@ -16965,16 +17139,16 @@ module["exports"] = [
   "org"
 ];
 
-},{}],230:[function(require,module,exports){
+},{}],231:[function(require,module,exports){
 module["exports"] = [
   "gmail.com",
   "yahoo.ca",
   "hotmail.com"
 ];
 
-},{}],231:[function(require,module,exports){
-arguments[4][64][0].apply(exports,arguments)
-},{"./domain_suffix":229,"./free_email":230,"dup":64}],232:[function(require,module,exports){
+},{}],232:[function(require,module,exports){
+arguments[4][65][0].apply(exports,arguments)
+},{"./domain_suffix":230,"./free_email":231,"dup":65}],233:[function(require,module,exports){
 module["exports"] = [
   "###-###-####",
   "(###)###-####",
@@ -16994,9 +17168,9 @@ module["exports"] = [
   "###.###.#### x#####"
 ];
 
-},{}],233:[function(require,module,exports){
-arguments[4][74][0].apply(exports,arguments)
-},{"./formats":232,"dup":74}],234:[function(require,module,exports){
+},{}],234:[function(require,module,exports){
+arguments[4][75][0].apply(exports,arguments)
+},{"./formats":233,"dup":75}],235:[function(require,module,exports){
 module["exports"] = [
   "Avon",
   "Bedfordshire",
@@ -17070,7 +17244,7 @@ module["exports"] = [
   "Worcestershire"
 ];
 
-},{}],235:[function(require,module,exports){
+},{}],236:[function(require,module,exports){
 module["exports"] = [
   "England",
   "Scotland",
@@ -17078,16 +17252,16 @@ module["exports"] = [
   "Northern Ireland"
 ];
 
-},{}],236:[function(require,module,exports){
+},{}],237:[function(require,module,exports){
 var address = {};
 module['exports'] = address;
 address.county = require("./county");
 address.uk_country = require("./uk_country");
 address.default_country = require("./default_country");
 
-},{"./county":234,"./default_country":235,"./uk_country":237}],237:[function(require,module,exports){
-arguments[4][235][0].apply(exports,arguments)
-},{"dup":235}],238:[function(require,module,exports){
+},{"./county":235,"./default_country":236,"./uk_country":238}],238:[function(require,module,exports){
+arguments[4][236][0].apply(exports,arguments)
+},{"dup":236}],239:[function(require,module,exports){
 module["exports"] = [
   "074## ######",
   "075## ######",
@@ -17097,9 +17271,9 @@ module["exports"] = [
   "079## ######"
 ];
 
-},{}],239:[function(require,module,exports){
-arguments[4][56][0].apply(exports,arguments)
-},{"./formats":238,"dup":56}],240:[function(require,module,exports){
+},{}],240:[function(require,module,exports){
+arguments[4][57][0].apply(exports,arguments)
+},{"./formats":239,"dup":57}],241:[function(require,module,exports){
 var en_GB = {};
 module['exports'] = en_GB;
 en_GB.title = "Great Britain (English)";
@@ -17108,7 +17282,7 @@ en_GB.internet = require("./internet");
 en_GB.phone_number = require("./phone_number");
 en_GB.cell_phone = require("./cell_phone");
 
-},{"./address":236,"./cell_phone":239,"./internet":242,"./phone_number":244}],241:[function(require,module,exports){
+},{"./address":237,"./cell_phone":240,"./internet":243,"./phone_number":245}],242:[function(require,module,exports){
 module["exports"] = [
   "co.uk",
   "com",
@@ -17117,9 +17291,9 @@ module["exports"] = [
   "name"
 ];
 
-},{}],242:[function(require,module,exports){
-arguments[4][115][0].apply(exports,arguments)
-},{"./domain_suffix":241,"dup":115}],243:[function(require,module,exports){
+},{}],243:[function(require,module,exports){
+arguments[4][116][0].apply(exports,arguments)
+},{"./domain_suffix":242,"dup":116}],244:[function(require,module,exports){
 module["exports"] = [
   "01#### #####",
   "01### ######",
@@ -17138,9 +17312,9 @@ module["exports"] = [
   "0800 ######"
 ];
 
-},{}],244:[function(require,module,exports){
-arguments[4][74][0].apply(exports,arguments)
-},{"./formats":243,"dup":74}],245:[function(require,module,exports){
+},{}],245:[function(require,module,exports){
+arguments[4][75][0].apply(exports,arguments)
+},{"./formats":244,"dup":75}],246:[function(require,module,exports){
 module["exports"] = [
   "Carlow",
   "Cavan",
@@ -17170,18 +17344,18 @@ module["exports"] = [
   "Wicklow"
 ];
 
-},{}],246:[function(require,module,exports){
+},{}],247:[function(require,module,exports){
 module["exports"] = [
   "Ireland"
 ];
 
-},{}],247:[function(require,module,exports){
+},{}],248:[function(require,module,exports){
 var address = {};
 module['exports'] = address;
 address.county = require("./county");
 address.default_country = require("./default_country");
 
-},{"./county":245,"./default_country":246}],248:[function(require,module,exports){
+},{"./county":246,"./default_country":247}],249:[function(require,module,exports){
 module["exports"] = [
   "082 ### ####",
   "083 ### ####",
@@ -17191,9 +17365,9 @@ module["exports"] = [
   "089 ### ####"
 ];
 
-},{}],249:[function(require,module,exports){
-arguments[4][56][0].apply(exports,arguments)
-},{"./formats":248,"dup":56}],250:[function(require,module,exports){
+},{}],250:[function(require,module,exports){
+arguments[4][57][0].apply(exports,arguments)
+},{"./formats":249,"dup":57}],251:[function(require,module,exports){
 var en_IE = {};
 module['exports'] = en_IE;
 en_IE.title = "Ireland (English)";
@@ -17202,7 +17376,7 @@ en_IE.internet = require("./internet");
 en_IE.phone_number = require("./phone_number");
 en_IE.cell_phone = require("./cell_phone");
 
-},{"./address":247,"./cell_phone":249,"./internet":252,"./phone_number":254}],251:[function(require,module,exports){
+},{"./address":248,"./cell_phone":250,"./internet":253,"./phone_number":255}],252:[function(require,module,exports){
 module["exports"] = [
   "ie",
   "com",
@@ -17211,9 +17385,9 @@ module["exports"] = [
   "eu"
 ];
 
-},{}],252:[function(require,module,exports){
-arguments[4][115][0].apply(exports,arguments)
-},{"./domain_suffix":251,"dup":115}],253:[function(require,module,exports){
+},{}],253:[function(require,module,exports){
+arguments[4][116][0].apply(exports,arguments)
+},{"./domain_suffix":252,"dup":116}],254:[function(require,module,exports){
 module["exports"] = [
   "01 #######",
   "021 #######",
@@ -17266,9 +17440,9 @@ module["exports"] = [
   "099 #######"
 ];
 
-},{}],254:[function(require,module,exports){
-arguments[4][74][0].apply(exports,arguments)
-},{"./formats":253,"dup":74}],255:[function(require,module,exports){
+},{}],255:[function(require,module,exports){
+arguments[4][75][0].apply(exports,arguments)
+},{"./formats":254,"dup":75}],256:[function(require,module,exports){
 module["exports"] = [
   "India",
   "Indian Republic",
@@ -17276,7 +17450,7 @@ module["exports"] = [
   "Hindustan"
 ];
 
-},{}],256:[function(require,module,exports){
+},{}],257:[function(require,module,exports){
 var address = {};
 module['exports'] = address;
 address.postcode = require("./postcode");
@@ -17284,9 +17458,9 @@ address.state = require("./state");
 address.state_abbr = require("./state_abbr");
 address.default_country = require("./default_country");
 
-},{"./default_country":255,"./postcode":257,"./state":258,"./state_abbr":259}],257:[function(require,module,exports){
-arguments[4][225][0].apply(exports,arguments)
-},{"dup":225}],258:[function(require,module,exports){
+},{"./default_country":256,"./postcode":258,"./state":259,"./state_abbr":260}],258:[function(require,module,exports){
+arguments[4][226][0].apply(exports,arguments)
+},{"dup":226}],259:[function(require,module,exports){
 module["exports"] = [
   "Andra Pradesh",
   "Arunachal Pradesh",
@@ -17325,7 +17499,7 @@ module["exports"] = [
   "Pondicherry"
 ];
 
-},{}],259:[function(require,module,exports){
+},{}],260:[function(require,module,exports){
 module["exports"] = [
   "AP",
   "AR",
@@ -17364,9 +17538,9 @@ module["exports"] = [
   "PY"
 ];
 
-},{}],260:[function(require,module,exports){
-arguments[4][210][0].apply(exports,arguments)
-},{"./suffix":261,"dup":210}],261:[function(require,module,exports){
+},{}],261:[function(require,module,exports){
+arguments[4][211][0].apply(exports,arguments)
+},{"./suffix":262,"dup":211}],262:[function(require,module,exports){
 module["exports"] = [
   "Pvt Ltd",
   "Limited",
@@ -17377,7 +17551,7 @@ module["exports"] = [
   "Brothers"
 ];
 
-},{}],262:[function(require,module,exports){
+},{}],263:[function(require,module,exports){
 var en_IND = {};
 module['exports'] = en_IND;
 en_IND.title = "India (English)";
@@ -17387,7 +17561,7 @@ en_IND.internet = require("./internet");
 en_IND.company = require("./company");
 en_IND.phone_number = require("./phone_number");
 
-},{"./address":256,"./company":260,"./internet":265,"./name":267,"./phone_number":270}],263:[function(require,module,exports){
+},{"./address":257,"./company":261,"./internet":266,"./name":268,"./phone_number":271}],264:[function(require,module,exports){
 module["exports"] = [
   "in",
   "com",
@@ -17399,16 +17573,16 @@ module["exports"] = [
   "co.in"
 ];
 
-},{}],264:[function(require,module,exports){
+},{}],265:[function(require,module,exports){
 module["exports"] = [
   "gmail.com",
   "yahoo.co.in",
   "hotmail.com"
 ];
 
-},{}],265:[function(require,module,exports){
-arguments[4][64][0].apply(exports,arguments)
-},{"./domain_suffix":263,"./free_email":264,"dup":64}],266:[function(require,module,exports){
+},{}],266:[function(require,module,exports){
+arguments[4][65][0].apply(exports,arguments)
+},{"./domain_suffix":264,"./free_email":265,"dup":65}],267:[function(require,module,exports){
 module["exports"] = [
   "Aadrika",
   "Aanandinii",
@@ -18174,9 +18348,9 @@ module["exports"] = [
   "Yogesh"
 ];
 
-},{}],267:[function(require,module,exports){
-arguments[4][216][0].apply(exports,arguments)
-},{"./first_name":266,"./last_name":268,"dup":216}],268:[function(require,module,exports){
+},{}],268:[function(require,module,exports){
+arguments[4][217][0].apply(exports,arguments)
+},{"./first_name":267,"./last_name":269,"dup":217}],269:[function(require,module,exports){
 module["exports"] = [
   "Abbott",
   "Achari",
@@ -18269,29 +18443,29 @@ module["exports"] = [
   "Verma"
 ];
 
-},{}],269:[function(require,module,exports){
+},{}],270:[function(require,module,exports){
 module["exports"] = [
   "+91###-###-####",
   "+91##########",
   "+91-###-#######"
 ];
 
-},{}],270:[function(require,module,exports){
-arguments[4][74][0].apply(exports,arguments)
-},{"./formats":269,"dup":74}],271:[function(require,module,exports){
+},{}],271:[function(require,module,exports){
+arguments[4][75][0].apply(exports,arguments)
+},{"./formats":270,"dup":75}],272:[function(require,module,exports){
 module["exports"] = [
   "United States",
   "United States of America",
   "USA"
 ];
 
-},{}],272:[function(require,module,exports){
+},{}],273:[function(require,module,exports){
 var address = {};
 module['exports'] = address;
 address.default_country = require("./default_country");
 address.postcode_by_state = require("./postcode_by_state");
 
-},{"./default_country":271,"./postcode_by_state":273}],273:[function(require,module,exports){
+},{"./default_country":272,"./postcode_by_state":274}],274:[function(require,module,exports){
 module["exports"] = {
   "AL": "350##",
   "AK": "995##",
@@ -18347,7 +18521,7 @@ module["exports"] = {
   "WY": "831##"
 };
 
-},{}],274:[function(require,module,exports){
+},{}],275:[function(require,module,exports){
 var en_US = {};
 module['exports'] = en_US;
 en_US.title = "United States (English)";
@@ -18355,7 +18529,7 @@ en_US.internet = require("./internet");
 en_US.address = require("./address");
 en_US.phone_number = require("./phone_number");
 
-},{"./address":272,"./internet":276,"./phone_number":279}],275:[function(require,module,exports){
+},{"./address":273,"./internet":277,"./phone_number":280}],276:[function(require,module,exports){
 module["exports"] = [
   "com",
   "us",
@@ -18366,9 +18540,9 @@ module["exports"] = [
   "org"
 ];
 
-},{}],276:[function(require,module,exports){
-arguments[4][115][0].apply(exports,arguments)
-},{"./domain_suffix":275,"dup":115}],277:[function(require,module,exports){
+},{}],277:[function(require,module,exports){
+arguments[4][116][0].apply(exports,arguments)
+},{"./domain_suffix":276,"dup":116}],278:[function(require,module,exports){
 module["exports"] = [
   "201",
   "202",
@@ -18655,22 +18829,22 @@ module["exports"] = [
   "989"
 ];
 
-},{}],278:[function(require,module,exports){
-arguments[4][277][0].apply(exports,arguments)
-},{"dup":277}],279:[function(require,module,exports){
+},{}],279:[function(require,module,exports){
+arguments[4][278][0].apply(exports,arguments)
+},{"dup":278}],280:[function(require,module,exports){
 var phone_number = {};
 module['exports'] = phone_number;
 phone_number.area_code = require("./area_code");
 phone_number.exchange_code = require("./exchange_code");
 
-},{"./area_code":277,"./exchange_code":278}],280:[function(require,module,exports){
-arguments[4][203][0].apply(exports,arguments)
-},{"dup":203}],281:[function(require,module,exports){
+},{"./area_code":278,"./exchange_code":279}],281:[function(require,module,exports){
+arguments[4][204][0].apply(exports,arguments)
+},{"dup":204}],282:[function(require,module,exports){
 module["exports"] = [
   "#{city_prefix}"
 ];
 
-},{}],282:[function(require,module,exports){
+},{}],283:[function(require,module,exports){
 module["exports"] = [
   "Bondi",
   "Burleigh Heads",
@@ -18686,9 +18860,9 @@ module["exports"] = [
   "Yarra Valley"
 ];
 
-},{}],283:[function(require,module,exports){
-arguments[4][204][0].apply(exports,arguments)
-},{"dup":204}],284:[function(require,module,exports){
+},{}],284:[function(require,module,exports){
+arguments[4][205][0].apply(exports,arguments)
+},{"dup":205}],285:[function(require,module,exports){
 var address = {};
 module['exports'] = address;
 address.street_root = require("./street_root");
@@ -18703,9 +18877,9 @@ address.building_number = require("./building_number");
 address.street_suffix = require("./street_suffix");
 address.default_country = require("./default_country");
 
-},{"./building_number":280,"./city":281,"./city_prefix":282,"./default_country":283,"./postcode":285,"./region":286,"./state":287,"./state_abbr":288,"./street_name":289,"./street_root":290,"./street_suffix":291}],285:[function(require,module,exports){
-arguments[4][206][0].apply(exports,arguments)
-},{"dup":206}],286:[function(require,module,exports){
+},{"./building_number":281,"./city":282,"./city_prefix":283,"./default_country":284,"./postcode":286,"./region":287,"./state":288,"./state_abbr":289,"./street_name":290,"./street_root":291,"./street_suffix":292}],286:[function(require,module,exports){
+arguments[4][207][0].apply(exports,arguments)
+},{"dup":207}],287:[function(require,module,exports){
 module["exports"] = [
   "South East Queensland",
   "Wide Bay Burnett",
@@ -18716,13 +18890,13 @@ module["exports"] = [
   "Barossa"
 ];
 
-},{}],287:[function(require,module,exports){
-arguments[4][207][0].apply(exports,arguments)
-},{"dup":207}],288:[function(require,module,exports){
+},{}],288:[function(require,module,exports){
 arguments[4][208][0].apply(exports,arguments)
 },{"dup":208}],289:[function(require,module,exports){
-arguments[4][53][0].apply(exports,arguments)
-},{"dup":53}],290:[function(require,module,exports){
+arguments[4][209][0].apply(exports,arguments)
+},{"dup":209}],290:[function(require,module,exports){
+arguments[4][54][0].apply(exports,arguments)
+},{"dup":54}],291:[function(require,module,exports){
 module["exports"] = [
   "Ramsay Street",
   "Bonnie Doon",
@@ -18730,13 +18904,13 @@ module["exports"] = [
   "Queen Street"
 ];
 
-},{}],291:[function(require,module,exports){
-arguments[4][209][0].apply(exports,arguments)
-},{"dup":209}],292:[function(require,module,exports){
+},{}],292:[function(require,module,exports){
 arguments[4][210][0].apply(exports,arguments)
-},{"./suffix":293,"dup":210}],293:[function(require,module,exports){
+},{"dup":210}],293:[function(require,module,exports){
 arguments[4][211][0].apply(exports,arguments)
-},{"dup":211}],294:[function(require,module,exports){
+},{"./suffix":294,"dup":211}],294:[function(require,module,exports){
+arguments[4][212][0].apply(exports,arguments)
+},{"dup":212}],295:[function(require,module,exports){
 var en_au_ocker = {};
 module['exports'] = en_au_ocker;
 en_au_ocker.title = "Australia Ocker (English)";
@@ -18746,11 +18920,11 @@ en_au_ocker.internet = require("./internet");
 en_au_ocker.address = require("./address");
 en_au_ocker.phone_number = require("./phone_number");
 
-},{"./address":284,"./company":292,"./internet":296,"./name":298,"./phone_number":302}],295:[function(require,module,exports){
-arguments[4][213][0].apply(exports,arguments)
-},{"dup":213}],296:[function(require,module,exports){
-arguments[4][115][0].apply(exports,arguments)
-},{"./domain_suffix":295,"dup":115}],297:[function(require,module,exports){
+},{"./address":285,"./company":293,"./internet":297,"./name":299,"./phone_number":303}],296:[function(require,module,exports){
+arguments[4][214][0].apply(exports,arguments)
+},{"dup":214}],297:[function(require,module,exports){
+arguments[4][116][0].apply(exports,arguments)
+},{"./domain_suffix":296,"dup":116}],298:[function(require,module,exports){
 module["exports"] = [
   "Charlotte",
   "Ava",
@@ -18858,14 +19032,14 @@ module["exports"] = [
   "Sean"
 ];
 
-},{}],298:[function(require,module,exports){
+},{}],299:[function(require,module,exports){
 var name = {};
 module['exports'] = name;
 name.first_name = require("./first_name");
 name.last_name = require("./last_name");
 name.ocker_first_name = require("./ocker_first_name");
 
-},{"./first_name":297,"./last_name":299,"./ocker_first_name":300}],299:[function(require,module,exports){
+},{"./first_name":298,"./last_name":300,"./ocker_first_name":301}],300:[function(require,module,exports){
 module["exports"] = [
   "Smith",
   "Jones",
@@ -18893,7 +19067,7 @@ module["exports"] = [
   "LeQuesne"
 ];
 
-},{}],300:[function(require,module,exports){
+},{}],301:[function(require,module,exports){
 module["exports"] = [
   "Bazza",
   "Bluey",
@@ -18903,11 +19077,11 @@ module["exports"] = [
   "Shazza"
 ];
 
-},{}],301:[function(require,module,exports){
-arguments[4][218][0].apply(exports,arguments)
-},{"dup":218}],302:[function(require,module,exports){
-arguments[4][74][0].apply(exports,arguments)
-},{"./formats":301,"dup":74}],303:[function(require,module,exports){
+},{}],302:[function(require,module,exports){
+arguments[4][219][0].apply(exports,arguments)
+},{"dup":219}],303:[function(require,module,exports){
+arguments[4][75][0].apply(exports,arguments)
+},{"./formats":302,"dup":75}],304:[function(require,module,exports){
 module["exports"] = [
   " s/n.",
   ", #",
@@ -18916,9 +19090,9 @@ module["exports"] = [
   " ##"
 ];
 
-},{}],304:[function(require,module,exports){
-arguments[4][281][0].apply(exports,arguments)
-},{"dup":281}],305:[function(require,module,exports){
+},{}],305:[function(require,module,exports){
+arguments[4][282][0].apply(exports,arguments)
+},{"dup":282}],306:[function(require,module,exports){
 module["exports"] = [
   "Parla",
   "Telde",
@@ -19051,7 +19225,7 @@ module["exports"] = [
   "Inca"
 ];
 
-},{}],306:[function(require,module,exports){
+},{}],307:[function(require,module,exports){
 module["exports"] = [
   "Afganistán",
   "Albania",
@@ -19235,12 +19409,12 @@ module["exports"] = [
   "Zimbabwe"
 ];
 
-},{}],307:[function(require,module,exports){
+},{}],308:[function(require,module,exports){
 module["exports"] = [
   "España"
 ];
 
-},{}],308:[function(require,module,exports){
+},{}],309:[function(require,module,exports){
 var address = {};
 module['exports'] = address;
 address.city_prefix = require("./city_prefix");
@@ -19258,12 +19432,12 @@ address.street_name = require("./street_name");
 address.street_address = require("./street_address");
 address.default_country = require("./default_country");
 
-},{"./building_number":303,"./city":304,"./city_prefix":305,"./country":306,"./default_country":307,"./postcode":309,"./province":310,"./secondary_address":311,"./state":312,"./state_abbr":313,"./street_address":314,"./street_name":315,"./street_suffix":316,"./time_zone":317}],309:[function(require,module,exports){
+},{"./building_number":304,"./city":305,"./city_prefix":306,"./country":307,"./default_country":308,"./postcode":310,"./province":311,"./secondary_address":312,"./state":313,"./state_abbr":314,"./street_address":315,"./street_name":316,"./street_suffix":317,"./time_zone":318}],310:[function(require,module,exports){
 module["exports"] = [
   "#####"
 ];
 
-},{}],310:[function(require,module,exports){
+},{}],311:[function(require,module,exports){
 module["exports"] = [
   "Álava",
   "Albacete",
@@ -19317,13 +19491,13 @@ module["exports"] = [
   "Zaragoza"
 ];
 
-},{}],311:[function(require,module,exports){
+},{}],312:[function(require,module,exports){
 module["exports"] = [
   "Esc. ###",
   "Puerta ###"
 ];
 
-},{}],312:[function(require,module,exports){
+},{}],313:[function(require,module,exports){
 module["exports"] = [
   "Andalucía",
   "Aragón",
@@ -19344,7 +19518,7 @@ module["exports"] = [
   "Región de Murcia"
 ];
 
-},{}],313:[function(require,module,exports){
+},{}],314:[function(require,module,exports){
 module["exports"] = [
   "And",
   "Ara",
@@ -19365,19 +19539,19 @@ module["exports"] = [
   "Mur"
 ];
 
-},{}],314:[function(require,module,exports){
+},{}],315:[function(require,module,exports){
 module["exports"] = [
   "#{street_name}#{building_number}",
   "#{street_name}#{building_number} #{secondary_address}"
 ];
 
-},{}],315:[function(require,module,exports){
+},{}],316:[function(require,module,exports){
 module["exports"] = [
   "#{street_suffix} #{Name.first_name}",
   "#{street_suffix} #{Name.first_name} #{Name.last_name}"
 ];
 
-},{}],316:[function(require,module,exports){
+},{}],317:[function(require,module,exports){
 module["exports"] = [
   "Aldea",
   "Apartamento",
@@ -19451,7 +19625,7 @@ module["exports"] = [
   "Vía Pública"
 ];
 
-},{}],317:[function(require,module,exports){
+},{}],318:[function(require,module,exports){
 module["exports"] = [
   "Pacífico/Midway",
   "Pacífico/Pago_Pago",
@@ -19598,7 +19772,7 @@ module["exports"] = [
   "Pacífico/Apia"
 ];
 
-},{}],318:[function(require,module,exports){
+},{}],319:[function(require,module,exports){
 module["exports"] = [
   "6##-###-###",
   "6##.###.###",
@@ -19606,9 +19780,9 @@ module["exports"] = [
   "6########"
 ];
 
-},{}],319:[function(require,module,exports){
-arguments[4][56][0].apply(exports,arguments)
-},{"./formats":318,"dup":56}],320:[function(require,module,exports){
+},{}],320:[function(require,module,exports){
+arguments[4][57][0].apply(exports,arguments)
+},{"./formats":319,"dup":57}],321:[function(require,module,exports){
 module["exports"] = [
   "Adaptativo",
   "Avanzado",
@@ -19697,7 +19871,7 @@ module["exports"] = [
   "Visionario"
 ];
 
-},{}],321:[function(require,module,exports){
+},{}],322:[function(require,module,exports){
 module["exports"] = [
   "24 horas",
   "24/7",
@@ -19782,7 +19956,7 @@ module["exports"] = [
   "tolerancia cero"
 ];
 
-},{}],322:[function(require,module,exports){
+},{}],323:[function(require,module,exports){
 var company = {};
 module['exports'] = company;
 company.suffix = require("./suffix");
@@ -19791,7 +19965,7 @@ company.descriptor = require("./descriptor");
 company.adjective = require("./adjective");
 company.name = require("./name");
 
-},{"./adjective":320,"./descriptor":321,"./name":323,"./noun":324,"./suffix":325}],323:[function(require,module,exports){
+},{"./adjective":321,"./descriptor":322,"./name":324,"./noun":325,"./suffix":326}],324:[function(require,module,exports){
 module["exports"] = [
   "#{Name.last_name} #{suffix}",
   "#{Name.last_name} y #{Name.last_name}",
@@ -19799,7 +19973,7 @@ module["exports"] = [
   "#{Name.last_name}, #{Name.last_name} y #{Name.last_name} Asociados"
 ];
 
-},{}],324:[function(require,module,exports){
+},{}],325:[function(require,module,exports){
 module["exports"] = [
   "habilidad",
   "acceso",
@@ -19896,7 +20070,7 @@ module["exports"] = [
   "fuerza de trabajo"
 ];
 
-},{}],325:[function(require,module,exports){
+},{}],326:[function(require,module,exports){
 module["exports"] = [
   "S.L.",
   "e Hijos",
@@ -19904,7 +20078,7 @@ module["exports"] = [
   "Hermanos"
 ];
 
-},{}],326:[function(require,module,exports){
+},{}],327:[function(require,module,exports){
 var es = {};
 module['exports'] = es;
 es.title = "Spanish";
@@ -19915,7 +20089,7 @@ es.name = require("./name");
 es.phone_number = require("./phone_number");
 es.cell_phone = require("./cell_phone");
 
-},{"./address":308,"./cell_phone":319,"./company":322,"./internet":329,"./name":331,"./phone_number":338}],327:[function(require,module,exports){
+},{"./address":309,"./cell_phone":320,"./company":323,"./internet":330,"./name":332,"./phone_number":339}],328:[function(require,module,exports){
 module["exports"] = [
   "com",
   "es",
@@ -19924,11 +20098,11 @@ module["exports"] = [
   "org"
 ];
 
-},{}],328:[function(require,module,exports){
-arguments[4][63][0].apply(exports,arguments)
-},{"dup":63}],329:[function(require,module,exports){
+},{}],329:[function(require,module,exports){
 arguments[4][64][0].apply(exports,arguments)
-},{"./domain_suffix":327,"./free_email":328,"dup":64}],330:[function(require,module,exports){
+},{"dup":64}],330:[function(require,module,exports){
+arguments[4][65][0].apply(exports,arguments)
+},{"./domain_suffix":328,"./free_email":329,"dup":65}],331:[function(require,module,exports){
 module["exports"] = [
   "Adán",
   "Agustín",
@@ -20144,9 +20318,9 @@ module["exports"] = [
   "Yolanda"
 ];
 
-},{}],331:[function(require,module,exports){
-arguments[4][192][0].apply(exports,arguments)
-},{"./first_name":330,"./last_name":332,"./name":333,"./prefix":334,"./suffix":335,"./title":336,"dup":192}],332:[function(require,module,exports){
+},{}],332:[function(require,module,exports){
+arguments[4][193][0].apply(exports,arguments)
+},{"./first_name":331,"./last_name":333,"./name":334,"./prefix":335,"./suffix":336,"./title":337,"dup":193}],333:[function(require,module,exports){
 module["exports"] = [
   "Abeyta",
   "Abrego",
@@ -20788,7 +20962,7 @@ module["exports"] = [
   "Zúñiga"
 ];
 
-},{}],333:[function(require,module,exports){
+},{}],334:[function(require,module,exports){
 module["exports"] = [
   "#{prefix} #{first_name} #{last_name} #{last_name}",
   "#{first_name} #{last_name} #{last_name}",
@@ -20797,16 +20971,16 @@ module["exports"] = [
   "#{first_name} #{last_name} #{last_name}"
 ];
 
-},{}],334:[function(require,module,exports){
+},{}],335:[function(require,module,exports){
 module["exports"] = [
   "Sr.",
   "Sra.",
   "Sta."
 ];
 
-},{}],335:[function(require,module,exports){
-arguments[4][196][0].apply(exports,arguments)
-},{"dup":196}],336:[function(require,module,exports){
+},{}],336:[function(require,module,exports){
+arguments[4][197][0].apply(exports,arguments)
+},{"dup":197}],337:[function(require,module,exports){
 module["exports"] = {
   "descriptor": [
     "Jefe",
@@ -20898,7 +21072,7 @@ module["exports"] = {
   ]
 };
 
-},{}],337:[function(require,module,exports){
+},{}],338:[function(require,module,exports){
 module["exports"] = [
   "9##-###-###",
   "9##.###.###",
@@ -20906,9 +21080,9 @@ module["exports"] = [
   "9########"
 ];
 
-},{}],338:[function(require,module,exports){
-arguments[4][74][0].apply(exports,arguments)
-},{"./formats":337,"dup":74}],339:[function(require,module,exports){
+},{}],339:[function(require,module,exports){
+arguments[4][75][0].apply(exports,arguments)
+},{"./formats":338,"dup":75}],340:[function(require,module,exports){
 module["exports"] = [
   " s/n.",
   ", #",
@@ -20919,9 +21093,9 @@ module["exports"] = [
   " ####"
 ];
 
-},{}],340:[function(require,module,exports){
-arguments[4][281][0].apply(exports,arguments)
-},{"dup":281}],341:[function(require,module,exports){
+},{}],341:[function(require,module,exports){
+arguments[4][282][0].apply(exports,arguments)
+},{"dup":282}],342:[function(require,module,exports){
 module["exports"] = [
   "Aguascalientes",
   "Apodaca",
@@ -21055,9 +21229,9 @@ module["exports"] = [
   "Zitacuaro"
 ];
 
-},{}],342:[function(require,module,exports){
-arguments[4][121][0].apply(exports,arguments)
-},{"dup":121}],343:[function(require,module,exports){
+},{}],343:[function(require,module,exports){
+arguments[4][122][0].apply(exports,arguments)
+},{"dup":122}],344:[function(require,module,exports){
 module["exports"] = [
   "Afganistán",
   "Albania",
@@ -21241,12 +21415,12 @@ module["exports"] = [
   "Zimbabwe"
 ];
 
-},{}],344:[function(require,module,exports){
+},{}],345:[function(require,module,exports){
 module["exports"] = [
   "México"
 ];
 
-},{}],345:[function(require,module,exports){
+},{}],346:[function(require,module,exports){
 var address = {};
 module['exports'] = address;
 address.city_prefix = require("./city_prefix");
@@ -21264,16 +21438,16 @@ address.street = require("./street");
 address.street_name = require("./street_name");
 address.street_address = require("./street_address");
 address.default_country = require("./default_country");
-},{"./building_number":339,"./city":340,"./city_prefix":341,"./city_suffix":342,"./country":343,"./default_country":344,"./postcode":346,"./secondary_address":347,"./state":348,"./state_abbr":349,"./street":350,"./street_address":351,"./street_name":352,"./street_suffix":353,"./time_zone":354}],346:[function(require,module,exports){
-arguments[4][309][0].apply(exports,arguments)
-},{"dup":309}],347:[function(require,module,exports){
+},{"./building_number":340,"./city":341,"./city_prefix":342,"./city_suffix":343,"./country":344,"./default_country":345,"./postcode":347,"./secondary_address":348,"./state":349,"./state_abbr":350,"./street":351,"./street_address":352,"./street_name":353,"./street_suffix":354,"./time_zone":355}],347:[function(require,module,exports){
+arguments[4][310][0].apply(exports,arguments)
+},{"dup":310}],348:[function(require,module,exports){
 module["exports"] = [
   "Esc. ###",
   "Puerta ###",
   "Edificio #"
 ];
 
-},{}],348:[function(require,module,exports){
+},{}],349:[function(require,module,exports){
 module["exports"] = [
   "Aguascalientes",
   "Baja California Norte",
@@ -21308,7 +21482,7 @@ module["exports"] = [
   "Zacatecas"
 ];
 
-},{}],349:[function(require,module,exports){
+},{}],350:[function(require,module,exports){
 module["exports"] = [
   "AS",
   "BC",
@@ -21344,7 +21518,7 @@ module["exports"] = [
   "ZS"
 ];
 
-},{}],350:[function(require,module,exports){
+},{}],351:[function(require,module,exports){
 module["exports"] = [
 	"20 de Noviembre",
 	"Cinco de Mayo",
@@ -21386,9 +21560,9 @@ module["exports"] = [
 	"Jalisco",
 	"Avena"
 ];
-},{}],351:[function(require,module,exports){
-arguments[4][314][0].apply(exports,arguments)
-},{"dup":314}],352:[function(require,module,exports){
+},{}],352:[function(require,module,exports){
+arguments[4][315][0].apply(exports,arguments)
+},{"dup":315}],353:[function(require,module,exports){
 module["exports"] = [
   "#{street_suffix} #{Name.first_name}",
   "#{street_suffix} #{Name.first_name} #{Name.last_name}",
@@ -21399,9 +21573,9 @@ module["exports"] = [
 
 ];
 
-},{}],353:[function(require,module,exports){
-arguments[4][316][0].apply(exports,arguments)
-},{"dup":316}],354:[function(require,module,exports){
+},{}],354:[function(require,module,exports){
+arguments[4][317][0].apply(exports,arguments)
+},{"dup":317}],355:[function(require,module,exports){
 module["exports"] = [
   "Pacífico/Midway",
   "Pacífico/Pago_Pago",
@@ -21547,7 +21721,7 @@ module["exports"] = [
   "Pacífico/Apia"
 ];
 
-},{}],355:[function(require,module,exports){
+},{}],356:[function(require,module,exports){
 module["exports"] = [
   "5##-###-###",
   "5##.###.###",
@@ -21555,9 +21729,9 @@ module["exports"] = [
   "5########"
 ];
 
-},{}],356:[function(require,module,exports){
-arguments[4][56][0].apply(exports,arguments)
-},{"./formats":355,"dup":56}],357:[function(require,module,exports){
+},{}],357:[function(require,module,exports){
+arguments[4][57][0].apply(exports,arguments)
+},{"./formats":356,"dup":57}],358:[function(require,module,exports){
 module["exports"] = [
    "rojo",
    "verde",
@@ -21592,7 +21766,7 @@ module["exports"] = [
    "plata"
 ];
 
-},{}],358:[function(require,module,exports){
+},{}],359:[function(require,module,exports){
 module["exports"] = [
    "Libros",
    "Películas",
@@ -21618,9 +21792,9 @@ module["exports"] = [
    "Industrial"
 ];
 
-},{}],359:[function(require,module,exports){
-arguments[4][148][0].apply(exports,arguments)
-},{"./color":357,"./department":358,"./product_name":360,"dup":148}],360:[function(require,module,exports){
+},{}],360:[function(require,module,exports){
+arguments[4][149][0].apply(exports,arguments)
+},{"./color":358,"./department":359,"./product_name":361,"dup":149}],361:[function(require,module,exports){
 module["exports"] = {
 "adjective": [
      "Pequeño",
@@ -21681,9 +21855,9 @@ module["exports"] = {
   ]
 };
 
-},{}],361:[function(require,module,exports){
-arguments[4][320][0].apply(exports,arguments)
-},{"dup":320}],362:[function(require,module,exports){
+},{}],362:[function(require,module,exports){
+arguments[4][321][0].apply(exports,arguments)
+},{"dup":321}],363:[function(require,module,exports){
 module["exports"] = [
   "Clics y mortero",
   "Valor añadido",
@@ -21751,7 +21925,7 @@ module["exports"] = [
   "Holístico",
   "Ricos"
 ];
-},{}],363:[function(require,module,exports){
+},{}],364:[function(require,module,exports){
 module["exports"] = [
    "sinergias",
    "web-readiness",
@@ -21798,7 +21972,7 @@ module["exports"] = [
    "servicios web",
    "metodologías"
 ];
-},{}],364:[function(require,module,exports){
+},{}],365:[function(require,module,exports){
 module["exports"] = [
    "poner en práctica",
    "utilizar",
@@ -21861,9 +22035,9 @@ module["exports"] = [
    "redefinir",
    "recontextualizar"
 ]
-},{}],365:[function(require,module,exports){
-arguments[4][321][0].apply(exports,arguments)
-},{"dup":321}],366:[function(require,module,exports){
+},{}],366:[function(require,module,exports){
+arguments[4][322][0].apply(exports,arguments)
+},{"dup":322}],367:[function(require,module,exports){
 var company = {};
 module['exports'] = company;
 company.suffix = require("./suffix");
@@ -21875,13 +22049,13 @@ company.name = require("./name");
 company.bs_adjective = require("./bs_adjective");
 company.bs_noun = require("./bs_noun");
 
-},{"./adjective":361,"./bs_adjective":362,"./bs_noun":363,"./bs_verb":364,"./descriptor":365,"./name":367,"./noun":368,"./suffix":369}],367:[function(require,module,exports){
-arguments[4][323][0].apply(exports,arguments)
-},{"dup":323}],368:[function(require,module,exports){
+},{"./adjective":362,"./bs_adjective":363,"./bs_noun":364,"./bs_verb":365,"./descriptor":366,"./name":368,"./noun":369,"./suffix":370}],368:[function(require,module,exports){
 arguments[4][324][0].apply(exports,arguments)
 },{"dup":324}],369:[function(require,module,exports){
 arguments[4][325][0].apply(exports,arguments)
 },{"dup":325}],370:[function(require,module,exports){
+arguments[4][326][0].apply(exports,arguments)
+},{"dup":326}],371:[function(require,module,exports){
 var es_MX = {};
 module['exports'] = es_MX;
 es_MX.title = "Spanish Mexico";
@@ -21895,7 +22069,7 @@ es_MX.cell_phone = require("./cell_phone");
 es_MX.lorem = require("./lorem");
 es_MX.commerce = require("./commerce");
 es_MX.team = require("./team");
-},{"./address":345,"./cell_phone":356,"./commerce":359,"./company":366,"./internet":373,"./lorem":374,"./name":378,"./phone_number":385,"./team":387}],371:[function(require,module,exports){
+},{"./address":346,"./cell_phone":357,"./commerce":360,"./company":367,"./internet":374,"./lorem":375,"./name":379,"./phone_number":386,"./team":388}],372:[function(require,module,exports){
 module["exports"] = [
   "com",
   "mx",
@@ -21905,7 +22079,7 @@ module["exports"] = [
   "gob.mx"
 ];
 
-},{}],372:[function(require,module,exports){
+},{}],373:[function(require,module,exports){
 module["exports"] = [
   "gmail.com",
   "yahoo.com",
@@ -21914,13 +22088,13 @@ module["exports"] = [
   "corpfolder.com"
 ];
 
-},{}],373:[function(require,module,exports){
-arguments[4][64][0].apply(exports,arguments)
-},{"./domain_suffix":371,"./free_email":372,"dup":64}],374:[function(require,module,exports){
-arguments[4][188][0].apply(exports,arguments)
-},{"./supplemental":375,"./words":376,"dup":188}],375:[function(require,module,exports){
+},{}],374:[function(require,module,exports){
+arguments[4][65][0].apply(exports,arguments)
+},{"./domain_suffix":372,"./free_email":373,"dup":65}],375:[function(require,module,exports){
 arguments[4][189][0].apply(exports,arguments)
-},{"dup":189}],376:[function(require,module,exports){
+},{"./supplemental":376,"./words":377,"dup":189}],376:[function(require,module,exports){
+arguments[4][190][0].apply(exports,arguments)
+},{"dup":190}],377:[function(require,module,exports){
 module["exports"] = [
 "Abacalero",
 "Abacería",
@@ -22192,7 +22366,7 @@ module["exports"] = [
 "Incrustación"
 ];
 
-},{}],377:[function(require,module,exports){
+},{}],378:[function(require,module,exports){
 module["exports"] = [
 "Aarón",
 "Abraham",
@@ -22499,9 +22673,9 @@ module["exports"] = [
 "Yaretzi",
 "Zoe"
 ]
-},{}],378:[function(require,module,exports){
-arguments[4][192][0].apply(exports,arguments)
-},{"./first_name":377,"./last_name":379,"./name":380,"./prefix":381,"./suffix":382,"./title":383,"dup":192}],379:[function(require,module,exports){
+},{}],379:[function(require,module,exports){
+arguments[4][193][0].apply(exports,arguments)
+},{"./first_name":378,"./last_name":380,"./name":381,"./prefix":382,"./suffix":383,"./title":384,"dup":193}],380:[function(require,module,exports){
 module["exports"] = [
   "Abeyta",
 "Abrego",
@@ -23192,7 +23366,7 @@ module["exports"] = [
 "Zúñiga"
 ];
 
-},{}],380:[function(require,module,exports){
+},{}],381:[function(require,module,exports){
 module["exports"] = [
   "#{prefix} #{first_name} #{last_name} #{last_name}",
   "#{first_name} #{last_name} de #{last_name}",
@@ -23201,9 +23375,9 @@ module["exports"] = [
   "#{first_name} #{last_name} #{last_name}"
 ];
 
-},{}],381:[function(require,module,exports){
-arguments[4][334][0].apply(exports,arguments)
-},{"dup":334}],382:[function(require,module,exports){
+},{}],382:[function(require,module,exports){
+arguments[4][335][0].apply(exports,arguments)
+},{"dup":335}],383:[function(require,module,exports){
 module["exports"] = [
   "Jr.",
   "Sr.",
@@ -23222,7 +23396,7 @@ module["exports"] = [
   "Mtro."
 ];
 
-},{}],383:[function(require,module,exports){
+},{}],384:[function(require,module,exports){
  module["exports"] = {
   "descriptor": [
     "Jefe",
@@ -23319,7 +23493,7 @@ module["exports"] = [
   ]
 };
 
-},{}],384:[function(require,module,exports){
+},{}],385:[function(require,module,exports){
 module["exports"] = [
   "5###-###-###",
   "5##.###.###",
@@ -23327,9 +23501,9 @@ module["exports"] = [
   "5########"
 ];
 
-},{}],385:[function(require,module,exports){
-arguments[4][74][0].apply(exports,arguments)
-},{"./formats":384,"dup":74}],386:[function(require,module,exports){
+},{}],386:[function(require,module,exports){
+arguments[4][75][0].apply(exports,arguments)
+},{"./formats":385,"dup":75}],387:[function(require,module,exports){
 module["exports"] = [
   "hormigas",
    "murciélagos",
@@ -23400,17 +23574,17 @@ module["exports"] = [
    "druidas"
 ];
 
-},{}],387:[function(require,module,exports){
-arguments[4][201][0].apply(exports,arguments)
-},{"./creature":386,"./name":388,"dup":201}],388:[function(require,module,exports){
+},{}],388:[function(require,module,exports){
 arguments[4][202][0].apply(exports,arguments)
-},{"dup":202}],389:[function(require,module,exports){
+},{"./creature":387,"./name":389,"dup":202}],389:[function(require,module,exports){
+arguments[4][203][0].apply(exports,arguments)
+},{"dup":203}],390:[function(require,module,exports){
 var fa = {};
 module['exports'] = fa;
 fa.title = "Farsi";
 fa.name = require("./name");
 
-},{"./name":391}],390:[function(require,module,exports){
+},{"./name":392}],391:[function(require,module,exports){
 module["exports"] = [
   "آبان دخت",
   "آبتین",
@@ -24136,14 +24310,14 @@ module["exports"] = [
   "یوشیتا"
 ];
 
-},{}],391:[function(require,module,exports){
+},{}],392:[function(require,module,exports){
 var name = {};
 module['exports'] = name;
 name.first_name = require("./first_name");
 name.last_name = require("./last_name");
 name.prefix = require("./prefix");
 
-},{"./first_name":390,"./last_name":392,"./prefix":393}],392:[function(require,module,exports){
+},{"./first_name":391,"./last_name":393,"./prefix":394}],393:[function(require,module,exports){
 module["exports"] = [
   "عارف",
   "عاشوری",
@@ -24291,14 +24465,14 @@ module["exports"] = [
   "یلدا"
 ];
 
-},{}],393:[function(require,module,exports){
+},{}],394:[function(require,module,exports){
 module["exports"] = [
   "آقای",
   "خانم",
   "دکتر"
 ];
 
-},{}],394:[function(require,module,exports){
+},{}],395:[function(require,module,exports){
 module["exports"] = [
   "####",
   "###",
@@ -24306,9 +24480,9 @@ module["exports"] = [
   "#"
 ];
 
-},{}],395:[function(require,module,exports){
-arguments[4][76][0].apply(exports,arguments)
-},{"dup":76}],396:[function(require,module,exports){
+},{}],396:[function(require,module,exports){
+arguments[4][77][0].apply(exports,arguments)
+},{"dup":77}],397:[function(require,module,exports){
 module["exports"] = [
   "Paris",
   "Marseille",
@@ -24412,12 +24586,12 @@ module["exports"] = [
   "Cholet"
 ];
 
-},{}],397:[function(require,module,exports){
+},{}],398:[function(require,module,exports){
 module["exports"] = [
   "France"
 ];
 
-},{}],398:[function(require,module,exports){
+},{}],399:[function(require,module,exports){
 var address = {};
 module['exports'] = address;
 address.building_number = require("./building_number");
@@ -24432,15 +24606,15 @@ address.street_name = require("./street_name");
 address.street_address = require("./street_address");
 address.default_country = require("./default_country");
 
-},{"./building_number":394,"./city":395,"./city_name":396,"./default_country":397,"./postcode":399,"./secondary_address":400,"./state":401,"./street_address":402,"./street_name":403,"./street_prefix":404,"./street_suffix":405}],399:[function(require,module,exports){
-arguments[4][309][0].apply(exports,arguments)
-},{"dup":309}],400:[function(require,module,exports){
+},{"./building_number":395,"./city":396,"./city_name":397,"./default_country":398,"./postcode":400,"./secondary_address":401,"./state":402,"./street_address":403,"./street_name":404,"./street_prefix":405,"./street_suffix":406}],400:[function(require,module,exports){
+arguments[4][310][0].apply(exports,arguments)
+},{"dup":310}],401:[function(require,module,exports){
 module["exports"] = [
   "Apt. ###",
   "# étage"
 ];
 
-},{}],401:[function(require,module,exports){
+},{}],402:[function(require,module,exports){
 module["exports"] = [
   "Alsace",
   "Aquitaine",
@@ -24466,14 +24640,14 @@ module["exports"] = [
   "Rhône-Alpes"
 ];
 
-},{}],402:[function(require,module,exports){
-arguments[4][132][0].apply(exports,arguments)
-},{"dup":132}],403:[function(require,module,exports){
+},{}],403:[function(require,module,exports){
+arguments[4][133][0].apply(exports,arguments)
+},{"dup":133}],404:[function(require,module,exports){
 module["exports"] = [
   "#{street_prefix} #{street_suffix}"
 ];
 
-},{}],404:[function(require,module,exports){
+},{}],405:[function(require,module,exports){
 module["exports"] = [
   "Allée, Voie",
   "Rue",
@@ -24485,7 +24659,7 @@ module["exports"] = [
   "Place"
 ];
 
-},{}],405:[function(require,module,exports){
+},{}],406:[function(require,module,exports){
 module["exports"] = [
   "de l'Abbaye",
   "Adolphe Mille",
@@ -24555,9 +24729,7 @@ module["exports"] = [
   "Zadkine"
 ];
 
-},{}],406:[function(require,module,exports){
-arguments[4][150][0].apply(exports,arguments)
-},{"dup":150}],407:[function(require,module,exports){
+},{}],407:[function(require,module,exports){
 arguments[4][151][0].apply(exports,arguments)
 },{"dup":151}],408:[function(require,module,exports){
 arguments[4][152][0].apply(exports,arguments)
@@ -24567,15 +24739,17 @@ arguments[4][153][0].apply(exports,arguments)
 arguments[4][154][0].apply(exports,arguments)
 },{"dup":154}],411:[function(require,module,exports){
 arguments[4][155][0].apply(exports,arguments)
-},{"./adjective":406,"./bs_adjective":407,"./bs_noun":408,"./bs_verb":409,"./descriptor":410,"./name":412,"./noun":413,"./suffix":414,"dup":155}],412:[function(require,module,exports){
+},{"dup":155}],412:[function(require,module,exports){
+arguments[4][156][0].apply(exports,arguments)
+},{"./adjective":407,"./bs_adjective":408,"./bs_noun":409,"./bs_verb":410,"./descriptor":411,"./name":413,"./noun":414,"./suffix":415,"dup":156}],413:[function(require,module,exports){
 module["exports"] = [
   "#{Name.last_name} #{suffix}",
   "#{Name.last_name} et #{Name.last_name}"
 ];
 
-},{}],413:[function(require,module,exports){
-arguments[4][157][0].apply(exports,arguments)
-},{"dup":157}],414:[function(require,module,exports){
+},{}],414:[function(require,module,exports){
+arguments[4][158][0].apply(exports,arguments)
+},{"dup":158}],415:[function(require,module,exports){
 module["exports"] = [
   "SARL",
   "SA",
@@ -24587,7 +24761,7 @@ module["exports"] = [
   "EI"
 ];
 
-},{}],415:[function(require,module,exports){
+},{}],416:[function(require,module,exports){
 var fr = {};
 module['exports'] = fr;
 fr.title = "French";
@@ -24598,7 +24772,7 @@ fr.lorem = require("./lorem");
 fr.name = require("./name");
 fr.phone_number = require("./phone_number");
 
-},{"./address":398,"./company":411,"./internet":418,"./lorem":419,"./name":423,"./phone_number":429}],416:[function(require,module,exports){
+},{"./address":399,"./company":412,"./internet":419,"./lorem":420,"./name":424,"./phone_number":430}],417:[function(require,module,exports){
 module["exports"] = [
   "com",
   "fr",
@@ -24609,22 +24783,22 @@ module["exports"] = [
   "org"
 ];
 
-},{}],417:[function(require,module,exports){
+},{}],418:[function(require,module,exports){
 module["exports"] = [
   "gmail.com",
   "yahoo.fr",
   "hotmail.fr"
 ];
 
-},{}],418:[function(require,module,exports){
-arguments[4][64][0].apply(exports,arguments)
-},{"./domain_suffix":416,"./free_email":417,"dup":64}],419:[function(require,module,exports){
-arguments[4][188][0].apply(exports,arguments)
-},{"./supplemental":420,"./words":421,"dup":188}],420:[function(require,module,exports){
+},{}],419:[function(require,module,exports){
+arguments[4][65][0].apply(exports,arguments)
+},{"./domain_suffix":417,"./free_email":418,"dup":65}],420:[function(require,module,exports){
 arguments[4][189][0].apply(exports,arguments)
-},{"dup":189}],421:[function(require,module,exports){
-arguments[4][66][0].apply(exports,arguments)
-},{"dup":66}],422:[function(require,module,exports){
+},{"./supplemental":421,"./words":422,"dup":189}],421:[function(require,module,exports){
+arguments[4][190][0].apply(exports,arguments)
+},{"dup":190}],422:[function(require,module,exports){
+arguments[4][67][0].apply(exports,arguments)
+},{"dup":67}],423:[function(require,module,exports){
 module["exports"] = [
   "Enzo",
   "Lucas",
@@ -24717,7 +24891,7 @@ module["exports"] = [
   "Mélissa"
 ];
 
-},{}],423:[function(require,module,exports){
+},{}],424:[function(require,module,exports){
 var name = {};
 module['exports'] = name;
 name.first_name = require("./first_name");
@@ -24726,7 +24900,7 @@ name.prefix = require("./prefix");
 name.title = require("./title");
 name.name = require("./name");
 
-},{"./first_name":422,"./last_name":424,"./name":425,"./prefix":426,"./title":427}],424:[function(require,module,exports){
+},{"./first_name":423,"./last_name":425,"./name":426,"./prefix":427,"./title":428}],425:[function(require,module,exports){
 module["exports"] = [
   "Martin",
   "Bernard",
@@ -24880,14 +25054,14 @@ module["exports"] = [
   "Cousin"
 ];
 
-},{}],425:[function(require,module,exports){
+},{}],426:[function(require,module,exports){
 module["exports"] = [
   "#{prefix} #{first_name} #{last_name}",
   "#{first_name} #{last_name}",
   "#{last_name} #{first_name}"
 ];
 
-},{}],426:[function(require,module,exports){
+},{}],427:[function(require,module,exports){
 module["exports"] = [
   "M",
   "Mme",
@@ -24896,7 +25070,7 @@ module["exports"] = [
   "Prof"
 ];
 
-},{}],427:[function(require,module,exports){
+},{}],428:[function(require,module,exports){
 module["exports"] = {
   "job": [
     "Superviseur",
@@ -24920,7 +25094,7 @@ module["exports"] = {
   ]
 };
 
-},{}],428:[function(require,module,exports){
+},{}],429:[function(require,module,exports){
 module["exports"] = [
   "01########",
   "02########",
@@ -24938,15 +25112,15 @@ module["exports"] = [
   "+33 7########"
 ];
 
-},{}],429:[function(require,module,exports){
-arguments[4][74][0].apply(exports,arguments)
-},{"./formats":428,"dup":74}],430:[function(require,module,exports){
-arguments[4][223][0].apply(exports,arguments)
-},{"dup":223}],431:[function(require,module,exports){
-arguments[4][256][0].apply(exports,arguments)
-},{"./default_country":430,"./postcode":432,"./state":433,"./state_abbr":434,"dup":256}],432:[function(require,module,exports){
-arguments[4][225][0].apply(exports,arguments)
-},{"dup":225}],433:[function(require,module,exports){
+},{}],430:[function(require,module,exports){
+arguments[4][75][0].apply(exports,arguments)
+},{"./formats":429,"dup":75}],431:[function(require,module,exports){
+arguments[4][224][0].apply(exports,arguments)
+},{"dup":224}],432:[function(require,module,exports){
+arguments[4][257][0].apply(exports,arguments)
+},{"./default_country":431,"./postcode":433,"./state":434,"./state_abbr":435,"dup":257}],433:[function(require,module,exports){
+arguments[4][226][0].apply(exports,arguments)
+},{"dup":226}],434:[function(require,module,exports){
 module["exports"] = [
   "Alberta",
   "Colombie-Britannique",
@@ -24963,7 +25137,7 @@ module["exports"] = [
   "Yukon"
 ];
 
-},{}],434:[function(require,module,exports){
+},{}],435:[function(require,module,exports){
 module["exports"] = [
   "AB",
   "BC",
@@ -24980,7 +25154,7 @@ module["exports"] = [
   "YK"
 ];
 
-},{}],435:[function(require,module,exports){
+},{}],436:[function(require,module,exports){
 var fr_CA = {};
 module['exports'] = fr_CA;
 fr_CA.title = "Canada (French)";
@@ -24988,7 +25162,7 @@ fr_CA.address = require("./address");
 fr_CA.internet = require("./internet");
 fr_CA.phone_number = require("./phone_number");
 
-},{"./address":431,"./internet":438,"./phone_number":440}],436:[function(require,module,exports){
+},{"./address":432,"./internet":439,"./phone_number":441}],437:[function(require,module,exports){
 module["exports"] = [
   "qc.ca",
   "ca",
@@ -25000,27 +25174,27 @@ module["exports"] = [
   "org"
 ];
 
-},{}],437:[function(require,module,exports){
-arguments[4][230][0].apply(exports,arguments)
-},{"dup":230}],438:[function(require,module,exports){
-arguments[4][64][0].apply(exports,arguments)
-},{"./domain_suffix":436,"./free_email":437,"dup":64}],439:[function(require,module,exports){
+},{}],438:[function(require,module,exports){
+arguments[4][231][0].apply(exports,arguments)
+},{"dup":231}],439:[function(require,module,exports){
+arguments[4][65][0].apply(exports,arguments)
+},{"./domain_suffix":437,"./free_email":438,"dup":65}],440:[function(require,module,exports){
 module["exports"] = [
   "### ###-####",
   "1 ### ###-####",
   "### ###-####, poste ###"
 ];
 
-},{}],440:[function(require,module,exports){
-arguments[4][74][0].apply(exports,arguments)
-},{"./formats":439,"dup":74}],441:[function(require,module,exports){
+},{}],441:[function(require,module,exports){
+arguments[4][75][0].apply(exports,arguments)
+},{"./formats":440,"dup":75}],442:[function(require,module,exports){
 module["exports"] = [
   "###",
   "##",
   "#"
 ];
 
-},{}],442:[function(require,module,exports){
+},{}],443:[function(require,module,exports){
 module["exports"] = [
   "#{city_prefix} #{Name.first_name}#{city_suffix}",
   "#{city_prefix} #{Name.first_name}",
@@ -25030,7 +25204,7 @@ module["exports"] = [
   "#{Name.last_name}#{city_suffix}"
 ];
 
-},{}],443:[function(require,module,exports){
+},{}],444:[function(require,module,exports){
 module["exports"] = [
   "აბასთუმანი",
   "აბაშა",
@@ -25122,7 +25296,7 @@ module["exports"] = [
   "ხულო"
 ];
 
-},{}],444:[function(require,module,exports){
+},{}],445:[function(require,module,exports){
 module["exports"] = [
   "ახალი",
   "ძველი",
@@ -25130,7 +25304,7 @@ module["exports"] = [
   "ქვემო"
 ];
 
-},{}],445:[function(require,module,exports){
+},{}],446:[function(require,module,exports){
 module["exports"] = [
   "სოფელი",
   "ძირი",
@@ -25138,7 +25312,7 @@ module["exports"] = [
   "დაბა"
 ];
 
-},{}],446:[function(require,module,exports){
+},{}],447:[function(require,module,exports){
 module["exports"] = [
   "ავსტრალია",
   "ავსტრია",
@@ -25455,12 +25629,12 @@ module["exports"] = [
   "ჰონკონგი"
 ];
 
-},{}],447:[function(require,module,exports){
+},{}],448:[function(require,module,exports){
 module["exports"] = [
   "საქართველო"
 ];
 
-},{}],448:[function(require,module,exports){
+},{}],449:[function(require,module,exports){
 var address = {};
 module['exports'] = address;
 address.city_prefix = require("./city_prefix");
@@ -25477,25 +25651,25 @@ address.street_name = require("./street_name");
 address.street_address = require("./street_address");
 address.default_country = require("./default_country");
 
-},{"./building_number":441,"./city":442,"./city_name":443,"./city_prefix":444,"./city_suffix":445,"./country":446,"./default_country":447,"./postcode":449,"./secondary_address":450,"./street_address":451,"./street_name":452,"./street_suffix":453,"./street_title":454}],449:[function(require,module,exports){
+},{"./building_number":442,"./city":443,"./city_name":444,"./city_prefix":445,"./city_suffix":446,"./country":447,"./default_country":448,"./postcode":450,"./secondary_address":451,"./street_address":452,"./street_name":453,"./street_suffix":454,"./street_title":455}],450:[function(require,module,exports){
 module["exports"] = [
   "01##"
 ];
 
-},{}],450:[function(require,module,exports){
+},{}],451:[function(require,module,exports){
 module["exports"] = [
   "კორპ. ##",
   "შენობა ###"
 ];
 
-},{}],451:[function(require,module,exports){
-arguments[4][52][0].apply(exports,arguments)
-},{"dup":52}],452:[function(require,module,exports){
+},{}],452:[function(require,module,exports){
+arguments[4][53][0].apply(exports,arguments)
+},{"dup":53}],453:[function(require,module,exports){
 module["exports"] = [
   "#{street_title} #{street_suffix}"
 ];
 
-},{}],453:[function(require,module,exports){
+},{}],454:[function(require,module,exports){
 module["exports"] = [
   "გამზ.",
   "გამზირი",
@@ -25505,7 +25679,7 @@ module["exports"] = [
   "ხეივანი"
 ];
 
-},{}],454:[function(require,module,exports){
+},{}],455:[function(require,module,exports){
 module["exports"] = [
   "აბაშიძის",
   "აბესაძის",
@@ -25925,7 +26099,7 @@ module["exports"] = [
   "ჯორჯიაშვილის"
 ];
 
-},{}],455:[function(require,module,exports){
+},{}],456:[function(require,module,exports){
 module["exports"] = [
   "(+995 32) 2-##-##-##",
   "032-2-##-##-##",
@@ -25938,16 +26112,16 @@ module["exports"] = [
   "2 ### ###"
 ];
 
-},{}],456:[function(require,module,exports){
-arguments[4][56][0].apply(exports,arguments)
-},{"./formats":455,"dup":56}],457:[function(require,module,exports){
+},{}],457:[function(require,module,exports){
+arguments[4][57][0].apply(exports,arguments)
+},{"./formats":456,"dup":57}],458:[function(require,module,exports){
 var company = {};
 module['exports'] = company;
 company.prefix = require("./prefix");
 company.suffix = require("./suffix");
 company.name = require("./name");
 
-},{"./name":458,"./prefix":459,"./suffix":460}],458:[function(require,module,exports){
+},{"./name":459,"./prefix":460,"./suffix":461}],459:[function(require,module,exports){
 module["exports"] = [
   "#{prefix} #{Name.first_name}",
   "#{prefix} #{Name.last_name}",
@@ -25956,7 +26130,7 @@ module["exports"] = [
   "#{prefix} #{Name.last_name}-#{Name.last_name}"
 ];
 
-},{}],459:[function(require,module,exports){
+},{}],460:[function(require,module,exports){
 module["exports"] = [
   "შპს",
   "სს",
@@ -25964,7 +26138,7 @@ module["exports"] = [
   "სსიპ"
 ];
 
-},{}],460:[function(require,module,exports){
+},{}],461:[function(require,module,exports){
 module["exports"] = [
   "ჯგუფი",
   "და კომპანია",
@@ -25972,7 +26146,7 @@ module["exports"] = [
   "გრუპი"
 ];
 
-},{}],461:[function(require,module,exports){
+},{}],462:[function(require,module,exports){
 var ge = {};
 module['exports'] = ge;
 ge.title = "Georgian";
@@ -25984,7 +26158,7 @@ ge.company = require("./company");
 ge.phone_number = require("./phone_number");
 ge.cell_phone = require("./cell_phone");
 
-},{"./address":448,"./cell_phone":456,"./company":457,"./internet":464,"./name":466,"./phone_number":472}],462:[function(require,module,exports){
+},{"./address":449,"./cell_phone":457,"./company":458,"./internet":465,"./name":467,"./phone_number":473}],463:[function(require,module,exports){
 module["exports"] = [
   "ge",
   "com",
@@ -25994,16 +26168,16 @@ module["exports"] = [
   "org.ge"
 ];
 
-},{}],463:[function(require,module,exports){
+},{}],464:[function(require,module,exports){
 module["exports"] = [
   "gmail.com",
   "yahoo.com",
   "posta.ge"
 ];
 
-},{}],464:[function(require,module,exports){
-arguments[4][64][0].apply(exports,arguments)
-},{"./domain_suffix":462,"./free_email":463,"dup":64}],465:[function(require,module,exports){
+},{}],465:[function(require,module,exports){
+arguments[4][65][0].apply(exports,arguments)
+},{"./domain_suffix":463,"./free_email":464,"dup":65}],466:[function(require,module,exports){
 module["exports"] = [
   "აგული",
   "აგუნა",
@@ -26506,9 +26680,9 @@ module["exports"] = [
   "ჰამლეტ"
 ];
 
-},{}],466:[function(require,module,exports){
-arguments[4][423][0].apply(exports,arguments)
-},{"./first_name":465,"./last_name":467,"./name":468,"./prefix":469,"./title":470,"dup":423}],467:[function(require,module,exports){
+},{}],467:[function(require,module,exports){
+arguments[4][424][0].apply(exports,arguments)
+},{"./first_name":466,"./last_name":468,"./name":469,"./prefix":470,"./title":471,"dup":424}],468:[function(require,module,exports){
 module["exports"] = [
   "აბაზაძე",
   "აბაშიძე",
@@ -26681,7 +26855,7 @@ module["exports"] = [
   "ჯუღაშვილი"
 ];
 
-},{}],468:[function(require,module,exports){
+},{}],469:[function(require,module,exports){
 module["exports"] = [
   "#{prefix} #{first_name} #{last_name}",
   "#{first_name} #{last_name}",
@@ -26691,7 +26865,7 @@ module["exports"] = [
   "#{first_name} #{last_name}"
 ];
 
-},{}],469:[function(require,module,exports){
+},{}],470:[function(require,module,exports){
 module["exports"] = [
   "ბ-ნი",
   "ბატონი",
@@ -26699,7 +26873,7 @@ module["exports"] = [
   "ქალბატონი"
 ];
 
-},{}],470:[function(require,module,exports){
+},{}],471:[function(require,module,exports){
 module["exports"] = {
   "descriptor": [
     "გენერალური",
@@ -26777,7 +26951,7 @@ module["exports"] = {
   ]
 };
 
-},{}],471:[function(require,module,exports){
+},{}],472:[function(require,module,exports){
 module["exports"] = [
   "5##-###-###",
   "5########",
@@ -26801,11 +26975,11 @@ module["exports"] = [
   "(+995) 5## ### ###"
 ];
 
-},{}],472:[function(require,module,exports){
-arguments[4][74][0].apply(exports,arguments)
-},{"./formats":471,"dup":74}],473:[function(require,module,exports){
-arguments[4][441][0].apply(exports,arguments)
-},{"dup":441}],474:[function(require,module,exports){
+},{}],473:[function(require,module,exports){
+arguments[4][75][0].apply(exports,arguments)
+},{"./formats":472,"dup":75}],474:[function(require,module,exports){
+arguments[4][442][0].apply(exports,arguments)
+},{"dup":442}],475:[function(require,module,exports){
 module["exports"] = [
   "#{city_prefix} #{Name.first_name} #{city_suffix}",
   "#{city_prefix} #{Name.first_name}",
@@ -26813,7 +26987,7 @@ module["exports"] = [
   "#{Name.last_name} #{city_suffix}"
 ];
 
-},{}],475:[function(require,module,exports){
+},{}],476:[function(require,module,exports){
 module["exports"] = [
   "San",
   "Borgo",
@@ -26822,7 +26996,7 @@ module["exports"] = [
   "Settimo"
 ];
 
-},{}],476:[function(require,module,exports){
+},{}],477:[function(require,module,exports){
 module["exports"] = [
   "a mare",
   "lido",
@@ -26838,7 +27012,7 @@ module["exports"] = [
   "sardo"
 ];
 
-},{}],477:[function(require,module,exports){
+},{}],478:[function(require,module,exports){
 module["exports"] = [
   "Afghanistan",
   "Albania",
@@ -27083,12 +27257,12 @@ module["exports"] = [
   "Zimbabwe"
 ];
 
-},{}],478:[function(require,module,exports){
+},{}],479:[function(require,module,exports){
 module["exports"] = [
   "Italia"
 ];
 
-},{}],479:[function(require,module,exports){
+},{}],480:[function(require,module,exports){
 var address = {};
 module['exports'] = address;
 address.city_prefix = require("./city_prefix");
@@ -27105,15 +27279,15 @@ address.street_name = require("./street_name");
 address.street_address = require("./street_address");
 address.default_country = require("./default_country");
 
-},{"./building_number":473,"./city":474,"./city_prefix":475,"./city_suffix":476,"./country":477,"./default_country":478,"./postcode":480,"./secondary_address":481,"./state":482,"./state_abbr":483,"./street_address":484,"./street_name":485,"./street_suffix":486}],480:[function(require,module,exports){
-arguments[4][309][0].apply(exports,arguments)
-},{"dup":309}],481:[function(require,module,exports){
+},{"./building_number":474,"./city":475,"./city_prefix":476,"./city_suffix":477,"./country":478,"./default_country":479,"./postcode":481,"./secondary_address":482,"./state":483,"./state_abbr":484,"./street_address":485,"./street_name":486,"./street_suffix":487}],481:[function(require,module,exports){
+arguments[4][310][0].apply(exports,arguments)
+},{"dup":310}],482:[function(require,module,exports){
 module["exports"] = [
   "Appartamento ##",
   "Piano #"
 ];
 
-},{}],482:[function(require,module,exports){
+},{}],483:[function(require,module,exports){
 module["exports"] = [
   "Agrigento",
   "Alessandria",
@@ -27227,7 +27401,7 @@ module["exports"] = [
   "Viterbo"
 ];
 
-},{}],483:[function(require,module,exports){
+},{}],484:[function(require,module,exports){
 module["exports"] = [
   "AG",
   "AL",
@@ -27341,19 +27515,19 @@ module["exports"] = [
   "VT"
 ];
 
-},{}],484:[function(require,module,exports){
+},{}],485:[function(require,module,exports){
 module["exports"] = [
   "#{street_name} #{building_number}",
   "#{street_name} #{building_number}, #{secondary_address}"
 ];
 
-},{}],485:[function(require,module,exports){
+},{}],486:[function(require,module,exports){
 module["exports"] = [
   "#{street_suffix} #{Name.first_name}",
   "#{street_suffix} #{Name.last_name}"
 ];
 
-},{}],486:[function(require,module,exports){
+},{}],487:[function(require,module,exports){
 module["exports"] = [
   "Piazza",
   "Strada",
@@ -27364,7 +27538,7 @@ module["exports"] = [
   "Incrocio"
 ];
 
-},{}],487:[function(require,module,exports){
+},{}],488:[function(require,module,exports){
 module["exports"] = [
   "24 ore",
   "24/7",
@@ -27438,7 +27612,7 @@ module["exports"] = [
   "valore aggiunto"
 ];
 
-},{}],488:[function(require,module,exports){
+},{}],489:[function(require,module,exports){
 module["exports"] = [
   "valore aggiunto",
   "verticalizzate",
@@ -27488,7 +27662,7 @@ module["exports"] = [
   "ricche"
 ];
 
-},{}],489:[function(require,module,exports){
+},{}],490:[function(require,module,exports){
 module["exports"] = [
   "partnerships",
   "comunità",
@@ -27518,7 +27692,7 @@ module["exports"] = [
   "metodologie"
 ];
 
-},{}],490:[function(require,module,exports){
+},{}],491:[function(require,module,exports){
 module["exports"] = [
   "implementate",
   "utilizzo",
@@ -27550,7 +27724,7 @@ module["exports"] = [
   "ricontestualizzate"
 ];
 
-},{}],491:[function(require,module,exports){
+},{}],492:[function(require,module,exports){
 module["exports"] = [
   "adattiva",
   "avanzata",
@@ -27611,7 +27785,7 @@ module["exports"] = [
   "visionaria"
 ];
 
-},{}],492:[function(require,module,exports){
+},{}],493:[function(require,module,exports){
 var company = {};
 module['exports'] = company;
 company.suffix = require("./suffix");
@@ -27623,14 +27797,14 @@ company.bs_verb = require("./bs_verb");
 company.bs_adjective = require("./bs_adjective");
 company.name = require("./name");
 
-},{"./adjective":487,"./bs_adjective":488,"./bs_noun":489,"./bs_verb":490,"./descriptor":491,"./name":493,"./noun":494,"./suffix":495}],493:[function(require,module,exports){
+},{"./adjective":488,"./bs_adjective":489,"./bs_noun":490,"./bs_verb":491,"./descriptor":492,"./name":494,"./noun":495,"./suffix":496}],494:[function(require,module,exports){
 module["exports"] = [
   "#{Name.last_name} #{suffix}",
   "#{Name.last_name}-#{Name.last_name} #{suffix}",
   "#{Name.last_name}, #{Name.last_name} e #{Name.last_name} #{suffix}"
 ];
 
-},{}],494:[function(require,module,exports){
+},{}],495:[function(require,module,exports){
 module["exports"] = [
   "Abilità",
   "Access",
@@ -27723,7 +27897,7 @@ module["exports"] = [
   "Forza lavoro"
 ];
 
-},{}],495:[function(require,module,exports){
+},{}],496:[function(require,module,exports){
 module["exports"] = [
   "SPA",
   "e figli",
@@ -27731,7 +27905,7 @@ module["exports"] = [
   "s.r.l."
 ];
 
-},{}],496:[function(require,module,exports){
+},{}],497:[function(require,module,exports){
 var it = {};
 module['exports'] = it;
 it.title = "Italian";
@@ -27741,7 +27915,7 @@ it.internet = require("./internet");
 it.name = require("./name");
 it.phone_number = require("./phone_number");
 
-},{"./address":479,"./company":492,"./internet":499,"./name":501,"./phone_number":507}],497:[function(require,module,exports){
+},{"./address":480,"./company":493,"./internet":500,"./name":502,"./phone_number":508}],498:[function(require,module,exports){
 module["exports"] = [
   "com",
   "com",
@@ -27753,7 +27927,7 @@ module["exports"] = [
   "it"
 ];
 
-},{}],498:[function(require,module,exports){
+},{}],499:[function(require,module,exports){
 module["exports"] = [
   "gmail.com",
   "yahoo.com",
@@ -27763,9 +27937,9 @@ module["exports"] = [
   "yahoo.it"
 ];
 
-},{}],499:[function(require,module,exports){
-arguments[4][64][0].apply(exports,arguments)
-},{"./domain_suffix":497,"./free_email":498,"dup":64}],500:[function(require,module,exports){
+},{}],500:[function(require,module,exports){
+arguments[4][65][0].apply(exports,arguments)
+},{"./domain_suffix":498,"./free_email":499,"dup":65}],501:[function(require,module,exports){
 module["exports"] = [
   "Aaron",
   "Akira",
@@ -28131,7 +28305,7 @@ module["exports"] = [
   "Zelida"
 ];
 
-},{}],501:[function(require,module,exports){
+},{}],502:[function(require,module,exports){
 var name = {};
 module['exports'] = name;
 name.first_name = require("./first_name");
@@ -28140,7 +28314,7 @@ name.prefix = require("./prefix");
 name.suffix = require("./suffix");
 name.name = require("./name");
 
-},{"./first_name":500,"./last_name":502,"./name":503,"./prefix":504,"./suffix":505}],502:[function(require,module,exports){
+},{"./first_name":501,"./last_name":503,"./name":504,"./prefix":505,"./suffix":506}],503:[function(require,module,exports){
 module["exports"] = [
   "Amato",
   "Barbieri",
@@ -28244,9 +28418,9 @@ module["exports"] = [
   "Vitali"
 ];
 
-},{}],503:[function(require,module,exports){
-arguments[4][468][0].apply(exports,arguments)
-},{"dup":468}],504:[function(require,module,exports){
+},{}],504:[function(require,module,exports){
+arguments[4][469][0].apply(exports,arguments)
+},{"dup":469}],505:[function(require,module,exports){
 module["exports"] = [
   "Sig.",
   "Dott.",
@@ -28254,10 +28428,10 @@ module["exports"] = [
   "Ing."
 ];
 
-},{}],505:[function(require,module,exports){
+},{}],506:[function(require,module,exports){
 module["exports"] = [];
 
-},{}],506:[function(require,module,exports){
+},{}],507:[function(require,module,exports){
 module["exports"] = [
   "+## ### ## ## ####",
   "+## ## #######",
@@ -28272,9 +28446,9 @@ module["exports"] = [
   "+39 3## ### ###"
 ];
 
-},{}],507:[function(require,module,exports){
-arguments[4][74][0].apply(exports,arguments)
-},{"./formats":506,"dup":74}],508:[function(require,module,exports){
+},{}],508:[function(require,module,exports){
+arguments[4][75][0].apply(exports,arguments)
+},{"./formats":507,"dup":75}],509:[function(require,module,exports){
 module["exports"] = [
   "#{city_prefix}#{Name.first_name}#{city_suffix}",
   "#{Name.first_name}#{city_suffix}",
@@ -28282,7 +28456,7 @@ module["exports"] = [
   "#{Name.last_name}#{city_suffix}"
 ];
 
-},{}],509:[function(require,module,exports){
+},{}],510:[function(require,module,exports){
 module["exports"] = [
   "北",
   "東",
@@ -28293,7 +28467,7 @@ module["exports"] = [
   "港"
 ];
 
-},{}],510:[function(require,module,exports){
+},{}],511:[function(require,module,exports){
 module["exports"] = [
   "市",
   "区",
@@ -28301,7 +28475,7 @@ module["exports"] = [
   "村"
 ];
 
-},{}],511:[function(require,module,exports){
+},{}],512:[function(require,module,exports){
 var address = {};
 module['exports'] = address;
 address.postcode = require("./postcode");
@@ -28312,12 +28486,12 @@ address.city_suffix = require("./city_suffix");
 address.city = require("./city");
 address.street_name = require("./street_name");
 
-},{"./city":508,"./city_prefix":509,"./city_suffix":510,"./postcode":512,"./state":513,"./state_abbr":514,"./street_name":515}],512:[function(require,module,exports){
+},{"./city":509,"./city_prefix":510,"./city_suffix":511,"./postcode":513,"./state":514,"./state_abbr":515,"./street_name":516}],513:[function(require,module,exports){
 module["exports"] = [
   "###-####"
 ];
 
-},{}],513:[function(require,module,exports){
+},{}],514:[function(require,module,exports){
 module["exports"] = [
   "北海道",
   "青森県",
@@ -28368,7 +28542,7 @@ module["exports"] = [
   "沖縄県"
 ];
 
-},{}],514:[function(require,module,exports){
+},{}],515:[function(require,module,exports){
 module["exports"] = [
   "1",
   "2",
@@ -28419,22 +28593,22 @@ module["exports"] = [
   "47"
 ];
 
-},{}],515:[function(require,module,exports){
+},{}],516:[function(require,module,exports){
 module["exports"] = [
   "#{Name.first_name}#{street_suffix}",
   "#{Name.last_name}#{street_suffix}"
 ];
 
-},{}],516:[function(require,module,exports){
+},{}],517:[function(require,module,exports){
 module["exports"] = [
   "090-####-####",
   "080-####-####",
   "070-####-####"
 ];
 
-},{}],517:[function(require,module,exports){
-arguments[4][56][0].apply(exports,arguments)
-},{"./formats":516,"dup":56}],518:[function(require,module,exports){
+},{}],518:[function(require,module,exports){
+arguments[4][57][0].apply(exports,arguments)
+},{"./formats":517,"dup":57}],519:[function(require,module,exports){
 var ja = {};
 module['exports'] = ja;
 ja.title = "Japanese";
@@ -28443,7 +28617,7 @@ ja.phone_number = require("./phone_number");
 ja.cell_phone = require("./cell_phone");
 ja.name = require("./name");
 
-},{"./address":511,"./cell_phone":517,"./name":520,"./phone_number":524}],519:[function(require,module,exports){
+},{"./address":512,"./cell_phone":518,"./name":521,"./phone_number":525}],520:[function(require,module,exports){
 module["exports"] = [
   "大翔",
   "蓮",
@@ -28468,14 +28642,14 @@ module["exports"] = [
   "美咲"
 ];
 
-},{}],520:[function(require,module,exports){
+},{}],521:[function(require,module,exports){
 var name = {};
 module['exports'] = name;
 name.last_name = require("./last_name");
 name.first_name = require("./first_name");
 name.name = require("./name");
 
-},{"./first_name":519,"./last_name":521,"./name":522}],521:[function(require,module,exports){
+},{"./first_name":520,"./last_name":522,"./name":523}],522:[function(require,module,exports){
 module["exports"] = [
   "佐藤",
   "鈴木",
@@ -28499,12 +28673,12 @@ module["exports"] = [
   "清水"
 ];
 
-},{}],522:[function(require,module,exports){
+},{}],523:[function(require,module,exports){
 module["exports"] = [
   "#{last_name} #{first_name}"
 ];
 
-},{}],523:[function(require,module,exports){
+},{}],524:[function(require,module,exports){
 module["exports"] = [
   "0####-#-####",
   "0###-##-####",
@@ -28512,14 +28686,14 @@ module["exports"] = [
   "0#-####-####"
 ];
 
-},{}],524:[function(require,module,exports){
-arguments[4][74][0].apply(exports,arguments)
-},{"./formats":523,"dup":74}],525:[function(require,module,exports){
+},{}],525:[function(require,module,exports){
+arguments[4][75][0].apply(exports,arguments)
+},{"./formats":524,"dup":75}],526:[function(require,module,exports){
 module["exports"] = [
   "#{city_name}#{city_suffix}"
 ];
 
-},{}],526:[function(require,module,exports){
+},{}],527:[function(require,module,exports){
 module["exports"] = [
   "강릉",
   "양양",
@@ -28551,14 +28725,14 @@ module["exports"] = [
   "수성"
 ];
 
-},{}],527:[function(require,module,exports){
+},{}],528:[function(require,module,exports){
 module["exports"] = [
   "구",
   "시",
   "군"
 ];
 
-},{}],528:[function(require,module,exports){
+},{}],529:[function(require,module,exports){
 var address = {};
 module['exports'] = address;
 address.postcode = require("./postcode");
@@ -28571,12 +28745,12 @@ address.street_root = require("./street_root");
 address.street_suffix = require("./street_suffix");
 address.street_name = require("./street_name");
 
-},{"./city":525,"./city_name":526,"./city_suffix":527,"./postcode":529,"./state":530,"./state_abbr":531,"./street_name":532,"./street_root":533,"./street_suffix":534}],529:[function(require,module,exports){
+},{"./city":526,"./city_name":527,"./city_suffix":528,"./postcode":530,"./state":531,"./state_abbr":532,"./street_name":533,"./street_root":534,"./street_suffix":535}],530:[function(require,module,exports){
 module["exports"] = [
   "###-###"
 ];
 
-},{}],530:[function(require,module,exports){
+},{}],531:[function(require,module,exports){
 module["exports"] = [
   "강원",
   "경기",
@@ -28597,14 +28771,14 @@ module["exports"] = [
   "세종"
 ];
 
-},{}],531:[function(require,module,exports){
-arguments[4][530][0].apply(exports,arguments)
-},{"dup":530}],532:[function(require,module,exports){
+},{}],532:[function(require,module,exports){
+arguments[4][531][0].apply(exports,arguments)
+},{"dup":531}],533:[function(require,module,exports){
 module["exports"] = [
   "#{street_root}#{street_suffix}"
 ];
 
-},{}],533:[function(require,module,exports){
+},{}],534:[function(require,module,exports){
 module["exports"] = [
   "상계",
   "화곡",
@@ -28636,33 +28810,33 @@ module["exports"] = [
   "동탄"
 ];
 
-},{}],534:[function(require,module,exports){
+},{}],535:[function(require,module,exports){
 module["exports"] = [
   "읍",
   "면",
   "동"
 ];
 
-},{}],535:[function(require,module,exports){
+},{}],536:[function(require,module,exports){
 var company = {};
 module['exports'] = company;
 company.suffix = require("./suffix");
 company.prefix = require("./prefix");
 company.name = require("./name");
 
-},{"./name":536,"./prefix":537,"./suffix":538}],536:[function(require,module,exports){
+},{"./name":537,"./prefix":538,"./suffix":539}],537:[function(require,module,exports){
 module["exports"] = [
   "#{prefix} #{Name.first_name}",
   "#{Name.first_name} #{suffix}"
 ];
 
-},{}],537:[function(require,module,exports){
+},{}],538:[function(require,module,exports){
 module["exports"] = [
   "주식회사",
   "한국"
 ];
 
-},{}],538:[function(require,module,exports){
+},{}],539:[function(require,module,exports){
 module["exports"] = [
   "연구소",
   "게임즈",
@@ -28672,7 +28846,7 @@ module["exports"] = [
   "코리아"
 ];
 
-},{}],539:[function(require,module,exports){
+},{}],540:[function(require,module,exports){
 var ko = {};
 module['exports'] = ko;
 ko.title = "Korean";
@@ -28683,7 +28857,7 @@ ko.internet = require("./internet");
 ko.lorem = require("./lorem");
 ko.name = require("./name");
 
-},{"./address":528,"./company":535,"./internet":542,"./lorem":543,"./name":546,"./phone_number":550}],540:[function(require,module,exports){
+},{"./address":529,"./company":536,"./internet":543,"./lorem":544,"./name":547,"./phone_number":551}],541:[function(require,module,exports){
 module["exports"] = [
   "co.kr",
   "com",
@@ -28695,7 +28869,7 @@ module["exports"] = [
   "org"
 ];
 
-},{}],541:[function(require,module,exports){
+},{}],542:[function(require,module,exports){
 module["exports"] = [
   "gmail.com",
   "yahoo.co.kr",
@@ -28703,11 +28877,11 @@ module["exports"] = [
   "naver.com"
 ];
 
-},{}],542:[function(require,module,exports){
-arguments[4][64][0].apply(exports,arguments)
-},{"./domain_suffix":540,"./free_email":541,"dup":64}],543:[function(require,module,exports){
+},{}],543:[function(require,module,exports){
 arguments[4][65][0].apply(exports,arguments)
-},{"./words":544,"dup":65}],544:[function(require,module,exports){
+},{"./domain_suffix":541,"./free_email":542,"dup":65}],544:[function(require,module,exports){
+arguments[4][66][0].apply(exports,arguments)
+},{"./words":545,"dup":66}],545:[function(require,module,exports){
 module["exports"] = [
   "국가는",
   "법률이",
@@ -28839,7 +29013,7 @@ module["exports"] = [
   "가진다."
 ];
 
-},{}],545:[function(require,module,exports){
+},{}],546:[function(require,module,exports){
 module["exports"] = [
   "서연",
   "민서",
@@ -28864,9 +29038,9 @@ module["exports"] = [
   "은주"
 ];
 
-},{}],546:[function(require,module,exports){
-arguments[4][520][0].apply(exports,arguments)
-},{"./first_name":545,"./last_name":547,"./name":548,"dup":520}],547:[function(require,module,exports){
+},{}],547:[function(require,module,exports){
+arguments[4][521][0].apply(exports,arguments)
+},{"./first_name":546,"./last_name":548,"./name":549,"dup":521}],548:[function(require,module,exports){
 module["exports"] = [
   "김",
   "이",
@@ -28890,29 +29064,29 @@ module["exports"] = [
   "홍"
 ];
 
-},{}],548:[function(require,module,exports){
-arguments[4][522][0].apply(exports,arguments)
-},{"dup":522}],549:[function(require,module,exports){
+},{}],549:[function(require,module,exports){
+arguments[4][523][0].apply(exports,arguments)
+},{"dup":523}],550:[function(require,module,exports){
 module["exports"] = [
   "0#-#####-####",
   "0##-###-####",
   "0##-####-####"
 ];
 
-},{}],550:[function(require,module,exports){
-arguments[4][74][0].apply(exports,arguments)
-},{"./formats":549,"dup":74}],551:[function(require,module,exports){
+},{}],551:[function(require,module,exports){
+arguments[4][75][0].apply(exports,arguments)
+},{"./formats":550,"dup":75}],552:[function(require,module,exports){
 module["exports"] = [
   "#",
   "##"
 ];
 
-},{}],552:[function(require,module,exports){
+},{}],553:[function(require,module,exports){
 module["exports"] = [
   "#{city_root}#{city_suffix}"
 ];
 
-},{}],553:[function(require,module,exports){
+},{}],554:[function(require,module,exports){
 module["exports"] = [
   "Fet",
   "Gjes",
@@ -28933,7 +29107,7 @@ module["exports"] = [
   "Vest"
 ];
 
-},{}],554:[function(require,module,exports){
+},{}],555:[function(require,module,exports){
 module["exports"] = [
   "berg",
   "borg",
@@ -28965,7 +29139,7 @@ module["exports"] = [
   "ås"
 ];
 
-},{}],555:[function(require,module,exports){
+},{}],556:[function(require,module,exports){
 module["exports"] = [
   "sgate",
   "svei",
@@ -28975,12 +29149,12 @@ module["exports"] = [
   "veien"
 ];
 
-},{}],556:[function(require,module,exports){
+},{}],557:[function(require,module,exports){
 module["exports"] = [
   "Norge"
 ];
 
-},{}],557:[function(require,module,exports){
+},{}],558:[function(require,module,exports){
 var address = {};
 module['exports'] = address;
 address.city_root = require("./city_root");
@@ -28998,7 +29172,7 @@ address.street_name = require("./street_name");
 address.street_address = require("./street_address");
 address.default_country = require("./default_country");
 
-},{"./building_number":551,"./city":552,"./city_root":553,"./city_suffix":554,"./common_street_suffix":555,"./default_country":556,"./postcode":558,"./secondary_address":559,"./state":560,"./street_address":561,"./street_name":562,"./street_prefix":563,"./street_root":564,"./street_suffix":565}],558:[function(require,module,exports){
+},{"./building_number":552,"./city":553,"./city_root":554,"./city_suffix":555,"./common_street_suffix":556,"./default_country":557,"./postcode":559,"./secondary_address":560,"./state":561,"./street_address":562,"./street_name":563,"./street_prefix":564,"./street_root":565,"./street_suffix":566}],559:[function(require,module,exports){
 module["exports"] = [
   "####",
   "####",
@@ -29006,21 +29180,21 @@ module["exports"] = [
   "0###"
 ];
 
-},{}],559:[function(require,module,exports){
+},{}],560:[function(require,module,exports){
 module["exports"] = [
   "Leil. ###",
   "Oppgang A",
   "Oppgang B"
 ];
 
-},{}],560:[function(require,module,exports){
+},{}],561:[function(require,module,exports){
 module["exports"] = [
   ""
 ];
 
-},{}],561:[function(require,module,exports){
-arguments[4][52][0].apply(exports,arguments)
-},{"dup":52}],562:[function(require,module,exports){
+},{}],562:[function(require,module,exports){
+arguments[4][53][0].apply(exports,arguments)
+},{"dup":53}],563:[function(require,module,exports){
 module["exports"] = [
   "#{street_root}#{street_suffix}",
   "#{street_prefix} #{street_root}#{street_suffix}",
@@ -29028,7 +29202,7 @@ module["exports"] = [
   "#{Name.last_name}#{common_street_suffix}"
 ];
 
-},{}],563:[function(require,module,exports){
+},{}],564:[function(require,module,exports){
 module["exports"] = [
   "Øvre",
   "Nedre",
@@ -29038,7 +29212,7 @@ module["exports"] = [
   "Vestre"
 ];
 
-},{}],564:[function(require,module,exports){
+},{}],565:[function(require,module,exports){
 module["exports"] = [
   "Eike",
   "Bjørke",
@@ -29075,7 +29249,7 @@ module["exports"] = [
   "Sjø"
 ];
 
-},{}],565:[function(require,module,exports){
+},{}],566:[function(require,module,exports){
 module["exports"] = [
   "alléen",
   "bakken",
@@ -29125,16 +29299,16 @@ module["exports"] = [
   "åsen"
 ];
 
-},{}],566:[function(require,module,exports){
-arguments[4][110][0].apply(exports,arguments)
-},{"./name":567,"./suffix":568,"dup":110}],567:[function(require,module,exports){
+},{}],567:[function(require,module,exports){
+arguments[4][111][0].apply(exports,arguments)
+},{"./name":568,"./suffix":569,"dup":111}],568:[function(require,module,exports){
 module["exports"] = [
   "#{Name.last_name} #{suffix}",
   "#{Name.last_name}-#{Name.last_name}",
   "#{Name.last_name}, #{Name.last_name} og #{Name.last_name}"
 ];
 
-},{}],568:[function(require,module,exports){
+},{}],569:[function(require,module,exports){
 module["exports"] = [
   "Gruppen",
   "AS",
@@ -29144,7 +29318,7 @@ module["exports"] = [
   "og Sønner"
 ];
 
-},{}],569:[function(require,module,exports){
+},{}],570:[function(require,module,exports){
 var nb_NO = {};
 module['exports'] = nb_NO;
 nb_NO.title = "Norwegian";
@@ -29154,7 +29328,7 @@ nb_NO.internet = require("./internet");
 nb_NO.name = require("./name");
 nb_NO.phone_number = require("./phone_number");
 
-},{"./address":557,"./company":566,"./internet":571,"./name":574,"./phone_number":581}],570:[function(require,module,exports){
+},{"./address":558,"./company":567,"./internet":572,"./name":575,"./phone_number":582}],571:[function(require,module,exports){
 module["exports"] = [
   "no",
   "com",
@@ -29162,9 +29336,9 @@ module["exports"] = [
   "org"
 ];
 
-},{}],571:[function(require,module,exports){
-arguments[4][115][0].apply(exports,arguments)
-},{"./domain_suffix":570,"dup":115}],572:[function(require,module,exports){
+},{}],572:[function(require,module,exports){
+arguments[4][116][0].apply(exports,arguments)
+},{"./domain_suffix":571,"dup":116}],573:[function(require,module,exports){
 module["exports"] = [
   "Emma",
   "Sara",
@@ -29218,7 +29392,7 @@ module["exports"] = [
   "Madeleine"
 ];
 
-},{}],573:[function(require,module,exports){
+},{}],574:[function(require,module,exports){
 module["exports"] = [
   "Emma",
   "Sara",
@@ -29322,7 +29496,7 @@ module["exports"] = [
   "Aksel"
 ];
 
-},{}],574:[function(require,module,exports){
+},{}],575:[function(require,module,exports){
 var name = {};
 module['exports'] = name;
 name.first_name = require("./first_name");
@@ -29333,7 +29507,7 @@ name.prefix = require("./prefix");
 name.suffix = require("./suffix");
 name.name = require("./name");
 
-},{"./feminine_name":572,"./first_name":573,"./last_name":575,"./masculine_name":576,"./name":577,"./prefix":578,"./suffix":579}],575:[function(require,module,exports){
+},{"./feminine_name":573,"./first_name":574,"./last_name":576,"./masculine_name":577,"./name":578,"./prefix":579,"./suffix":580}],576:[function(require,module,exports){
 module["exports"] = [
   "Johansen",
   "Hansen",
@@ -29437,7 +29611,7 @@ module["exports"] = [
   "Edvardsen"
 ];
 
-},{}],576:[function(require,module,exports){
+},{}],577:[function(require,module,exports){
 module["exports"] = [
   "Markus",
   "Mathias",
@@ -29491,7 +29665,7 @@ module["exports"] = [
   "Aksel"
 ];
 
-},{}],577:[function(require,module,exports){
+},{}],578:[function(require,module,exports){
 module["exports"] = [
   "#{prefix} #{first_name} #{last_name}",
   "#{first_name} #{last_name} #{suffix}",
@@ -29501,13 +29675,13 @@ module["exports"] = [
   "#{first_name} #{last_name}"
 ];
 
-},{}],578:[function(require,module,exports){
+},{}],579:[function(require,module,exports){
 module["exports"] = [
   "Dr.",
   "Prof."
 ];
 
-},{}],579:[function(require,module,exports){
+},{}],580:[function(require,module,exports){
 module["exports"] = [
   "Jr.",
   "Sr.",
@@ -29518,7 +29692,7 @@ module["exports"] = [
   "V"
 ];
 
-},{}],580:[function(require,module,exports){
+},{}],581:[function(require,module,exports){
 module["exports"] = [
   "########",
   "## ## ## ##",
@@ -29526,9 +29700,9 @@ module["exports"] = [
   "+47 ## ## ## ##"
 ];
 
-},{}],581:[function(require,module,exports){
-arguments[4][74][0].apply(exports,arguments)
-},{"./formats":580,"dup":74}],582:[function(require,module,exports){
+},{}],582:[function(require,module,exports){
+arguments[4][75][0].apply(exports,arguments)
+},{"./formats":581,"dup":75}],583:[function(require,module,exports){
 module["exports"] = [
   "Bhaktapur",
   "Biratnagar",
@@ -29548,12 +29722,12 @@ module["exports"] = [
   "Pokhara"
 ];
 
-},{}],583:[function(require,module,exports){
+},{}],584:[function(require,module,exports){
 module["exports"] = [
   "Nepal"
 ];
 
-},{}],584:[function(require,module,exports){
+},{}],585:[function(require,module,exports){
 var address = {};
 module['exports'] = address;
 address.postcode = require("./postcode");
@@ -29561,12 +29735,12 @@ address.state = require("./state");
 address.city = require("./city");
 address.default_country = require("./default_country");
 
-},{"./city":582,"./default_country":583,"./postcode":585,"./state":586}],585:[function(require,module,exports){
+},{"./city":583,"./default_country":584,"./postcode":586,"./state":587}],586:[function(require,module,exports){
 module["exports"] = [
   0
 ];
 
-},{}],586:[function(require,module,exports){
+},{}],587:[function(require,module,exports){
 module["exports"] = [
   "Baglung",
   "Banke",
@@ -29623,9 +29797,9 @@ module["exports"] = [
   "Terhathum"
 ];
 
-},{}],587:[function(require,module,exports){
-arguments[4][210][0].apply(exports,arguments)
-},{"./suffix":588,"dup":210}],588:[function(require,module,exports){
+},{}],588:[function(require,module,exports){
+arguments[4][211][0].apply(exports,arguments)
+},{"./suffix":589,"dup":211}],589:[function(require,module,exports){
 module["exports"] = [
   "Pvt Ltd",
   "Group",
@@ -29633,7 +29807,7 @@ module["exports"] = [
   "Limited"
 ];
 
-},{}],589:[function(require,module,exports){
+},{}],590:[function(require,module,exports){
 var nep = {};
 module['exports'] = nep;
 nep.title = "Nepalese";
@@ -29643,7 +29817,7 @@ nep.internet = require("./internet");
 nep.company = require("./company");
 nep.phone_number = require("./phone_number");
 
-},{"./address":584,"./company":587,"./internet":592,"./name":594,"./phone_number":597}],590:[function(require,module,exports){
+},{"./address":585,"./company":588,"./internet":593,"./name":595,"./phone_number":598}],591:[function(require,module,exports){
 module["exports"] = [
   "np",
   "com",
@@ -29652,7 +29826,7 @@ module["exports"] = [
   "org"
 ];
 
-},{}],591:[function(require,module,exports){
+},{}],592:[function(require,module,exports){
 module["exports"] = [
   "worldlink.com.np",
   "gmail.com",
@@ -29660,9 +29834,9 @@ module["exports"] = [
   "hotmail.com"
 ];
 
-},{}],592:[function(require,module,exports){
-arguments[4][64][0].apply(exports,arguments)
-},{"./domain_suffix":590,"./free_email":591,"dup":64}],593:[function(require,module,exports){
+},{}],593:[function(require,module,exports){
+arguments[4][65][0].apply(exports,arguments)
+},{"./domain_suffix":591,"./free_email":592,"dup":65}],594:[function(require,module,exports){
 module["exports"] = [
   "Aarav",
   "Ajita",
@@ -29721,9 +29895,9 @@ module["exports"] = [
   "Sushant"
 ];
 
-},{}],594:[function(require,module,exports){
-arguments[4][216][0].apply(exports,arguments)
-},{"./first_name":593,"./last_name":595,"dup":216}],595:[function(require,module,exports){
+},{}],595:[function(require,module,exports){
+arguments[4][217][0].apply(exports,arguments)
+},{"./first_name":594,"./last_name":596,"dup":217}],596:[function(require,module,exports){
 module["exports"] = [
   "Adhikari",
   "Aryal",
@@ -29766,16 +29940,16 @@ module["exports"] = [
   "Thapa"
 ];
 
-},{}],596:[function(require,module,exports){
+},{}],597:[function(require,module,exports){
 module["exports"] = [
   "##-#######",
   "+977-#-#######",
   "+977########"
 ];
 
-},{}],597:[function(require,module,exports){
-arguments[4][74][0].apply(exports,arguments)
-},{"./formats":596,"dup":74}],598:[function(require,module,exports){
+},{}],598:[function(require,module,exports){
+arguments[4][75][0].apply(exports,arguments)
+},{"./formats":597,"dup":75}],599:[function(require,module,exports){
 module["exports"] = [
   "#",
   "##",
@@ -29788,7 +29962,7 @@ module["exports"] = [
   "### III"
 ];
 
-},{}],599:[function(require,module,exports){
+},{}],600:[function(require,module,exports){
 module["exports"] = [
   "#{Name.first_name}#{city_suffix}",
   "#{Name.last_name}#{city_suffix}",
@@ -29796,7 +29970,7 @@ module["exports"] = [
   "#{city_prefix} #{Name.last_name}#{city_suffix}"
 ];
 
-},{}],600:[function(require,module,exports){
+},{}],601:[function(require,module,exports){
 module["exports"] = [
   "Noord",
   "Oost",
@@ -29806,7 +29980,7 @@ module["exports"] = [
   "Oud"
 ];
 
-},{}],601:[function(require,module,exports){
+},{}],602:[function(require,module,exports){
 module["exports"] = [
   "dam",
   "berg",
@@ -29839,7 +30013,7 @@ module["exports"] = [
   "meer"
 ];
 
-},{}],602:[function(require,module,exports){
+},{}],603:[function(require,module,exports){
 module["exports"] = [
   "Afghanistan",
   "Akrotiri",
@@ -30099,12 +30273,12 @@ module["exports"] = [
   "Zwitserland"
 ];
 
-},{}],603:[function(require,module,exports){
+},{}],604:[function(require,module,exports){
 module["exports"] = [
   "Nederland"
 ];
 
-},{}],604:[function(require,module,exports){
+},{}],605:[function(require,module,exports){
 var address = {};
 module['exports'] = address;
 address.city_prefix = require("./city_prefix");
@@ -30120,19 +30294,19 @@ address.postcode = require("./postcode");
 address.state = require("./state");
 address.default_country = require("./default_country");
 
-},{"./building_number":598,"./city":599,"./city_prefix":600,"./city_suffix":601,"./country":602,"./default_country":603,"./postcode":605,"./secondary_address":606,"./state":607,"./street_address":608,"./street_name":609,"./street_suffix":610}],605:[function(require,module,exports){
+},{"./building_number":599,"./city":600,"./city_prefix":601,"./city_suffix":602,"./country":603,"./default_country":604,"./postcode":606,"./secondary_address":607,"./state":608,"./street_address":609,"./street_name":610,"./street_suffix":611}],606:[function(require,module,exports){
 module["exports"] = [
   "#### ??"
 ];
 
-},{}],606:[function(require,module,exports){
+},{}],607:[function(require,module,exports){
 module["exports"] = [
   "1 hoog",
   "2 hoog",
   "3 hoog"
 ];
 
-},{}],607:[function(require,module,exports){
+},{}],608:[function(require,module,exports){
 module["exports"] = [
   "Noord-Holland",
   "Zuid-Holland",
@@ -30148,11 +30322,11 @@ module["exports"] = [
   "Flevoland"
 ];
 
-},{}],608:[function(require,module,exports){
-arguments[4][52][0].apply(exports,arguments)
-},{"dup":52}],609:[function(require,module,exports){
-arguments[4][515][0].apply(exports,arguments)
-},{"dup":515}],610:[function(require,module,exports){
+},{}],609:[function(require,module,exports){
+arguments[4][53][0].apply(exports,arguments)
+},{"dup":53}],610:[function(require,module,exports){
+arguments[4][516][0].apply(exports,arguments)
+},{"dup":516}],611:[function(require,module,exports){
 module["exports"] = [
   "straat",
   "laan",
@@ -30161,9 +30335,9 @@ module["exports"] = [
   "park"
 ];
 
-},{}],611:[function(require,module,exports){
-arguments[4][210][0].apply(exports,arguments)
-},{"./suffix":612,"dup":210}],612:[function(require,module,exports){
+},{}],612:[function(require,module,exports){
+arguments[4][211][0].apply(exports,arguments)
+},{"./suffix":613,"dup":211}],613:[function(require,module,exports){
 module["exports"] = [
   "BV",
   "V.O.F.",
@@ -30171,7 +30345,7 @@ module["exports"] = [
   "en Zonen"
 ];
 
-},{}],613:[function(require,module,exports){
+},{}],614:[function(require,module,exports){
 var nl = {};
 module['exports'] = nl;
 nl.title = "Dutch";
@@ -30182,7 +30356,7 @@ nl.lorem = require("./lorem");
 nl.name = require("./name");
 nl.phone_number = require("./phone_number");
 
-},{"./address":604,"./company":611,"./internet":616,"./lorem":617,"./name":621,"./phone_number":628}],614:[function(require,module,exports){
+},{"./address":605,"./company":612,"./internet":617,"./lorem":618,"./name":622,"./phone_number":629}],615:[function(require,module,exports){
 module["exports"] = [
   "nl",
   "com",
@@ -30190,17 +30364,17 @@ module["exports"] = [
   "org"
 ];
 
-},{}],615:[function(require,module,exports){
-arguments[4][63][0].apply(exports,arguments)
-},{"dup":63}],616:[function(require,module,exports){
+},{}],616:[function(require,module,exports){
 arguments[4][64][0].apply(exports,arguments)
-},{"./domain_suffix":614,"./free_email":615,"dup":64}],617:[function(require,module,exports){
-arguments[4][188][0].apply(exports,arguments)
-},{"./supplemental":618,"./words":619,"dup":188}],618:[function(require,module,exports){
+},{"dup":64}],617:[function(require,module,exports){
+arguments[4][65][0].apply(exports,arguments)
+},{"./domain_suffix":615,"./free_email":616,"dup":65}],618:[function(require,module,exports){
 arguments[4][189][0].apply(exports,arguments)
-},{"dup":189}],619:[function(require,module,exports){
-arguments[4][66][0].apply(exports,arguments)
-},{"dup":66}],620:[function(require,module,exports){
+},{"./supplemental":619,"./words":620,"dup":189}],619:[function(require,module,exports){
+arguments[4][190][0].apply(exports,arguments)
+},{"dup":190}],620:[function(require,module,exports){
+arguments[4][67][0].apply(exports,arguments)
+},{"dup":67}],621:[function(require,module,exports){
 module["exports"] = [
   "Amber",
   "Anna",
@@ -30254,7 +30428,7 @@ module["exports"] = [
   "Tom"
 ];
 
-},{}],621:[function(require,module,exports){
+},{}],622:[function(require,module,exports){
 var name = {};
 module['exports'] = name;
 name.first_name = require("./first_name");
@@ -30264,7 +30438,7 @@ name.prefix = require("./prefix");
 name.suffix = require("./suffix");
 name.name = require("./name");
 
-},{"./first_name":620,"./last_name":622,"./name":623,"./prefix":624,"./suffix":625,"./tussenvoegsel":626}],622:[function(require,module,exports){
+},{"./first_name":621,"./last_name":623,"./name":624,"./prefix":625,"./suffix":626,"./tussenvoegsel":627}],623:[function(require,module,exports){
 module["exports"] = [
   "Bakker",
   "Beek",
@@ -30318,7 +30492,7 @@ module["exports"] = [
   "Wit"
 ];
 
-},{}],623:[function(require,module,exports){
+},{}],624:[function(require,module,exports){
 module["exports"] = [
   "#{prefix} #{first_name} #{last_name}",
   "#{first_name} #{last_name} #{suffix}",
@@ -30328,7 +30502,7 @@ module["exports"] = [
   "#{first_name} #{tussenvoegsel} #{last_name}"
 ];
 
-},{}],624:[function(require,module,exports){
+},{}],625:[function(require,module,exports){
 module["exports"] = [
   "Dhr.",
   "Mevr. Dr.",
@@ -30337,9 +30511,9 @@ module["exports"] = [
   "Prof."
 ];
 
-},{}],625:[function(require,module,exports){
-arguments[4][579][0].apply(exports,arguments)
-},{"dup":579}],626:[function(require,module,exports){
+},{}],626:[function(require,module,exports){
+arguments[4][580][0].apply(exports,arguments)
+},{"dup":580}],627:[function(require,module,exports){
 module["exports"] = [
   "van",
   "van de",
@@ -30350,7 +30524,7 @@ module["exports"] = [
   "den"
 ];
 
-},{}],627:[function(require,module,exports){
+},{}],628:[function(require,module,exports){
 module["exports"] = [
   "(####) ######",
   "##########",
@@ -30358,13 +30532,13 @@ module["exports"] = [
   "06 #### ####"
 ];
 
-},{}],628:[function(require,module,exports){
-arguments[4][74][0].apply(exports,arguments)
-},{"./formats":627,"dup":74}],629:[function(require,module,exports){
-arguments[4][118][0].apply(exports,arguments)
-},{"dup":118}],630:[function(require,module,exports){
-arguments[4][76][0].apply(exports,arguments)
-},{"dup":76}],631:[function(require,module,exports){
+},{}],629:[function(require,module,exports){
+arguments[4][75][0].apply(exports,arguments)
+},{"./formats":628,"dup":75}],630:[function(require,module,exports){
+arguments[4][119][0].apply(exports,arguments)
+},{"dup":119}],631:[function(require,module,exports){
+arguments[4][77][0].apply(exports,arguments)
+},{"dup":77}],632:[function(require,module,exports){
 module["exports"] = [
   "Aleksandrów Kujawski",
   "Aleksandrów Łódzki",
@@ -31276,7 +31450,7 @@ module["exports"] = [
   "Żywiec"
 ];
 
-},{}],632:[function(require,module,exports){
+},{}],633:[function(require,module,exports){
 module["exports"] = [
   "Afganistan",
   "Albania",
@@ -31479,12 +31653,12 @@ module["exports"] = [
   "Zjednoczone Emiraty Arabskie"
 ];
 
-},{}],633:[function(require,module,exports){
+},{}],634:[function(require,module,exports){
 module["exports"] = [
   "Polska"
 ];
 
-},{}],634:[function(require,module,exports){
+},{}],635:[function(require,module,exports){
 var address = {};
 module['exports'] = address;
 address.country = require("./country");
@@ -31500,14 +31674,14 @@ address.street_name = require("./street_name");
 address.street_address = require("./street_address");
 address.default_country = require("./default_country");
 
-},{"./building_number":629,"./city":630,"./city_name":631,"./country":632,"./default_country":633,"./postcode":635,"./secondary_address":636,"./state":637,"./state_abbr":638,"./street_address":639,"./street_name":640,"./street_prefix":641}],635:[function(require,module,exports){
+},{"./building_number":630,"./city":631,"./city_name":632,"./country":633,"./default_country":634,"./postcode":636,"./secondary_address":637,"./state":638,"./state_abbr":639,"./street_address":640,"./street_name":641,"./street_prefix":642}],636:[function(require,module,exports){
 module["exports"] = [
   "##-###"
 ];
 
-},{}],636:[function(require,module,exports){
-arguments[4][129][0].apply(exports,arguments)
-},{"dup":129}],637:[function(require,module,exports){
+},{}],637:[function(require,module,exports){
+arguments[4][130][0].apply(exports,arguments)
+},{"dup":130}],638:[function(require,module,exports){
 module["exports"] = [
   "Dolnośląskie",
   "Kujawsko-pomorskie",
@@ -31527,7 +31701,7 @@ module["exports"] = [
   "Zachodniopomorskie"
 ];
 
-},{}],638:[function(require,module,exports){
+},{}],639:[function(require,module,exports){
 module["exports"] = [
   "DŚ",
   "KP",
@@ -31547,20 +31721,20 @@ module["exports"] = [
   "ZP"
 ];
 
-},{}],639:[function(require,module,exports){
-arguments[4][52][0].apply(exports,arguments)
-},{"dup":52}],640:[function(require,module,exports){
+},{}],640:[function(require,module,exports){
+arguments[4][53][0].apply(exports,arguments)
+},{"dup":53}],641:[function(require,module,exports){
 module["exports"] = [
   "#{street_prefix} #{Name.last_name}"
 ];
 
-},{}],641:[function(require,module,exports){
+},{}],642:[function(require,module,exports){
 module["exports"] = [
   "ul.",
   "al."
 ];
 
-},{}],642:[function(require,module,exports){
+},{}],643:[function(require,module,exports){
 module["exports"] = [
   "50-###-##-##",
   "51-###-##-##",
@@ -31576,11 +31750,9 @@ module["exports"] = [
   "88-###-##-##"
 ];
 
-},{}],643:[function(require,module,exports){
-arguments[4][56][0].apply(exports,arguments)
-},{"./formats":642,"dup":56}],644:[function(require,module,exports){
-arguments[4][150][0].apply(exports,arguments)
-},{"dup":150}],645:[function(require,module,exports){
+},{}],644:[function(require,module,exports){
+arguments[4][57][0].apply(exports,arguments)
+},{"./formats":643,"dup":57}],645:[function(require,module,exports){
 arguments[4][151][0].apply(exports,arguments)
 },{"dup":151}],646:[function(require,module,exports){
 arguments[4][152][0].apply(exports,arguments)
@@ -31589,6 +31761,8 @@ arguments[4][153][0].apply(exports,arguments)
 },{"dup":153}],648:[function(require,module,exports){
 arguments[4][154][0].apply(exports,arguments)
 },{"dup":154}],649:[function(require,module,exports){
+arguments[4][155][0].apply(exports,arguments)
+},{"dup":155}],650:[function(require,module,exports){
 var company = {};
 module['exports'] = company;
 company.suffix = require("./suffix");
@@ -31600,13 +31774,13 @@ company.bs_adjective = require("./bs_adjective");
 company.bs_noun = require("./bs_noun");
 company.name = require("./name");
 
-},{"./adjetive":644,"./bs_adjective":645,"./bs_noun":646,"./bs_verb":647,"./descriptor":648,"./name":650,"./noun":651,"./suffix":652}],650:[function(require,module,exports){
-arguments[4][156][0].apply(exports,arguments)
-},{"dup":156}],651:[function(require,module,exports){
+},{"./adjetive":645,"./bs_adjective":646,"./bs_noun":647,"./bs_verb":648,"./descriptor":649,"./name":651,"./noun":652,"./suffix":653}],651:[function(require,module,exports){
 arguments[4][157][0].apply(exports,arguments)
 },{"dup":157}],652:[function(require,module,exports){
 arguments[4][158][0].apply(exports,arguments)
 },{"dup":158}],653:[function(require,module,exports){
+arguments[4][159][0].apply(exports,arguments)
+},{"dup":159}],654:[function(require,module,exports){
 var pl = {};
 module['exports'] = pl;
 pl.title = "Polish";
@@ -31618,7 +31792,7 @@ pl.lorem = require("./lorem");
 pl.phone_number = require("./phone_number");
 pl.cell_phone = require("./cell_phone");
 
-},{"./address":634,"./cell_phone":643,"./company":649,"./internet":656,"./lorem":657,"./name":661,"./phone_number":667}],654:[function(require,module,exports){
+},{"./address":635,"./cell_phone":644,"./company":650,"./internet":657,"./lorem":658,"./name":662,"./phone_number":668}],655:[function(require,module,exports){
 module["exports"] = [
   "com",
   "pl",
@@ -31627,17 +31801,17 @@ module["exports"] = [
   "org"
 ];
 
-},{}],655:[function(require,module,exports){
-arguments[4][63][0].apply(exports,arguments)
-},{"dup":63}],656:[function(require,module,exports){
+},{}],656:[function(require,module,exports){
 arguments[4][64][0].apply(exports,arguments)
-},{"./domain_suffix":654,"./free_email":655,"dup":64}],657:[function(require,module,exports){
-arguments[4][188][0].apply(exports,arguments)
-},{"./supplemental":658,"./words":659,"dup":188}],658:[function(require,module,exports){
+},{"dup":64}],657:[function(require,module,exports){
+arguments[4][65][0].apply(exports,arguments)
+},{"./domain_suffix":655,"./free_email":656,"dup":65}],658:[function(require,module,exports){
 arguments[4][189][0].apply(exports,arguments)
-},{"dup":189}],659:[function(require,module,exports){
-arguments[4][66][0].apply(exports,arguments)
-},{"dup":66}],660:[function(require,module,exports){
+},{"./supplemental":659,"./words":660,"dup":189}],659:[function(require,module,exports){
+arguments[4][190][0].apply(exports,arguments)
+},{"dup":190}],660:[function(require,module,exports){
+arguments[4][67][0].apply(exports,arguments)
+},{"dup":67}],661:[function(require,module,exports){
 module["exports"] = [
   "Aaron",
   "Abraham",
@@ -32050,9 +32224,9 @@ module["exports"] = [
   "Zoe"
 ];
 
-},{}],661:[function(require,module,exports){
-arguments[4][423][0].apply(exports,arguments)
-},{"./first_name":660,"./last_name":662,"./name":663,"./prefix":664,"./title":665,"dup":423}],662:[function(require,module,exports){
+},{}],662:[function(require,module,exports){
+arguments[4][424][0].apply(exports,arguments)
+},{"./first_name":661,"./last_name":663,"./name":664,"./prefix":665,"./title":666,"dup":424}],663:[function(require,module,exports){
 module["exports"] = [
   "Adamczak",
   "Adamczyk",
@@ -32760,17 +32934,17 @@ module["exports"] = [
   "Żyła"
 ];
 
-},{}],663:[function(require,module,exports){
-arguments[4][468][0].apply(exports,arguments)
-},{"dup":468}],664:[function(require,module,exports){
+},{}],664:[function(require,module,exports){
+arguments[4][469][0].apply(exports,arguments)
+},{"dup":469}],665:[function(require,module,exports){
 module["exports"] = [
   "Pan",
   "Pani"
 ];
 
-},{}],665:[function(require,module,exports){
-arguments[4][197][0].apply(exports,arguments)
-},{"dup":197}],666:[function(require,module,exports){
+},{}],666:[function(require,module,exports){
+arguments[4][198][0].apply(exports,arguments)
+},{"dup":198}],667:[function(require,module,exports){
 module["exports"] = [
   "12-###-##-##",
   "13-###-##-##",
@@ -32823,11 +32997,11 @@ module["exports"] = [
   "95-###-##-##"
 ];
 
-},{}],667:[function(require,module,exports){
-arguments[4][74][0].apply(exports,arguments)
-},{"./formats":666,"dup":74}],668:[function(require,module,exports){
-arguments[4][118][0].apply(exports,arguments)
-},{"dup":118}],669:[function(require,module,exports){
+},{}],668:[function(require,module,exports){
+arguments[4][75][0].apply(exports,arguments)
+},{"./formats":667,"dup":75}],669:[function(require,module,exports){
+arguments[4][119][0].apply(exports,arguments)
+},{"dup":119}],670:[function(require,module,exports){
 module["exports"] = [
   "Nova",
   "Velha",
@@ -32836,7 +33010,7 @@ module["exports"] = [
   "Município de"
 ];
 
-},{}],670:[function(require,module,exports){
+},{}],671:[function(require,module,exports){
 module["exports"] = [
   "do Descoberto",
   "de Nossa Senhora",
@@ -32844,7 +33018,7 @@ module["exports"] = [
   "do Sul"
 ];
 
-},{}],671:[function(require,module,exports){
+},{}],672:[function(require,module,exports){
 module["exports"] = [
   "Afeganistão",
   "Albânia",
@@ -33085,12 +33259,12 @@ module["exports"] = [
   "Zimbábue"
 ];
 
-},{}],672:[function(require,module,exports){
+},{}],673:[function(require,module,exports){
 module["exports"] = [
   "Brasil"
 ];
 
-},{}],673:[function(require,module,exports){
+},{}],674:[function(require,module,exports){
 var address = {};
 module['exports'] = address;
 address.city_prefix = require("./city_prefix");
@@ -33104,13 +33278,13 @@ address.state = require("./state");
 address.state_abbr = require("./state_abbr");
 address.default_country = require("./default_country");
 
-},{"./building_number":668,"./city_prefix":669,"./city_suffix":670,"./country":671,"./default_country":672,"./postcode":674,"./secondary_address":675,"./state":676,"./state_abbr":677,"./street_suffix":678}],674:[function(require,module,exports){
+},{"./building_number":669,"./city_prefix":670,"./city_suffix":671,"./country":672,"./default_country":673,"./postcode":675,"./secondary_address":676,"./state":677,"./state_abbr":678,"./street_suffix":679}],675:[function(require,module,exports){
 module["exports"] = [
   "#####",
   "#####-###"
 ];
 
-},{}],675:[function(require,module,exports){
+},{}],676:[function(require,module,exports){
 module["exports"] = [
   "Apto. ###",
   "Sobrado ##",
@@ -33119,7 +33293,7 @@ module["exports"] = [
   "Quadra ##"
 ];
 
-},{}],676:[function(require,module,exports){
+},{}],677:[function(require,module,exports){
 module["exports"] = [
   "Acre",
   "Alagoas",
@@ -33150,7 +33324,7 @@ module["exports"] = [
   "Tocantins"
 ];
 
-},{}],677:[function(require,module,exports){
+},{}],678:[function(require,module,exports){
 module["exports"] = [
   "AC",
   "AL",
@@ -33178,7 +33352,7 @@ module["exports"] = [
   "SP"
 ];
 
-},{}],678:[function(require,module,exports){
+},{}],679:[function(require,module,exports){
 module["exports"] = [
   "Rua",
   "Avenida",
@@ -33190,16 +33364,16 @@ module["exports"] = [
   "Rodovia"
 ];
 
-},{}],679:[function(require,module,exports){
-arguments[4][110][0].apply(exports,arguments)
-},{"./name":680,"./suffix":681,"dup":110}],680:[function(require,module,exports){
+},{}],680:[function(require,module,exports){
+arguments[4][111][0].apply(exports,arguments)
+},{"./name":681,"./suffix":682,"dup":111}],681:[function(require,module,exports){
 module["exports"] = [
   "#{Name.last_name} #{suffix}",
   "#{Name.last_name}-#{Name.last_name}",
   "#{Name.last_name}, #{Name.last_name} e #{Name.last_name}"
 ];
 
-},{}],681:[function(require,module,exports){
+},{}],682:[function(require,module,exports){
 module["exports"] = [
   "S.A.",
   "LTDA",
@@ -33207,7 +33381,7 @@ module["exports"] = [
   "Comércio"
 ];
 
-},{}],682:[function(require,module,exports){
+},{}],683:[function(require,module,exports){
 var pt_BR = {};
 module['exports'] = pt_BR;
 pt_BR.title = "Portuguese (Brazil)";
@@ -33218,7 +33392,7 @@ pt_BR.lorem = require("./lorem");
 pt_BR.name = require("./name");
 pt_BR.phone_number = require("./phone_number");
 
-},{"./address":673,"./company":679,"./internet":685,"./lorem":686,"./name":689,"./phone_number":694}],683:[function(require,module,exports){
+},{"./address":674,"./company":680,"./internet":686,"./lorem":687,"./name":690,"./phone_number":695}],684:[function(require,module,exports){
 module["exports"] = [
   "br",
   "com",
@@ -33229,7 +33403,7 @@ module["exports"] = [
   "org"
 ];
 
-},{}],684:[function(require,module,exports){
+},{}],685:[function(require,module,exports){
 module["exports"] = [
   "gmail.com",
   "yahoo.com",
@@ -33238,13 +33412,13 @@ module["exports"] = [
   "bol.com.br"
 ];
 
-},{}],685:[function(require,module,exports){
-arguments[4][64][0].apply(exports,arguments)
-},{"./domain_suffix":683,"./free_email":684,"dup":64}],686:[function(require,module,exports){
+},{}],686:[function(require,module,exports){
 arguments[4][65][0].apply(exports,arguments)
-},{"./words":687,"dup":65}],687:[function(require,module,exports){
+},{"./domain_suffix":684,"./free_email":685,"dup":65}],687:[function(require,module,exports){
 arguments[4][66][0].apply(exports,arguments)
-},{"dup":66}],688:[function(require,module,exports){
+},{"./words":688,"dup":66}],688:[function(require,module,exports){
+arguments[4][67][0].apply(exports,arguments)
+},{"dup":67}],689:[function(require,module,exports){
 module["exports"] = [
   "Alessandro",
   "Alessandra",
@@ -33339,7 +33513,7 @@ module["exports"] = [
   "Warley"
 ];
 
-},{}],689:[function(require,module,exports){
+},{}],690:[function(require,module,exports){
 var name = {};
 module['exports'] = name;
 name.first_name = require("./first_name");
@@ -33347,7 +33521,7 @@ name.last_name = require("./last_name");
 name.prefix = require("./prefix");
 name.suffix = require("./suffix");
 
-},{"./first_name":688,"./last_name":690,"./prefix":691,"./suffix":692}],690:[function(require,module,exports){
+},{"./first_name":689,"./last_name":691,"./prefix":692,"./suffix":693}],691:[function(require,module,exports){
 module["exports"] = [
   "Silva",
   "Souza",
@@ -33373,7 +33547,7 @@ module["exports"] = [
   "Albuquerque"
 ];
 
-},{}],691:[function(require,module,exports){
+},{}],692:[function(require,module,exports){
 module["exports"] = [
   "Sr.",
   "Sra.",
@@ -33381,33 +33555,33 @@ module["exports"] = [
   "Dr."
 ];
 
-},{}],692:[function(require,module,exports){
+},{}],693:[function(require,module,exports){
 module["exports"] = [
   "Jr.",
   "Neto",
   "Filho"
 ];
 
-},{}],693:[function(require,module,exports){
+},{}],694:[function(require,module,exports){
 module["exports"] = [
   "(##) ####-####",
   "+55 (##) ####-####",
   "(##) #####-####"
 ];
 
-},{}],694:[function(require,module,exports){
-arguments[4][74][0].apply(exports,arguments)
-},{"./formats":693,"dup":74}],695:[function(require,module,exports){
+},{}],695:[function(require,module,exports){
+arguments[4][75][0].apply(exports,arguments)
+},{"./formats":694,"dup":75}],696:[function(require,module,exports){
 module["exports"] = [
   "###"
 ];
 
-},{}],696:[function(require,module,exports){
+},{}],697:[function(require,module,exports){
 module["exports"] = [
   "#{Address.city_name}"
 ];
 
-},{}],697:[function(require,module,exports){
+},{}],698:[function(require,module,exports){
 module["exports"] = [
   "Москва",
   "Владимир",
@@ -33457,7 +33631,7 @@ module["exports"] = [
   "Сочи"
 ];
 
-},{}],698:[function(require,module,exports){
+},{}],699:[function(require,module,exports){
 module["exports"] = [
   "Австралия",
   "Австрия",
@@ -33671,12 +33845,12 @@ module["exports"] = [
   "Япония"
 ];
 
-},{}],699:[function(require,module,exports){
+},{}],700:[function(require,module,exports){
 module["exports"] = [
   "Россия"
 ];
 
-},{}],700:[function(require,module,exports){
+},{}],701:[function(require,module,exports){
 var address = {};
 module['exports'] = address;
 address.country = require("./country");
@@ -33692,17 +33866,17 @@ address.street_name = require("./street_name");
 address.street_address = require("./street_address");
 address.default_country = require("./default_country");
 
-},{"./building_number":695,"./city":696,"./city_name":697,"./country":698,"./default_country":699,"./postcode":701,"./secondary_address":702,"./state":703,"./street_address":704,"./street_name":705,"./street_suffix":706,"./street_title":707}],701:[function(require,module,exports){
+},{"./building_number":696,"./city":697,"./city_name":698,"./country":699,"./default_country":700,"./postcode":702,"./secondary_address":703,"./state":704,"./street_address":705,"./street_name":706,"./street_suffix":707,"./street_title":708}],702:[function(require,module,exports){
 module["exports"] = [
   "######"
 ];
 
-},{}],702:[function(require,module,exports){
+},{}],703:[function(require,module,exports){
 module["exports"] = [
   "кв. ###"
 ];
 
-},{}],703:[function(require,module,exports){
+},{}],704:[function(require,module,exports){
 module["exports"] = [
   "Республика Адыгея",
   "Республика Башкортостан",
@@ -33792,18 +33966,18 @@ module["exports"] = [
   "Чеченская Республика"
 ];
 
-},{}],704:[function(require,module,exports){
+},{}],705:[function(require,module,exports){
 module["exports"] = [
   "#{street_name}, #{building_number}"
 ];
 
-},{}],705:[function(require,module,exports){
+},{}],706:[function(require,module,exports){
 module["exports"] = [
   "#{street_suffix} #{Address.street_title}",
   "#{Address.street_title} #{street_suffix}"
 ];
 
-},{}],706:[function(require,module,exports){
+},{}],707:[function(require,module,exports){
 module["exports"] = [
   "ул.",
   "улица",
@@ -33813,7 +33987,7 @@ module["exports"] = [
   "пл."
 ];
 
-},{}],707:[function(require,module,exports){
+},{}],708:[function(require,module,exports){
 module["exports"] = [
   "Советская",
   "Молодежная",
@@ -33918,7 +34092,7 @@ module["exports"] = [
   "Майская"
 ];
 
-},{}],708:[function(require,module,exports){
+},{}],709:[function(require,module,exports){
 module["exports"] = [
   "красный",
   "зеленый",
@@ -33953,7 +34127,7 @@ module["exports"] = [
   "серебряный"
 ];
 
-},{}],709:[function(require,module,exports){
+},{}],710:[function(require,module,exports){
 module["exports"] = [
   "Книги",
   "Фильмы",
@@ -33978,9 +34152,9 @@ module["exports"] = [
   "промышленное"
 ];
 
-},{}],710:[function(require,module,exports){
-arguments[4][148][0].apply(exports,arguments)
-},{"./color":708,"./department":709,"./product_name":711,"dup":148}],711:[function(require,module,exports){
+},{}],711:[function(require,module,exports){
+arguments[4][149][0].apply(exports,arguments)
+},{"./color":709,"./department":710,"./product_name":712,"dup":149}],712:[function(require,module,exports){
 module["exports"] = {
   "adjective": [
     "Маленький",
@@ -34016,9 +34190,9 @@ module["exports"] = {
   ]
 };
 
-},{}],712:[function(require,module,exports){
-arguments[4][457][0].apply(exports,arguments)
-},{"./name":713,"./prefix":714,"./suffix":715,"dup":457}],713:[function(require,module,exports){
+},{}],713:[function(require,module,exports){
+arguments[4][458][0].apply(exports,arguments)
+},{"./name":714,"./prefix":715,"./suffix":716,"dup":458}],714:[function(require,module,exports){
 module["exports"] = [
   "#{prefix} #{Name.female_first_name}",
   "#{prefix} #{Name.male_first_name}",
@@ -34030,7 +34204,7 @@ module["exports"] = [
   "#{prefix} #{Address.city_name}#{suffix}#{suffix}#{suffix}"
 ];
 
-},{}],714:[function(require,module,exports){
+},{}],715:[function(require,module,exports){
 module["exports"] = [
   "ИП",
   "ООО",
@@ -34041,7 +34215,7 @@ module["exports"] = [
   "ОП"
 ];
 
-},{}],715:[function(require,module,exports){
+},{}],716:[function(require,module,exports){
 module["exports"] = [
   "Снаб",
   "Торг",
@@ -34050,9 +34224,9 @@ module["exports"] = [
   "Сбыт"
 ];
 
-},{}],716:[function(require,module,exports){
-arguments[4][170][0].apply(exports,arguments)
-},{"./month":717,"./weekday":718,"dup":170}],717:[function(require,module,exports){
+},{}],717:[function(require,module,exports){
+arguments[4][171][0].apply(exports,arguments)
+},{"./month":718,"./weekday":719,"dup":171}],718:[function(require,module,exports){
 // source: http://unicode.org/cldr/trac/browser/tags/release-27/common/main/ru.xml#L1734
 module["exports"] = {
   wide: [
@@ -34113,7 +34287,7 @@ module["exports"] = {
   ]
 };
 
-},{}],718:[function(require,module,exports){
+},{}],719:[function(require,module,exports){
 // source: http://unicode.org/cldr/trac/browser/tags/release-27/common/main/ru.xml#L1825
 module["exports"] = {
   wide: [
@@ -34154,7 +34328,7 @@ module["exports"] = {
   ]
 };
 
-},{}],719:[function(require,module,exports){
+},{}],720:[function(require,module,exports){
 var ru = {};
 module['exports'] = ru;
 ru.title = "Russian";
@@ -34167,7 +34341,7 @@ ru.commerce = require("./commerce");
 ru.company = require("./company");
 ru.date = require("./date");
 
-},{"./address":700,"./commerce":710,"./company":712,"./date":716,"./internet":722,"./name":726,"./phone_number":734}],720:[function(require,module,exports){
+},{"./address":701,"./commerce":711,"./company":713,"./date":717,"./internet":723,"./name":727,"./phone_number":735}],721:[function(require,module,exports){
 module["exports"] = [
   "com",
   "ru",
@@ -34177,7 +34351,7 @@ module["exports"] = [
   "org"
 ];
 
-},{}],721:[function(require,module,exports){
+},{}],722:[function(require,module,exports){
 module["exports"] = [
   "yandex.ru",
   "ya.ru",
@@ -34187,9 +34361,9 @@ module["exports"] = [
   "hotmail.com"
 ];
 
-},{}],722:[function(require,module,exports){
-arguments[4][64][0].apply(exports,arguments)
-},{"./domain_suffix":720,"./free_email":721,"dup":64}],723:[function(require,module,exports){
+},{}],723:[function(require,module,exports){
+arguments[4][65][0].apply(exports,arguments)
+},{"./domain_suffix":721,"./free_email":722,"dup":65}],724:[function(require,module,exports){
 module["exports"] = [
   "Анна",
   "Алёна",
@@ -34249,7 +34423,7 @@ module["exports"] = [
   "Юлия"
 ];
 
-},{}],724:[function(require,module,exports){
+},{}],725:[function(require,module,exports){
 module["exports"] = [
   "Смирнова",
   "Иванова",
@@ -34503,7 +34677,7 @@ module["exports"] = [
   "Турова"
 ];
 
-},{}],725:[function(require,module,exports){
+},{}],726:[function(require,module,exports){
 module["exports"] = [
   "Александровна",
   "Алексеевна",
@@ -34558,7 +34732,7 @@ module["exports"] = [
   "Ярославовна"
 ];
 
-},{}],726:[function(require,module,exports){
+},{}],727:[function(require,module,exports){
 var name = {};
 module['exports'] = name;
 name.male_first_name = require("./male_first_name");
@@ -34571,7 +34745,7 @@ name.prefix = require("./prefix");
 name.suffix = require("./suffix");
 name.name = require("./name");
 
-},{"./female_first_name":723,"./female_last_name":724,"./female_middle_name":725,"./male_first_name":727,"./male_last_name":728,"./male_middle_name":729,"./name":730,"./prefix":731,"./suffix":732}],727:[function(require,module,exports){
+},{"./female_first_name":724,"./female_last_name":725,"./female_middle_name":726,"./male_first_name":728,"./male_last_name":729,"./male_middle_name":730,"./name":731,"./prefix":732,"./suffix":733}],728:[function(require,module,exports){
 module["exports"] = [
   "Александр",
   "Алексей",
@@ -34627,7 +34801,7 @@ module["exports"] = [
   "Ярослав"
 ];
 
-},{}],728:[function(require,module,exports){
+},{}],729:[function(require,module,exports){
 module["exports"] = [
   "Смирнов",
   "Иванов",
@@ -34881,7 +35055,7 @@ module["exports"] = [
   "Туров"
 ];
 
-},{}],729:[function(require,module,exports){
+},{}],730:[function(require,module,exports){
 module["exports"] = [
   "Александрович",
   "Алексеевич",
@@ -34937,7 +35111,7 @@ module["exports"] = [
   "Ярославович"
 ];
 
-},{}],730:[function(require,module,exports){
+},{}],731:[function(require,module,exports){
 module["exports"] = [
   "#{male_first_name} #{male_last_name}",
   "#{male_last_name} #{male_first_name}",
@@ -34949,27 +35123,27 @@ module["exports"] = [
   "#{female_last_name} #{female_first_name} #{female_middle_name}"
 ];
 
-},{}],731:[function(require,module,exports){
-arguments[4][505][0].apply(exports,arguments)
-},{"dup":505}],732:[function(require,module,exports){
-arguments[4][505][0].apply(exports,arguments)
-},{"dup":505}],733:[function(require,module,exports){
+},{}],732:[function(require,module,exports){
+arguments[4][506][0].apply(exports,arguments)
+},{"dup":506}],733:[function(require,module,exports){
+arguments[4][506][0].apply(exports,arguments)
+},{"dup":506}],734:[function(require,module,exports){
 module["exports"] = [
   "(9##)###-##-##"
 ];
 
-},{}],734:[function(require,module,exports){
-arguments[4][74][0].apply(exports,arguments)
-},{"./formats":733,"dup":74}],735:[function(require,module,exports){
+},{}],735:[function(require,module,exports){
+arguments[4][75][0].apply(exports,arguments)
+},{"./formats":734,"dup":75}],736:[function(require,module,exports){
 module["exports"] = [
   "#",
   "##",
   "###"
 ];
 
-},{}],736:[function(require,module,exports){
-arguments[4][76][0].apply(exports,arguments)
-},{"dup":76}],737:[function(require,module,exports){
+},{}],737:[function(require,module,exports){
+arguments[4][77][0].apply(exports,arguments)
+},{"dup":77}],738:[function(require,module,exports){
 module["exports"] = [
   "Bánovce nad Bebravou",
   "Banská Bystrica",
@@ -35052,11 +35226,11 @@ module["exports"] = [
   "Zvolen"
 ];
 
-},{}],738:[function(require,module,exports){
-arguments[4][120][0].apply(exports,arguments)
-},{"dup":120}],739:[function(require,module,exports){
+},{}],739:[function(require,module,exports){
 arguments[4][121][0].apply(exports,arguments)
 },{"dup":121}],740:[function(require,module,exports){
+arguments[4][122][0].apply(exports,arguments)
+},{"dup":122}],741:[function(require,module,exports){
 module["exports"] = [
   "Afganistan",
   "Afgánsky islamský štát",
@@ -35442,12 +35616,12 @@ module["exports"] = [
   "Zimbabwianska republika"
 ];
 
-},{}],741:[function(require,module,exports){
+},{}],742:[function(require,module,exports){
 module["exports"] = [
   "Slovensko"
 ];
 
-},{}],742:[function(require,module,exports){
+},{}],743:[function(require,module,exports){
 var address = {};
 module['exports'] = address;
 address.city_prefix = require("./city_prefix");
@@ -35466,20 +35640,20 @@ address.street_name = require("./street_name");
 address.street_address = require("./street_address");
 address.default_country = require("./default_country");
 
-},{"./building_number":735,"./city":736,"./city_name":737,"./city_prefix":738,"./city_suffix":739,"./country":740,"./default_country":741,"./postcode":743,"./secondary_address":744,"./state":745,"./state_abbr":746,"./street":747,"./street_address":748,"./street_name":749,"./time_zone":750}],743:[function(require,module,exports){
+},{"./building_number":736,"./city":737,"./city_name":738,"./city_prefix":739,"./city_suffix":740,"./country":741,"./default_country":742,"./postcode":744,"./secondary_address":745,"./state":746,"./state_abbr":747,"./street":748,"./street_address":749,"./street_name":750,"./time_zone":751}],744:[function(require,module,exports){
 module["exports"] = [
   "#####",
   "### ##",
   "## ###"
 ];
 
-},{}],744:[function(require,module,exports){
-arguments[4][129][0].apply(exports,arguments)
-},{"dup":129}],745:[function(require,module,exports){
-arguments[4][505][0].apply(exports,arguments)
-},{"dup":505}],746:[function(require,module,exports){
-arguments[4][505][0].apply(exports,arguments)
-},{"dup":505}],747:[function(require,module,exports){
+},{}],745:[function(require,module,exports){
+arguments[4][130][0].apply(exports,arguments)
+},{"dup":130}],746:[function(require,module,exports){
+arguments[4][506][0].apply(exports,arguments)
+},{"dup":506}],747:[function(require,module,exports){
+arguments[4][506][0].apply(exports,arguments)
+},{"dup":506}],748:[function(require,module,exports){
 module["exports"] = [
   "Adámiho",
   "Ahoj",
@@ -36643,18 +36817,18 @@ module["exports"] = [
   "Župné námestie"
 ];
 
-},{}],748:[function(require,module,exports){
-arguments[4][52][0].apply(exports,arguments)
-},{"dup":52}],749:[function(require,module,exports){
+},{}],749:[function(require,module,exports){
+arguments[4][53][0].apply(exports,arguments)
+},{"dup":53}],750:[function(require,module,exports){
 module["exports"] = [
   "#{street}"
 ];
 
-},{}],750:[function(require,module,exports){
-arguments[4][135][0].apply(exports,arguments)
-},{"dup":135}],751:[function(require,module,exports){
-arguments[4][150][0].apply(exports,arguments)
-},{"dup":150}],752:[function(require,module,exports){
+},{}],751:[function(require,module,exports){
+arguments[4][136][0].apply(exports,arguments)
+},{"dup":136}],752:[function(require,module,exports){
+arguments[4][151][0].apply(exports,arguments)
+},{"dup":151}],753:[function(require,module,exports){
 module["exports"] = [
   "clicks-and-mortar",
   "value-added",
@@ -36767,11 +36941,11 @@ module["exports"] = [
   "methodologies"
 ];
 
-},{}],753:[function(require,module,exports){
-arguments[4][153][0].apply(exports,arguments)
-},{"dup":153}],754:[function(require,module,exports){
+},{}],754:[function(require,module,exports){
 arguments[4][154][0].apply(exports,arguments)
 },{"dup":154}],755:[function(require,module,exports){
+arguments[4][155][0].apply(exports,arguments)
+},{"dup":155}],756:[function(require,module,exports){
 var company = {};
 module['exports'] = company;
 company.suffix = require("./suffix");
@@ -36782,23 +36956,23 @@ company.bs_verb = require("./bs_verb");
 company.bs_noun = require("./bs_noun");
 company.name = require("./name");
 
-},{"./adjective":751,"./bs_noun":752,"./bs_verb":753,"./descriptor":754,"./name":756,"./noun":757,"./suffix":758}],756:[function(require,module,exports){
+},{"./adjective":752,"./bs_noun":753,"./bs_verb":754,"./descriptor":755,"./name":757,"./noun":758,"./suffix":759}],757:[function(require,module,exports){
 module["exports"] = [
   "#{Name.last_name} #{suffix}",
   "#{Name.last_name} #{suffix}",
   "#{Name.man_last_name} a #{Name.man_last_name} #{suffix}"
 ];
 
-},{}],757:[function(require,module,exports){
-arguments[4][157][0].apply(exports,arguments)
-},{"dup":157}],758:[function(require,module,exports){
+},{}],758:[function(require,module,exports){
+arguments[4][158][0].apply(exports,arguments)
+},{"dup":158}],759:[function(require,module,exports){
 module["exports"] = [
   "s.r.o.",
   "a.s.",
   "v.o.s."
 ];
 
-},{}],759:[function(require,module,exports){
+},{}],760:[function(require,module,exports){
 var sk = {};
 module['exports'] = sk;
 sk.title = "Slovakian";
@@ -36809,7 +36983,7 @@ sk.lorem = require("./lorem");
 sk.name = require("./name");
 sk.phone_number = require("./phone_number");
 
-},{"./address":742,"./company":755,"./internet":762,"./lorem":763,"./name":766,"./phone_number":776}],760:[function(require,module,exports){
+},{"./address":743,"./company":756,"./internet":763,"./lorem":764,"./name":767,"./phone_number":777}],761:[function(require,module,exports){
 module["exports"] = [
   "sk",
   "com",
@@ -36818,22 +36992,22 @@ module["exports"] = [
   "org"
 ];
 
-},{}],761:[function(require,module,exports){
+},{}],762:[function(require,module,exports){
 module["exports"] = [
   "gmail.com",
   "zoznam.sk",
   "azet.sk"
 ];
 
-},{}],762:[function(require,module,exports){
-arguments[4][64][0].apply(exports,arguments)
-},{"./domain_suffix":760,"./free_email":761,"dup":64}],763:[function(require,module,exports){
-arguments[4][188][0].apply(exports,arguments)
-},{"./supplemental":764,"./words":765,"dup":188}],764:[function(require,module,exports){
+},{}],763:[function(require,module,exports){
+arguments[4][65][0].apply(exports,arguments)
+},{"./domain_suffix":761,"./free_email":762,"dup":65}],764:[function(require,module,exports){
 arguments[4][189][0].apply(exports,arguments)
-},{"dup":189}],765:[function(require,module,exports){
-arguments[4][66][0].apply(exports,arguments)
-},{"dup":66}],766:[function(require,module,exports){
+},{"./supplemental":765,"./words":766,"dup":189}],765:[function(require,module,exports){
+arguments[4][190][0].apply(exports,arguments)
+},{"dup":190}],766:[function(require,module,exports){
+arguments[4][67][0].apply(exports,arguments)
+},{"dup":67}],767:[function(require,module,exports){
 var name = {};
 module['exports'] = name;
 name.man_first_name = require("./man_first_name");
@@ -36845,7 +37019,7 @@ name.suffix = require("./suffix");
 name.title = require("./title");
 name.name = require("./name");
 
-},{"./man_first_name":767,"./man_last_name":768,"./name":769,"./prefix":770,"./suffix":771,"./title":772,"./woman_first_name":773,"./woman_last_name":774}],767:[function(require,module,exports){
+},{"./man_first_name":768,"./man_last_name":769,"./name":770,"./prefix":771,"./suffix":772,"./title":773,"./woman_first_name":774,"./woman_last_name":775}],768:[function(require,module,exports){
 module["exports"] = [
   "Drahoslav",
   "Severín",
@@ -37041,7 +37215,7 @@ module["exports"] = [
   "Silvester"
 ];
 
-},{}],768:[function(require,module,exports){
+},{}],769:[function(require,module,exports){
 module["exports"] = [
   "Antal",
   "Babka",
@@ -37302,7 +37476,7 @@ module["exports"] = [
   "Šťastný"
 ];
 
-},{}],769:[function(require,module,exports){
+},{}],770:[function(require,module,exports){
 module["exports"] = [
   "#{prefix} #{man_first_name} #{man_last_name}",
   "#{prefix} #{woman_first_name} #{woman_last_name}",
@@ -37316,7 +37490,7 @@ module["exports"] = [
   "#{woman_first_name} #{woman_last_name}"
 ];
 
-},{}],770:[function(require,module,exports){
+},{}],771:[function(require,module,exports){
 module["exports"] = [
   "Ing.",
   "Mgr.",
@@ -37324,14 +37498,14 @@ module["exports"] = [
   "MUDr."
 ];
 
-},{}],771:[function(require,module,exports){
+},{}],772:[function(require,module,exports){
 module["exports"] = [
   "Phd."
 ];
 
-},{}],772:[function(require,module,exports){
-arguments[4][197][0].apply(exports,arguments)
-},{"dup":197}],773:[function(require,module,exports){
+},{}],773:[function(require,module,exports){
+arguments[4][198][0].apply(exports,arguments)
+},{"dup":198}],774:[function(require,module,exports){
 module["exports"] = [
   "Alexandra",
   "Karina",
@@ -37535,7 +37709,7 @@ module["exports"] = [
   "Milada"
 ];
 
-},{}],774:[function(require,module,exports){
+},{}],775:[function(require,module,exports){
 module["exports"] = [
   "Antalová",
   "Babková",
@@ -37790,7 +37964,7 @@ module["exports"] = [
   "Šťastná"
 ];
 
-},{}],775:[function(require,module,exports){
+},{}],776:[function(require,module,exports){
 module["exports"] = [
   "09## ### ###",
   "0## #### ####",
@@ -37798,16 +37972,16 @@ module["exports"] = [
   "+421 ### ### ###"
 ];
 
-},{}],776:[function(require,module,exports){
-arguments[4][74][0].apply(exports,arguments)
-},{"./formats":775,"dup":74}],777:[function(require,module,exports){
-arguments[4][441][0].apply(exports,arguments)
-},{"dup":441}],778:[function(require,module,exports){
+},{}],777:[function(require,module,exports){
+arguments[4][75][0].apply(exports,arguments)
+},{"./formats":776,"dup":75}],778:[function(require,module,exports){
+arguments[4][442][0].apply(exports,arguments)
+},{"dup":442}],779:[function(require,module,exports){
 module["exports"] = [
   "#{city_prefix}#{city_suffix}"
 ];
 
-},{}],779:[function(require,module,exports){
+},{}],780:[function(require,module,exports){
 module["exports"] = [
   "Söder",
   "Norr",
@@ -37836,7 +38010,7 @@ module["exports"] = [
   "Ny"
 ];
 
-},{}],780:[function(require,module,exports){
+},{}],781:[function(require,module,exports){
 module["exports"] = [
   "stad",
   "land",
@@ -37859,13 +38033,13 @@ module["exports"] = [
   "vik"
 ];
 
-},{}],781:[function(require,module,exports){
+},{}],782:[function(require,module,exports){
 module["exports"] = [
   "s Väg",
   "s Gata"
 ];
 
-},{}],782:[function(require,module,exports){
+},{}],783:[function(require,module,exports){
 module["exports"] = [
   "Ryssland",
   "Kanada",
@@ -38074,12 +38248,12 @@ module["exports"] = [
   "Vatikanstaten"
 ];
 
-},{}],783:[function(require,module,exports){
+},{}],784:[function(require,module,exports){
 module["exports"] = [
   "Sverige"
 ];
 
-},{}],784:[function(require,module,exports){
+},{}],785:[function(require,module,exports){
 var address = {};
 module['exports'] = address;
 address.city_prefix = require("./city_prefix");
@@ -38098,15 +38272,15 @@ address.secondary_address = require("./secondary_address");
 address.street_address = require("./street_address");
 address.default_country = require("./default_country");
 
-},{"./building_number":777,"./city":778,"./city_prefix":779,"./city_suffix":780,"./common_street_suffix":781,"./country":782,"./default_country":783,"./postcode":785,"./secondary_address":786,"./state":787,"./street_address":788,"./street_name":789,"./street_prefix":790,"./street_root":791,"./street_suffix":792}],785:[function(require,module,exports){
-arguments[4][309][0].apply(exports,arguments)
-},{"dup":309}],786:[function(require,module,exports){
+},{"./building_number":778,"./city":779,"./city_prefix":780,"./city_suffix":781,"./common_street_suffix":782,"./country":783,"./default_country":784,"./postcode":786,"./secondary_address":787,"./state":788,"./street_address":789,"./street_name":790,"./street_prefix":791,"./street_root":792,"./street_suffix":793}],786:[function(require,module,exports){
+arguments[4][310][0].apply(exports,arguments)
+},{"dup":310}],787:[function(require,module,exports){
 module["exports"] = [
   "Lgh. ###",
   "Hus ###"
 ];
 
-},{}],787:[function(require,module,exports){
+},{}],788:[function(require,module,exports){
 module["exports"] = [
   "Blekinge",
   "Dalarna",
@@ -38133,11 +38307,11 @@ module["exports"] = [
   "Östergötland"
 ];
 
-},{}],788:[function(require,module,exports){
-arguments[4][52][0].apply(exports,arguments)
-},{"dup":52}],789:[function(require,module,exports){
-arguments[4][562][0].apply(exports,arguments)
-},{"dup":562}],790:[function(require,module,exports){
+},{}],789:[function(require,module,exports){
+arguments[4][53][0].apply(exports,arguments)
+},{"dup":53}],790:[function(require,module,exports){
+arguments[4][563][0].apply(exports,arguments)
+},{"dup":563}],791:[function(require,module,exports){
 module["exports"] = [
   "Västra",
   "Östra",
@@ -38147,7 +38321,7 @@ module["exports"] = [
   "Undre"
 ];
 
-},{}],791:[function(require,module,exports){
+},{}],792:[function(require,module,exports){
 module["exports"] = [
   "Björk",
   "Järnvägs",
@@ -38179,7 +38353,7 @@ module["exports"] = [
   "Asp"
 ];
 
-},{}],792:[function(require,module,exports){
+},{}],793:[function(require,module,exports){
 module["exports"] = [
   "vägen",
   "gatan",
@@ -38188,25 +38362,25 @@ module["exports"] = [
   "allén"
 ];
 
-},{}],793:[function(require,module,exports){
+},{}],794:[function(require,module,exports){
 module["exports"] = [
   56,
   62,
   59
 ];
 
-},{}],794:[function(require,module,exports){
+},{}],795:[function(require,module,exports){
 module["exports"] = [
   "#{common_cell_prefix}-###-####"
 ];
 
-},{}],795:[function(require,module,exports){
+},{}],796:[function(require,module,exports){
 var cell_phone = {};
 module['exports'] = cell_phone;
 cell_phone.common_cell_prefix = require("./common_cell_prefix");
 cell_phone.formats = require("./formats");
 
-},{"./common_cell_prefix":793,"./formats":794}],796:[function(require,module,exports){
+},{"./common_cell_prefix":794,"./formats":795}],797:[function(require,module,exports){
 module["exports"] = [
   "vit",
   "silver",
@@ -38225,7 +38399,7 @@ module["exports"] = [
   "korall"
 ];
 
-},{}],797:[function(require,module,exports){
+},{}],798:[function(require,module,exports){
 module["exports"] = [
   "Böcker",
   "Filmer",
@@ -38246,9 +38420,9 @@ module["exports"] = [
   "Sport"
 ];
 
-},{}],798:[function(require,module,exports){
-arguments[4][148][0].apply(exports,arguments)
-},{"./color":796,"./department":797,"./product_name":799,"dup":148}],799:[function(require,module,exports){
+},{}],799:[function(require,module,exports){
+arguments[4][149][0].apply(exports,arguments)
+},{"./color":797,"./department":798,"./product_name":800,"dup":149}],800:[function(require,module,exports){
 module["exports"] = {
   "adjective": [
     "Liten",
@@ -38286,16 +38460,16 @@ module["exports"] = {
   ]
 };
 
-},{}],800:[function(require,module,exports){
-arguments[4][110][0].apply(exports,arguments)
-},{"./name":801,"./suffix":802,"dup":110}],801:[function(require,module,exports){
+},{}],801:[function(require,module,exports){
+arguments[4][111][0].apply(exports,arguments)
+},{"./name":802,"./suffix":803,"dup":111}],802:[function(require,module,exports){
 module["exports"] = [
   "#{Name.last_name} #{suffix}",
   "#{Name.last_name}-#{Name.last_name}",
   "#{Name.last_name}, #{Name.last_name} #{suffix}"
 ];
 
-},{}],802:[function(require,module,exports){
+},{}],803:[function(require,module,exports){
 module["exports"] = [
   "Gruppen",
   "AB",
@@ -38306,7 +38480,7 @@ module["exports"] = [
   "Aktiebolag"
 ];
 
-},{}],803:[function(require,module,exports){
+},{}],804:[function(require,module,exports){
 var sv = {};
 module['exports'] = sv;
 sv.title = "Swedish";
@@ -38319,7 +38493,7 @@ sv.cell_phone = require("./cell_phone");
 sv.commerce = require("./commerce");
 sv.team = require("./team");
 
-},{"./address":784,"./cell_phone":795,"./commerce":798,"./company":800,"./internet":805,"./name":808,"./phone_number":814,"./team":815}],804:[function(require,module,exports){
+},{"./address":785,"./cell_phone":796,"./commerce":799,"./company":801,"./internet":806,"./name":809,"./phone_number":815,"./team":816}],805:[function(require,module,exports){
 module["exports"] = [
   "se",
   "nu",
@@ -38328,9 +38502,9 @@ module["exports"] = [
   "org"
 ];
 
-},{}],805:[function(require,module,exports){
-arguments[4][115][0].apply(exports,arguments)
-},{"./domain_suffix":804,"dup":115}],806:[function(require,module,exports){
+},{}],806:[function(require,module,exports){
+arguments[4][116][0].apply(exports,arguments)
+},{"./domain_suffix":805,"dup":116}],807:[function(require,module,exports){
 module["exports"] = [
   "Erik",
   "Lars",
@@ -38344,7 +38518,7 @@ module["exports"] = [
   "Hans"
 ];
 
-},{}],807:[function(require,module,exports){
+},{}],808:[function(require,module,exports){
 module["exports"] = [
   "Maria",
   "Anna",
@@ -38358,7 +38532,7 @@ module["exports"] = [
   "Marie"
 ];
 
-},{}],808:[function(require,module,exports){
+},{}],809:[function(require,module,exports){
 var name = {};
 module['exports'] = name;
 name.first_name_women = require("./first_name_women");
@@ -38368,7 +38542,7 @@ name.prefix = require("./prefix");
 name.title = require("./title");
 name.name = require("./name");
 
-},{"./first_name_men":806,"./first_name_women":807,"./last_name":809,"./name":810,"./prefix":811,"./title":812}],809:[function(require,module,exports){
+},{"./first_name_men":807,"./first_name_women":808,"./last_name":810,"./name":811,"./prefix":812,"./title":813}],810:[function(require,module,exports){
 module["exports"] = [
   "Johansson",
   "Andersson",
@@ -38382,7 +38556,7 @@ module["exports"] = [
   "Gustafsson"
 ];
 
-},{}],810:[function(require,module,exports){
+},{}],811:[function(require,module,exports){
 module["exports"] = [
   "#{first_name_women} #{last_name}",
   "#{first_name_men} #{last_name}",
@@ -38394,35 +38568,35 @@ module["exports"] = [
   "#{prefix} #{first_name_women} #{last_name}"
 ];
 
-},{}],811:[function(require,module,exports){
+},{}],812:[function(require,module,exports){
 module["exports"] = [
   "Dr.",
   "Prof.",
   "PhD."
 ];
 
-},{}],812:[function(require,module,exports){
-arguments[4][197][0].apply(exports,arguments)
-},{"dup":197}],813:[function(require,module,exports){
+},{}],813:[function(require,module,exports){
+arguments[4][198][0].apply(exports,arguments)
+},{"dup":198}],814:[function(require,module,exports){
 module["exports"] = [
   "####-#####",
   "####-######"
 ];
 
-},{}],814:[function(require,module,exports){
-arguments[4][74][0].apply(exports,arguments)
-},{"./formats":813,"dup":74}],815:[function(require,module,exports){
+},{}],815:[function(require,module,exports){
+arguments[4][75][0].apply(exports,arguments)
+},{"./formats":814,"dup":75}],816:[function(require,module,exports){
 var team = {};
 module['exports'] = team;
 team.suffix = require("./suffix");
 team.name = require("./name");
 
-},{"./name":816,"./suffix":817}],816:[function(require,module,exports){
+},{"./name":817,"./suffix":818}],817:[function(require,module,exports){
 module["exports"] = [
   "#{Address.city} #{suffix}"
 ];
 
-},{}],817:[function(require,module,exports){
+},{}],818:[function(require,module,exports){
 module["exports"] = [
   "IF",
   "FF",
@@ -38439,9 +38613,9 @@ module["exports"] = [
   "IK"
 ];
 
-},{}],818:[function(require,module,exports){
-arguments[4][41][0].apply(exports,arguments)
-},{"dup":41}],819:[function(require,module,exports){
+},{}],819:[function(require,module,exports){
+arguments[4][42][0].apply(exports,arguments)
+},{"dup":42}],820:[function(require,module,exports){
 module["exports"] = [
   "Adana",
   "Adıyaman",
@@ -38526,7 +38700,7 @@ module["exports"] = [
   "Düzce"
 ];
 
-},{}],820:[function(require,module,exports){
+},{}],821:[function(require,module,exports){
 module["exports"] = [
   "Afganistan",
   "Almanya",
@@ -38766,12 +38940,12 @@ module["exports"] = [
   "Zimbabve"
 ];
 
-},{}],821:[function(require,module,exports){
+},{}],822:[function(require,module,exports){
 module["exports"] = [
   "Türkiye"
 ];
 
-},{}],822:[function(require,module,exports){
+},{}],823:[function(require,module,exports){
 var address = {};
 module['exports'] = address;
 address.city = require("./city");
@@ -38783,13 +38957,13 @@ address.building_number = require("./building_number");
 address.street_name = require("./street_name");
 address.street_address = require("./street_address");
 
-},{"./building_number":818,"./city":819,"./country":820,"./default_country":821,"./postcode":823,"./street_address":824,"./street_name":825,"./street_root":826}],823:[function(require,module,exports){
-arguments[4][309][0].apply(exports,arguments)
-},{"dup":309}],824:[function(require,module,exports){
-arguments[4][52][0].apply(exports,arguments)
-},{"dup":52}],825:[function(require,module,exports){
+},{"./building_number":819,"./city":820,"./country":821,"./default_country":822,"./postcode":824,"./street_address":825,"./street_name":826,"./street_root":827}],824:[function(require,module,exports){
+arguments[4][310][0].apply(exports,arguments)
+},{"dup":310}],825:[function(require,module,exports){
 arguments[4][53][0].apply(exports,arguments)
 },{"dup":53}],826:[function(require,module,exports){
+arguments[4][54][0].apply(exports,arguments)
+},{"dup":54}],827:[function(require,module,exports){
 module["exports"] = [
   "Atatürk Bulvarı",
   "Alparslan Türkeş Bulvarı",
@@ -38834,7 +39008,7 @@ module["exports"] = [
   "Bandak Sokak"
 ];
 
-},{}],827:[function(require,module,exports){
+},{}],828:[function(require,module,exports){
 module["exports"] = [
   "+90-53#-###-##-##",
   "+90-54#-###-##-##",
@@ -38842,9 +39016,9 @@ module["exports"] = [
   "+90-50#-###-##-##"
 ];
 
-},{}],828:[function(require,module,exports){
-arguments[4][56][0].apply(exports,arguments)
-},{"./formats":827,"dup":56}],829:[function(require,module,exports){
+},{}],829:[function(require,module,exports){
+arguments[4][57][0].apply(exports,arguments)
+},{"./formats":828,"dup":57}],830:[function(require,module,exports){
 var tr = {};
 module['exports'] = tr;
 tr.title = "Turkish";
@@ -38855,7 +39029,7 @@ tr.phone_number = require("./phone_number");
 tr.cell_phone = require("./cell_phone");
 tr.name = require("./name");
 
-},{"./address":822,"./cell_phone":828,"./internet":831,"./lorem":832,"./name":835,"./phone_number":841}],830:[function(require,module,exports){
+},{"./address":823,"./cell_phone":829,"./internet":832,"./lorem":833,"./name":836,"./phone_number":842}],831:[function(require,module,exports){
 module["exports"] = [
   "com.tr",
   "com",
@@ -38865,13 +39039,13 @@ module["exports"] = [
   "gov.tr"
 ];
 
-},{}],831:[function(require,module,exports){
-arguments[4][115][0].apply(exports,arguments)
-},{"./domain_suffix":830,"dup":115}],832:[function(require,module,exports){
-arguments[4][65][0].apply(exports,arguments)
-},{"./words":833,"dup":65}],833:[function(require,module,exports){
+},{}],832:[function(require,module,exports){
+arguments[4][116][0].apply(exports,arguments)
+},{"./domain_suffix":831,"dup":116}],833:[function(require,module,exports){
 arguments[4][66][0].apply(exports,arguments)
-},{"dup":66}],834:[function(require,module,exports){
+},{"./words":834,"dup":66}],834:[function(require,module,exports){
+arguments[4][67][0].apply(exports,arguments)
+},{"dup":67}],835:[function(require,module,exports){
 module["exports"] = [
   "Aba",
   "Abak",
@@ -39606,7 +39780,7 @@ module["exports"] = [
   "Kızılalma"
 ];
 
-},{}],835:[function(require,module,exports){
+},{}],836:[function(require,module,exports){
 var name = {};
 module['exports'] = name;
 name.first_name = require("./first_name");
@@ -39614,7 +39788,7 @@ name.last_name = require("./last_name");
 name.prefix = require("./prefix");
 name.name = require("./name");
 
-},{"./first_name":834,"./last_name":836,"./name":837,"./prefix":838}],836:[function(require,module,exports){
+},{"./first_name":835,"./last_name":837,"./name":838,"./prefix":839}],837:[function(require,module,exports){
 module["exports"] = [
   "Abacı",
   "Abadan",
@@ -39816,9 +39990,9 @@ module["exports"] = [
   "Öztuna"
 ];
 
-},{}],837:[function(require,module,exports){
-arguments[4][468][0].apply(exports,arguments)
-},{"dup":468}],838:[function(require,module,exports){
+},{}],838:[function(require,module,exports){
+arguments[4][469][0].apply(exports,arguments)
+},{"dup":469}],839:[function(require,module,exports){
 module["exports"] = [
   "Bay",
   "Bayan",
@@ -39826,7 +40000,7 @@ module["exports"] = [
   "Prof. Dr."
 ];
 
-},{}],839:[function(require,module,exports){
+},{}],840:[function(require,module,exports){
 module["exports"] = [
   "392",
   "510",
@@ -39927,27 +40101,27 @@ module["exports"] = [
   "372"
 ];
 
-},{}],840:[function(require,module,exports){
+},{}],841:[function(require,module,exports){
 module["exports"] = [
   "+90-###-###-##-##",
   "+90-###-###-#-###"
 ];
 
-},{}],841:[function(require,module,exports){
+},{}],842:[function(require,module,exports){
 var phone_number = {};
 module['exports'] = phone_number;
 phone_number.area_code = require("./area_code");
 phone_number.formats = require("./formats");
 
-},{"./area_code":839,"./formats":840}],842:[function(require,module,exports){
-arguments[4][735][0].apply(exports,arguments)
-},{"dup":735}],843:[function(require,module,exports){
+},{"./area_code":840,"./formats":841}],843:[function(require,module,exports){
+arguments[4][736][0].apply(exports,arguments)
+},{"dup":736}],844:[function(require,module,exports){
 module["exports"] = [
   "#{city_name}",
   "#{city_prefix} #{Name.male_first_name}"
 ];
 
-},{}],844:[function(require,module,exports){
+},{}],845:[function(require,module,exports){
 module["exports"] = [
   "Алчевськ",
   "Артемівськ",
@@ -40008,7 +40182,7 @@ module["exports"] = [
   "Ялта"
 ];
 
-},{}],845:[function(require,module,exports){
+},{}],846:[function(require,module,exports){
 module["exports"] = [
   "Південний",
   "Північний",
@@ -40016,12 +40190,12 @@ module["exports"] = [
   "Західний"
 ];
 
-},{}],846:[function(require,module,exports){
+},{}],847:[function(require,module,exports){
 module["exports"] = [
   "град"
 ];
 
-},{}],847:[function(require,module,exports){
+},{}],848:[function(require,module,exports){
 module["exports"] = [
   "Австралія",
   "Австрія",
@@ -40218,12 +40392,12 @@ module["exports"] = [
   "Японія"
 ];
 
-},{}],848:[function(require,module,exports){
+},{}],849:[function(require,module,exports){
 module["exports"] = [
   "Україна"
 ];
 
-},{}],849:[function(require,module,exports){
+},{}],850:[function(require,module,exports){
 var address = {};
 module['exports'] = address;
 address.country = require("./country");
@@ -40242,11 +40416,11 @@ address.street_name = require("./street_name");
 address.street_address = require("./street_address");
 address.default_country = require("./default_country");
 
-},{"./building_number":842,"./city":843,"./city_name":844,"./city_prefix":845,"./city_suffix":846,"./country":847,"./default_country":848,"./postcode":850,"./secondary_address":851,"./state":852,"./street_address":853,"./street_name":854,"./street_prefix":855,"./street_suffix":856,"./street_title":857}],850:[function(require,module,exports){
-arguments[4][309][0].apply(exports,arguments)
-},{"dup":309}],851:[function(require,module,exports){
-arguments[4][702][0].apply(exports,arguments)
-},{"dup":702}],852:[function(require,module,exports){
+},{"./building_number":843,"./city":844,"./city_name":845,"./city_prefix":846,"./city_suffix":847,"./country":848,"./default_country":849,"./postcode":851,"./secondary_address":852,"./state":853,"./street_address":854,"./street_name":855,"./street_prefix":856,"./street_suffix":857,"./street_title":858}],851:[function(require,module,exports){
+arguments[4][310][0].apply(exports,arguments)
+},{"dup":310}],852:[function(require,module,exports){
+arguments[4][703][0].apply(exports,arguments)
+},{"dup":703}],853:[function(require,module,exports){
 module["exports"] = [
   "АР Крим",
   "Вінницька область",
@@ -40277,15 +40451,15 @@ module["exports"] = [
   "Севастополь"
 ];
 
-},{}],853:[function(require,module,exports){
-arguments[4][704][0].apply(exports,arguments)
-},{"dup":704}],854:[function(require,module,exports){
+},{}],854:[function(require,module,exports){
+arguments[4][705][0].apply(exports,arguments)
+},{"dup":705}],855:[function(require,module,exports){
 module["exports"] = [
   "#{street_prefix} #{Address.street_title}",
   "#{Address.street_title} #{street_suffix}"
 ];
 
-},{}],855:[function(require,module,exports){
+},{}],856:[function(require,module,exports){
 module["exports"] = [
   "вул.",
   "вулиця",
@@ -40297,12 +40471,12 @@ module["exports"] = [
   "провулок"
 ];
 
-},{}],856:[function(require,module,exports){
+},{}],857:[function(require,module,exports){
 module["exports"] = [
   "майдан"
 ];
 
-},{}],857:[function(require,module,exports){
+},{}],858:[function(require,module,exports){
 module["exports"] = [
   "Зелена",
   "Молодіжна",
@@ -40319,11 +40493,11 @@ module["exports"] = [
   "Коліївщини"
 ];
 
-},{}],858:[function(require,module,exports){
-arguments[4][457][0].apply(exports,arguments)
-},{"./name":859,"./prefix":860,"./suffix":861,"dup":457}],859:[function(require,module,exports){
-arguments[4][713][0].apply(exports,arguments)
-},{"dup":713}],860:[function(require,module,exports){
+},{}],859:[function(require,module,exports){
+arguments[4][458][0].apply(exports,arguments)
+},{"./name":860,"./prefix":861,"./suffix":862,"dup":458}],860:[function(require,module,exports){
+arguments[4][714][0].apply(exports,arguments)
+},{"dup":714}],861:[function(require,module,exports){
 module["exports"] = [
   "ТОВ",
   "ПАТ",
@@ -40335,7 +40509,7 @@ module["exports"] = [
   "ФОП"
 ];
 
-},{}],861:[function(require,module,exports){
+},{}],862:[function(require,module,exports){
 module["exports"] = [
   "Постач",
   "Торг",
@@ -40344,7 +40518,7 @@ module["exports"] = [
   "Збут"
 ];
 
-},{}],862:[function(require,module,exports){
+},{}],863:[function(require,module,exports){
 var uk = {};
 module['exports'] = uk;
 uk.title = "Ukrainian";
@@ -40354,7 +40528,7 @@ uk.internet = require("./internet");
 uk.name = require("./name");
 uk.phone_number = require("./phone_number");
 
-},{"./address":849,"./company":858,"./internet":865,"./name":869,"./phone_number":878}],863:[function(require,module,exports){
+},{"./address":850,"./company":859,"./internet":866,"./name":870,"./phone_number":879}],864:[function(require,module,exports){
 module["exports"] = [
   "cherkassy.ua",
   "cherkasy.ua",
@@ -40418,7 +40592,7 @@ module["exports"] = [
   "укр"
 ];
 
-},{}],864:[function(require,module,exports){
+},{}],865:[function(require,module,exports){
 module["exports"] = [
   "ukr.net",
   "ex.ua",
@@ -40429,9 +40603,9 @@ module["exports"] = [
   "gmail.com"
 ];
 
-},{}],865:[function(require,module,exports){
-arguments[4][64][0].apply(exports,arguments)
-},{"./domain_suffix":863,"./free_email":864,"dup":64}],866:[function(require,module,exports){
+},{}],866:[function(require,module,exports){
+arguments[4][65][0].apply(exports,arguments)
+},{"./domain_suffix":864,"./free_email":865,"dup":65}],867:[function(require,module,exports){
 module["exports"] = [
   "Аврелія",
   "Аврора",
@@ -40628,7 +40802,7 @@ module["exports"] = [
   "Ярослава"
 ];
 
-},{}],867:[function(require,module,exports){
+},{}],868:[function(require,module,exports){
 module["exports"] = [
   "Андрухович",
   "Бабух",
@@ -40862,7 +41036,7 @@ module["exports"] = [
   "Ящук"
 ];
 
-},{}],868:[function(require,module,exports){
+},{}],869:[function(require,module,exports){
 module["exports"] = [
   "Адамівна",
   "Азарівна",
@@ -40982,7 +41156,7 @@ module["exports"] = [
   "Ярославівна"
 ];
 
-},{}],869:[function(require,module,exports){
+},{}],870:[function(require,module,exports){
 var name = {};
 module['exports'] = name;
 name.male_first_name = require("./male_first_name");
@@ -40996,7 +41170,7 @@ name.suffix = require("./suffix");
 name.title = require("./title");
 name.name = require("./name");
 
-},{"./female_first_name":866,"./female_last_name":867,"./female_middle_name":868,"./male_first_name":870,"./male_last_name":871,"./male_middle_name":872,"./name":873,"./prefix":874,"./suffix":875,"./title":876}],870:[function(require,module,exports){
+},{"./female_first_name":867,"./female_last_name":868,"./female_middle_name":869,"./male_first_name":871,"./male_last_name":872,"./male_middle_name":873,"./name":874,"./prefix":875,"./suffix":876,"./title":877}],871:[function(require,module,exports){
 module["exports"] = [
   "Августин",
   "Аврелій",
@@ -41195,7 +41369,7 @@ module["exports"] = [
   "Ярослав"
 ];
 
-},{}],871:[function(require,module,exports){
+},{}],872:[function(require,module,exports){
 module["exports"] = [
   "Андрухович",
   "Бабух",
@@ -41438,7 +41612,7 @@ module["exports"] = [
   "Ящук"
 ];
 
-},{}],872:[function(require,module,exports){
+},{}],873:[function(require,module,exports){
 module["exports"] = [
   "Адамович",
   "Азарович",
@@ -41558,15 +41732,15 @@ module["exports"] = [
   "Ярославович"
 ];
 
-},{}],873:[function(require,module,exports){
-arguments[4][730][0].apply(exports,arguments)
-},{"dup":730}],874:[function(require,module,exports){
+},{}],874:[function(require,module,exports){
+arguments[4][731][0].apply(exports,arguments)
+},{"dup":731}],875:[function(require,module,exports){
 module["exports"] = [
   "Пан",
   "Пані"
 ];
 
-},{}],875:[function(require,module,exports){
+},{}],876:[function(require,module,exports){
 module["exports"] = [
   "проф.",
   "доц.",
@@ -41588,7 +41762,7 @@ module["exports"] = [
   "канд. психол. наук"
 ];
 
-},{}],876:[function(require,module,exports){
+},{}],877:[function(require,module,exports){
 module["exports"] = {
   "descriptor": [
     "Головний",
@@ -41630,7 +41804,7 @@ module["exports"] = {
   ]
 };
 
-},{}],877:[function(require,module,exports){
+},{}],878:[function(require,module,exports){
 module["exports"] = [
   "(044) ###-##-##",
   "(050) ###-##-##",
@@ -41648,14 +41822,14 @@ module["exports"] = [
   "(099) ###-##-##"
 ];
 
-},{}],878:[function(require,module,exports){
-arguments[4][74][0].apply(exports,arguments)
-},{"./formats":877,"dup":74}],879:[function(require,module,exports){
+},{}],879:[function(require,module,exports){
+arguments[4][75][0].apply(exports,arguments)
+},{"./formats":878,"dup":75}],880:[function(require,module,exports){
 module["exports"] = [
   "#{city_root}"
 ];
 
-},{}],880:[function(require,module,exports){
+},{}],881:[function(require,module,exports){
 module["exports"] = [
   "Bắc Giang",
   "Bắc Kạn",
@@ -41722,7 +41896,7 @@ module["exports"] = [
   "Vĩnh Long"
 ];
 
-},{}],881:[function(require,module,exports){
+},{}],882:[function(require,module,exports){
 module["exports"] = [
   "Avon",
   "Bedfordshire",
@@ -41797,12 +41971,12 @@ module["exports"] = [
   "Worcestershire"
 ];
 
-},{}],882:[function(require,module,exports){
+},{}],883:[function(require,module,exports){
 module["exports"] = [
   "Việt Nam"
 ];
 
-},{}],883:[function(require,module,exports){
+},{}],884:[function(require,module,exports){
 var address = {};
 module['exports'] = address;
 address.city_root = require("./city_root");
@@ -41810,22 +41984,22 @@ address.city = require("./city");
 address.county = require("./county");
 address.default_country = require("./default_country");
 
-},{"./city":879,"./city_root":880,"./county":881,"./default_country":882}],884:[function(require,module,exports){
-arguments[4][238][0].apply(exports,arguments)
-},{"dup":238}],885:[function(require,module,exports){
-arguments[4][56][0].apply(exports,arguments)
-},{"./formats":884,"dup":56}],886:[function(require,module,exports){
+},{"./city":880,"./city_root":881,"./county":882,"./default_country":883}],885:[function(require,module,exports){
+arguments[4][239][0].apply(exports,arguments)
+},{"dup":239}],886:[function(require,module,exports){
+arguments[4][57][0].apply(exports,arguments)
+},{"./formats":885,"dup":57}],887:[function(require,module,exports){
 var company = {};
 module['exports'] = company;
 company.prefix = require("./prefix");
 company.name = require("./name");
 
-},{"./name":887,"./prefix":888}],887:[function(require,module,exports){
+},{"./name":888,"./prefix":889}],888:[function(require,module,exports){
 module["exports"] = [
   "#{prefix} #{Name.last_name}"
 ];
 
-},{}],888:[function(require,module,exports){
+},{}],889:[function(require,module,exports){
 module["exports"] = [
   "Công ty",
   "Cty TNHH",
@@ -41835,7 +42009,7 @@ module["exports"] = [
   "Chi nhánh"
 ];
 
-},{}],889:[function(require,module,exports){
+},{}],890:[function(require,module,exports){
 var vi = {};
 module['exports'] = vi;
 vi.title = "Vietnamese";
@@ -41847,7 +42021,7 @@ vi.name = require("./name");
 vi.company = require("./company");
 vi.lorem = require("./lorem");
 
-},{"./address":883,"./cell_phone":885,"./company":886,"./internet":891,"./lorem":892,"./name":895,"./phone_number":899}],890:[function(require,module,exports){
+},{"./address":884,"./cell_phone":886,"./company":887,"./internet":892,"./lorem":893,"./name":896,"./phone_number":900}],891:[function(require,module,exports){
 module["exports"] = [
   "com",
   "net",
@@ -41856,11 +42030,11 @@ module["exports"] = [
   "com.vn"
 ];
 
-},{}],891:[function(require,module,exports){
-arguments[4][115][0].apply(exports,arguments)
-},{"./domain_suffix":890,"dup":115}],892:[function(require,module,exports){
-arguments[4][65][0].apply(exports,arguments)
-},{"./words":893,"dup":65}],893:[function(require,module,exports){
+},{}],892:[function(require,module,exports){
+arguments[4][116][0].apply(exports,arguments)
+},{"./domain_suffix":891,"dup":116}],893:[function(require,module,exports){
+arguments[4][66][0].apply(exports,arguments)
+},{"./words":894,"dup":66}],894:[function(require,module,exports){
 module["exports"] = [
   "đã",
   "đang",
@@ -41967,7 +42141,7 @@ module["exports"] = [
   "hương"
 ];
 
-},{}],894:[function(require,module,exports){
+},{}],895:[function(require,module,exports){
 module["exports"] = [
   "Phạm",
   "Nguyễn",
@@ -41997,14 +42171,14 @@ module["exports"] = [
   "Hà"
 ];
 
-},{}],895:[function(require,module,exports){
+},{}],896:[function(require,module,exports){
 var name = {};
 module['exports'] = name;
 name.first_name = require("./first_name");
 name.last_name = require("./last_name");
 name.name = require("./name");
 
-},{"./first_name":894,"./last_name":896,"./name":897}],896:[function(require,module,exports){
+},{"./first_name":895,"./last_name":897,"./name":898}],897:[function(require,module,exports){
 module["exports"] = [
   "Nam",
   "Trung",
@@ -42081,18 +42255,18 @@ module["exports"] = [
   "Nhàn"
 ];
 
-},{}],897:[function(require,module,exports){
+},{}],898:[function(require,module,exports){
 module["exports"] = [
   "#{first_name} #{last_name}",
   "#{first_name} #{last_name} #{last_name}",
   "#{first_name} #{last_name} #{last_name} #{last_name}"
 ];
 
-},{}],898:[function(require,module,exports){
-arguments[4][243][0].apply(exports,arguments)
-},{"dup":243}],899:[function(require,module,exports){
-arguments[4][74][0].apply(exports,arguments)
-},{"./formats":898,"dup":74}],900:[function(require,module,exports){
+},{}],899:[function(require,module,exports){
+arguments[4][244][0].apply(exports,arguments)
+},{"dup":244}],900:[function(require,module,exports){
+arguments[4][75][0].apply(exports,arguments)
+},{"./formats":899,"dup":75}],901:[function(require,module,exports){
 module["exports"] = [
   "#####",
   "####",
@@ -42101,9 +42275,9 @@ module["exports"] = [
   "#"
 ];
 
-},{}],901:[function(require,module,exports){
-arguments[4][778][0].apply(exports,arguments)
-},{"dup":778}],902:[function(require,module,exports){
+},{}],902:[function(require,module,exports){
+arguments[4][779][0].apply(exports,arguments)
+},{"dup":779}],903:[function(require,module,exports){
 module["exports"] = [
   "长",
   "上",
@@ -42128,7 +42302,7 @@ module["exports"] = [
   "包"
 ];
 
-},{}],903:[function(require,module,exports){
+},{}],904:[function(require,module,exports){
 module["exports"] = [
   "沙市",
   "京市",
@@ -42151,12 +42325,12 @@ module["exports"] = [
   "头市"
 ];
 
-},{}],904:[function(require,module,exports){
+},{}],905:[function(require,module,exports){
 module["exports"] = [
   "中国"
 ];
 
-},{}],905:[function(require,module,exports){
+},{}],906:[function(require,module,exports){
 var address = {};
 module['exports'] = address;
 address.city_prefix = require("./city_prefix");
@@ -42171,9 +42345,9 @@ address.street_name = require("./street_name");
 address.street_address = require("./street_address");
 address.default_country = require("./default_country");
 
-},{"./building_number":900,"./city":901,"./city_prefix":902,"./city_suffix":903,"./default_country":904,"./postcode":906,"./state":907,"./state_abbr":908,"./street_address":909,"./street_name":910,"./street_suffix":911}],906:[function(require,module,exports){
-arguments[4][701][0].apply(exports,arguments)
-},{"dup":701}],907:[function(require,module,exports){
+},{"./building_number":901,"./city":902,"./city_prefix":903,"./city_suffix":904,"./default_country":905,"./postcode":907,"./state":908,"./state_abbr":909,"./street_address":910,"./street_name":911,"./street_suffix":912}],907:[function(require,module,exports){
+arguments[4][702][0].apply(exports,arguments)
+},{"dup":702}],908:[function(require,module,exports){
 module["exports"] = [
   "北京市",
   "上海市",
@@ -42211,7 +42385,7 @@ module["exports"] = [
   "澳门"
 ];
 
-},{}],908:[function(require,module,exports){
+},{}],909:[function(require,module,exports){
 module["exports"] = [
   "京",
   "沪",
@@ -42249,17 +42423,17 @@ module["exports"] = [
   "澳"
 ];
 
-},{}],909:[function(require,module,exports){
+},{}],910:[function(require,module,exports){
 module["exports"] = [
   "#{street_name}#{building_number}号"
 ];
 
-},{}],910:[function(require,module,exports){
+},{}],911:[function(require,module,exports){
 module["exports"] = [
   "#{Name.last_name}#{street_suffix}"
 ];
 
-},{}],911:[function(require,module,exports){
+},{}],912:[function(require,module,exports){
 module["exports"] = [
   "巷",
   "街",
@@ -42271,7 +42445,7 @@ module["exports"] = [
   "栋"
 ];
 
-},{}],912:[function(require,module,exports){
+},{}],913:[function(require,module,exports){
 var zh_CN = {};
 module['exports'] = zh_CN;
 zh_CN.title = "Chinese";
@@ -42279,7 +42453,7 @@ zh_CN.address = require("./address");
 zh_CN.name = require("./name");
 zh_CN.phone_number = require("./phone_number");
 
-},{"./address":905,"./name":914,"./phone_number":918}],913:[function(require,module,exports){
+},{"./address":906,"./name":915,"./phone_number":919}],914:[function(require,module,exports){
 module["exports"] = [
   "王",
   "李",
@@ -42383,9 +42557,9 @@ module["exports"] = [
   "孔"
 ];
 
-},{}],914:[function(require,module,exports){
-arguments[4][895][0].apply(exports,arguments)
-},{"./first_name":913,"./last_name":915,"./name":916,"dup":895}],915:[function(require,module,exports){
+},{}],915:[function(require,module,exports){
+arguments[4][896][0].apply(exports,arguments)
+},{"./first_name":914,"./last_name":916,"./name":917,"dup":896}],916:[function(require,module,exports){
 module["exports"] = [
   "绍齐",
   "博文",
@@ -42523,25 +42697,25 @@ module["exports"] = [
   "彬"
 ];
 
-},{}],916:[function(require,module,exports){
+},{}],917:[function(require,module,exports){
 module["exports"] = [
   "#{first_name}#{last_name}"
 ];
 
-},{}],917:[function(require,module,exports){
+},{}],918:[function(require,module,exports){
 module["exports"] = [
   "###-########",
   "####-########",
   "###########"
 ];
 
-},{}],918:[function(require,module,exports){
-arguments[4][74][0].apply(exports,arguments)
-},{"./formats":917,"dup":74}],919:[function(require,module,exports){
-arguments[4][394][0].apply(exports,arguments)
-},{"dup":394}],920:[function(require,module,exports){
-arguments[4][778][0].apply(exports,arguments)
-},{"dup":778}],921:[function(require,module,exports){
+},{}],919:[function(require,module,exports){
+arguments[4][75][0].apply(exports,arguments)
+},{"./formats":918,"dup":75}],920:[function(require,module,exports){
+arguments[4][395][0].apply(exports,arguments)
+},{"dup":395}],921:[function(require,module,exports){
+arguments[4][779][0].apply(exports,arguments)
+},{"dup":779}],922:[function(require,module,exports){
 module["exports"] = [
   "臺北",
   "新北",
@@ -42565,28 +42739,28 @@ module["exports"] = [
   "連江"
 ];
 
-},{}],922:[function(require,module,exports){
+},{}],923:[function(require,module,exports){
 module["exports"] = [
   "縣",
   "市"
 ];
 
-},{}],923:[function(require,module,exports){
+},{}],924:[function(require,module,exports){
 module["exports"] = [
   "Taiwan (R.O.C.)"
 ];
 
-},{}],924:[function(require,module,exports){
-arguments[4][905][0].apply(exports,arguments)
-},{"./building_number":919,"./city":920,"./city_prefix":921,"./city_suffix":922,"./default_country":923,"./postcode":925,"./state":926,"./state_abbr":927,"./street_address":928,"./street_name":929,"./street_suffix":930,"dup":905}],925:[function(require,module,exports){
-arguments[4][701][0].apply(exports,arguments)
-},{"dup":701}],926:[function(require,module,exports){
+},{}],925:[function(require,module,exports){
+arguments[4][906][0].apply(exports,arguments)
+},{"./building_number":920,"./city":921,"./city_prefix":922,"./city_suffix":923,"./default_country":924,"./postcode":926,"./state":927,"./state_abbr":928,"./street_address":929,"./street_name":930,"./street_suffix":931,"dup":906}],926:[function(require,module,exports){
+arguments[4][702][0].apply(exports,arguments)
+},{"dup":702}],927:[function(require,module,exports){
 module["exports"] = [
   "福建省",
   "台灣省"
 ];
 
-},{}],927:[function(require,module,exports){
+},{}],928:[function(require,module,exports){
 module["exports"] = [
   "北",
   "新北",
@@ -42611,14 +42785,14 @@ module["exports"] = [
   "馬"
 ];
 
-},{}],928:[function(require,module,exports){
+},{}],929:[function(require,module,exports){
 module["exports"] = [
   "#{street_name}#{building_number}號"
 ];
 
-},{}],929:[function(require,module,exports){
-arguments[4][910][0].apply(exports,arguments)
-},{"dup":910}],930:[function(require,module,exports){
+},{}],930:[function(require,module,exports){
+arguments[4][911][0].apply(exports,arguments)
+},{"dup":911}],931:[function(require,module,exports){
 module["exports"] = [
   "街",
   "路",
@@ -42628,7 +42802,7 @@ module["exports"] = [
   "西路"
 ];
 
-},{}],931:[function(require,module,exports){
+},{}],932:[function(require,module,exports){
 var zh_TW = {};
 module['exports'] = zh_TW;
 zh_TW.title = "Chinese (Taiwan)";
@@ -42636,7 +42810,7 @@ zh_TW.address = require("./address");
 zh_TW.name = require("./name");
 zh_TW.phone_number = require("./phone_number");
 
-},{"./address":924,"./name":933,"./phone_number":937}],932:[function(require,module,exports){
+},{"./address":925,"./name":934,"./phone_number":938}],933:[function(require,module,exports){
 module["exports"] = [
   "王",
   "李",
@@ -42740,9 +42914,9 @@ module["exports"] = [
   "孔"
 ];
 
-},{}],933:[function(require,module,exports){
-arguments[4][895][0].apply(exports,arguments)
-},{"./first_name":932,"./last_name":934,"./name":935,"dup":895}],934:[function(require,module,exports){
+},{}],934:[function(require,module,exports){
+arguments[4][896][0].apply(exports,arguments)
+},{"./first_name":933,"./last_name":935,"./name":936,"dup":896}],935:[function(require,module,exports){
 module["exports"] = [
   "紹齊",
   "博文",
@@ -42869,18 +43043,18 @@ module["exports"] = [
   "聰健"
 ];
 
-},{}],935:[function(require,module,exports){
-arguments[4][916][0].apply(exports,arguments)
-},{"dup":916}],936:[function(require,module,exports){
+},{}],936:[function(require,module,exports){
+arguments[4][917][0].apply(exports,arguments)
+},{"dup":917}],937:[function(require,module,exports){
 module["exports"] = [
   "0#-#######",
   "02-########",
   "09##-######"
 ];
 
-},{}],937:[function(require,module,exports){
-arguments[4][74][0].apply(exports,arguments)
-},{"./formats":936,"dup":74}],938:[function(require,module,exports){
+},{}],938:[function(require,module,exports){
+arguments[4][75][0].apply(exports,arguments)
+},{"./formats":937,"dup":75}],939:[function(require,module,exports){
 
 var Lorem = function (faker) {
   var self = this;
@@ -42934,7 +43108,7 @@ var Lorem = function (faker) {
 
 module["exports"] = Lorem;
 
-},{}],939:[function(require,module,exports){
+},{}],940:[function(require,module,exports){
 function Name (faker) {
 
   this.firstName = function (gender) {
@@ -43032,7 +43206,7 @@ function Name (faker) {
 }
 
 module['exports'] = Name;
-},{}],940:[function(require,module,exports){
+},{}],941:[function(require,module,exports){
 var Phone = function (faker) {
   var self = this;
 
@@ -43056,7 +43230,7 @@ var Phone = function (faker) {
 };
 
 module['exports'] = Phone;
-},{}],941:[function(require,module,exports){
+},{}],942:[function(require,module,exports){
 var mersenne = require('../vendor/mersenne');
 
 function Random (faker, seed) {
@@ -43144,7 +43318,7 @@ module['exports'] = Random;
 
 // module.exports = random;
 
-},{"../vendor/mersenne":942}],942:[function(require,module,exports){
+},{"../vendor/mersenne":943}],943:[function(require,module,exports){
 // this program is a JavaScript version of Mersenne Twister, with concealment and encapsulation in class,
 // an almost straight conversion from the original program, mt19937ar.c,
 // translated by y. okada on July 17, 2006.
@@ -43432,7 +43606,7 @@ exports.seed_array = function(A) {
     gen.init_by_array(A);
 }
 
-},{}],943:[function(require,module,exports){
+},{}],944:[function(require,module,exports){
 /*
  * password-generator
  * Copyright(c) 2011-2013 Bermi Ferrer <bermi@bermilabs.com>
@@ -43498,7 +43672,7 @@ exports.seed_array = function(A) {
 
   // Establish the root object, `window` in the browser, or `global` on the server.
 }(this));
-},{}],944:[function(require,module,exports){
+},{}],945:[function(require,module,exports){
 /*
 
 Copyright (c) 2012-2014 Jeffrey Mealo
@@ -43709,7 +43883,9 @@ exports.generate = function generate() {
     return browser[random[0]](random[1]);
 };
 
-},{}],945:[function(require,module,exports){
+},{}],946:[function(require,module,exports){
+module.exports = FormData;
+},{}],947:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.2.1
  * http://jquery.com/
@@ -53541,5 +53717,1304 @@ if ( !noGlobal ) {
 
 return jQuery;
 }));
+
+},{}],948:[function(require,module,exports){
+
+/**
+ * Reduce `arr` with `fn`.
+ *
+ * @param {Array} arr
+ * @param {Function} fn
+ * @param {Mixed} initial
+ *
+ * TODO: combatible error handling?
+ */
+
+module.exports = function(arr, fn, initial){  
+  var idx = 0;
+  var len = arr.length;
+  var curr = arguments.length == 3
+    ? initial
+    : arr[idx++];
+
+  while (idx < len) {
+    curr = fn.call(null, curr, arr[idx], ++idx, arr);
+  }
+  
+  return curr;
+};
+},{}],949:[function(require,module,exports){
+/**
+ * Module dependencies.
+ */
+
+var Emitter = require('emitter');
+var reduce = require('reduce');
+var requestBase = require('./request-base');
+var isObject = require('./is-object');
+
+/**
+ * Root reference for iframes.
+ */
+
+var root;
+if (typeof window !== 'undefined') { // Browser window
+  root = window;
+} else if (typeof self !== 'undefined') { // Web Worker
+  root = self;
+} else { // Other environments
+  root = this;
+}
+
+/**
+ * Noop.
+ */
+
+function noop(){};
+
+/**
+ * Check if `obj` is a host object,
+ * we don't want to serialize these :)
+ *
+ * TODO: future proof, move to compoent land
+ *
+ * @param {Object} obj
+ * @return {Boolean}
+ * @api private
+ */
+
+function isHost(obj) {
+  var str = {}.toString.call(obj);
+
+  switch (str) {
+    case '[object File]':
+    case '[object Blob]':
+    case '[object FormData]':
+      return true;
+    default:
+      return false;
+  }
+}
+
+/**
+ * Expose `request`.
+ */
+
+var request = module.exports = require('./request').bind(null, Request);
+
+/**
+ * Determine XHR.
+ */
+
+request.getXHR = function () {
+  if (root.XMLHttpRequest
+      && (!root.location || 'file:' != root.location.protocol
+          || !root.ActiveXObject)) {
+    return new XMLHttpRequest;
+  } else {
+    try { return new ActiveXObject('Microsoft.XMLHTTP'); } catch(e) {}
+    try { return new ActiveXObject('Msxml2.XMLHTTP.6.0'); } catch(e) {}
+    try { return new ActiveXObject('Msxml2.XMLHTTP.3.0'); } catch(e) {}
+    try { return new ActiveXObject('Msxml2.XMLHTTP'); } catch(e) {}
+  }
+  return false;
+};
+
+/**
+ * Removes leading and trailing whitespace, added to support IE.
+ *
+ * @param {String} s
+ * @return {String}
+ * @api private
+ */
+
+var trim = ''.trim
+  ? function(s) { return s.trim(); }
+  : function(s) { return s.replace(/(^\s*|\s*$)/g, ''); };
+
+/**
+ * Serialize the given `obj`.
+ *
+ * @param {Object} obj
+ * @return {String}
+ * @api private
+ */
+
+function serialize(obj) {
+  if (!isObject(obj)) return obj;
+  var pairs = [];
+  for (var key in obj) {
+    if (null != obj[key]) {
+      pushEncodedKeyValuePair(pairs, key, obj[key]);
+        }
+      }
+  return pairs.join('&');
+}
+
+/**
+ * Helps 'serialize' with serializing arrays.
+ * Mutates the pairs array.
+ *
+ * @param {Array} pairs
+ * @param {String} key
+ * @param {Mixed} val
+ */
+
+function pushEncodedKeyValuePair(pairs, key, val) {
+  if (Array.isArray(val)) {
+    return val.forEach(function(v) {
+      pushEncodedKeyValuePair(pairs, key, v);
+    });
+  }
+  pairs.push(encodeURIComponent(key)
+    + '=' + encodeURIComponent(val));
+}
+
+/**
+ * Expose serialization method.
+ */
+
+ request.serializeObject = serialize;
+
+ /**
+  * Parse the given x-www-form-urlencoded `str`.
+  *
+  * @param {String} str
+  * @return {Object}
+  * @api private
+  */
+
+function parseString(str) {
+  var obj = {};
+  var pairs = str.split('&');
+  var parts;
+  var pair;
+
+  for (var i = 0, len = pairs.length; i < len; ++i) {
+    pair = pairs[i];
+    parts = pair.split('=');
+    obj[decodeURIComponent(parts[0])] = decodeURIComponent(parts[1]);
+  }
+
+  return obj;
+}
+
+/**
+ * Expose parser.
+ */
+
+request.parseString = parseString;
+
+/**
+ * Default MIME type map.
+ *
+ *     superagent.types.xml = 'application/xml';
+ *
+ */
+
+request.types = {
+  html: 'text/html',
+  json: 'application/json',
+  xml: 'application/xml',
+  urlencoded: 'application/x-www-form-urlencoded',
+  'form': 'application/x-www-form-urlencoded',
+  'form-data': 'application/x-www-form-urlencoded'
+};
+
+/**
+ * Default serialization map.
+ *
+ *     superagent.serialize['application/xml'] = function(obj){
+ *       return 'generated xml here';
+ *     };
+ *
+ */
+
+ request.serialize = {
+   'application/x-www-form-urlencoded': serialize,
+   'application/json': JSON.stringify
+ };
+
+ /**
+  * Default parsers.
+  *
+  *     superagent.parse['application/xml'] = function(str){
+  *       return { object parsed from str };
+  *     };
+  *
+  */
+
+request.parse = {
+  'application/x-www-form-urlencoded': parseString,
+  'application/json': JSON.parse
+};
+
+/**
+ * Parse the given header `str` into
+ * an object containing the mapped fields.
+ *
+ * @param {String} str
+ * @return {Object}
+ * @api private
+ */
+
+function parseHeader(str) {
+  var lines = str.split(/\r?\n/);
+  var fields = {};
+  var index;
+  var line;
+  var field;
+  var val;
+
+  lines.pop(); // trailing CRLF
+
+  for (var i = 0, len = lines.length; i < len; ++i) {
+    line = lines[i];
+    index = line.indexOf(':');
+    field = line.slice(0, index).toLowerCase();
+    val = trim(line.slice(index + 1));
+    fields[field] = val;
+  }
+
+  return fields;
+}
+
+/**
+ * Check if `mime` is json or has +json structured syntax suffix.
+ *
+ * @param {String} mime
+ * @return {Boolean}
+ * @api private
+ */
+
+function isJSON(mime) {
+  return /[\/+]json\b/.test(mime);
+}
+
+/**
+ * Return the mime type for the given `str`.
+ *
+ * @param {String} str
+ * @return {String}
+ * @api private
+ */
+
+function type(str){
+  return str.split(/ *; */).shift();
+};
+
+/**
+ * Return header field parameters.
+ *
+ * @param {String} str
+ * @return {Object}
+ * @api private
+ */
+
+function params(str){
+  return reduce(str.split(/ *; */), function(obj, str){
+    var parts = str.split(/ *= */)
+      , key = parts.shift()
+      , val = parts.shift();
+
+    if (key && val) obj[key] = val;
+    return obj;
+  }, {});
+};
+
+/**
+ * Initialize a new `Response` with the given `xhr`.
+ *
+ *  - set flags (.ok, .error, etc)
+ *  - parse header
+ *
+ * Examples:
+ *
+ *  Aliasing `superagent` as `request` is nice:
+ *
+ *      request = superagent;
+ *
+ *  We can use the promise-like API, or pass callbacks:
+ *
+ *      request.get('/').end(function(res){});
+ *      request.get('/', function(res){});
+ *
+ *  Sending data can be chained:
+ *
+ *      request
+ *        .post('/user')
+ *        .send({ name: 'tj' })
+ *        .end(function(res){});
+ *
+ *  Or passed to `.send()`:
+ *
+ *      request
+ *        .post('/user')
+ *        .send({ name: 'tj' }, function(res){});
+ *
+ *  Or passed to `.post()`:
+ *
+ *      request
+ *        .post('/user', { name: 'tj' })
+ *        .end(function(res){});
+ *
+ * Or further reduced to a single call for simple cases:
+ *
+ *      request
+ *        .post('/user', { name: 'tj' }, function(res){});
+ *
+ * @param {XMLHTTPRequest} xhr
+ * @param {Object} options
+ * @api private
+ */
+
+function Response(req, options) {
+  options = options || {};
+  this.req = req;
+  this.xhr = this.req.xhr;
+  // responseText is accessible only if responseType is '' or 'text' and on older browsers
+  this.text = ((this.req.method !='HEAD' && (this.xhr.responseType === '' || this.xhr.responseType === 'text')) || typeof this.xhr.responseType === 'undefined')
+     ? this.xhr.responseText
+     : null;
+  this.statusText = this.req.xhr.statusText;
+  this.setStatusProperties(this.xhr.status);
+  this.header = this.headers = parseHeader(this.xhr.getAllResponseHeaders());
+  // getAllResponseHeaders sometimes falsely returns "" for CORS requests, but
+  // getResponseHeader still works. so we get content-type even if getting
+  // other headers fails.
+  this.header['content-type'] = this.xhr.getResponseHeader('content-type');
+  this.setHeaderProperties(this.header);
+  this.body = this.req.method != 'HEAD'
+    ? this.parseBody(this.text ? this.text : this.xhr.response)
+    : null;
+}
+
+/**
+ * Get case-insensitive `field` value.
+ *
+ * @param {String} field
+ * @return {String}
+ * @api public
+ */
+
+Response.prototype.get = function(field){
+  return this.header[field.toLowerCase()];
+};
+
+/**
+ * Set header related properties:
+ *
+ *   - `.type` the content type without params
+ *
+ * A response of "Content-Type: text/plain; charset=utf-8"
+ * will provide you with a `.type` of "text/plain".
+ *
+ * @param {Object} header
+ * @api private
+ */
+
+Response.prototype.setHeaderProperties = function(header){
+  // content-type
+  var ct = this.header['content-type'] || '';
+  this.type = type(ct);
+
+  // params
+  var obj = params(ct);
+  for (var key in obj) this[key] = obj[key];
+};
+
+/**
+ * Parse the given body `str`.
+ *
+ * Used for auto-parsing of bodies. Parsers
+ * are defined on the `superagent.parse` object.
+ *
+ * @param {String} str
+ * @return {Mixed}
+ * @api private
+ */
+
+Response.prototype.parseBody = function(str){
+  var parse = request.parse[this.type];
+  return parse && str && (str.length || str instanceof Object)
+    ? parse(str)
+    : null;
+};
+
+/**
+ * Set flags such as `.ok` based on `status`.
+ *
+ * For example a 2xx response will give you a `.ok` of __true__
+ * whereas 5xx will be __false__ and `.error` will be __true__. The
+ * `.clientError` and `.serverError` are also available to be more
+ * specific, and `.statusType` is the class of error ranging from 1..5
+ * sometimes useful for mapping respond colors etc.
+ *
+ * "sugar" properties are also defined for common cases. Currently providing:
+ *
+ *   - .noContent
+ *   - .badRequest
+ *   - .unauthorized
+ *   - .notAcceptable
+ *   - .notFound
+ *
+ * @param {Number} status
+ * @api private
+ */
+
+Response.prototype.setStatusProperties = function(status){
+  // handle IE9 bug: http://stackoverflow.com/questions/10046972/msie-returns-status-code-of-1223-for-ajax-request
+  if (status === 1223) {
+    status = 204;
+  }
+
+  var type = status / 100 | 0;
+
+  // status / class
+  this.status = this.statusCode = status;
+  this.statusType = type;
+
+  // basics
+  this.info = 1 == type;
+  this.ok = 2 == type;
+  this.clientError = 4 == type;
+  this.serverError = 5 == type;
+  this.error = (4 == type || 5 == type)
+    ? this.toError()
+    : false;
+
+  // sugar
+  this.accepted = 202 == status;
+  this.noContent = 204 == status;
+  this.badRequest = 400 == status;
+  this.unauthorized = 401 == status;
+  this.notAcceptable = 406 == status;
+  this.notFound = 404 == status;
+  this.forbidden = 403 == status;
+};
+
+/**
+ * Return an `Error` representative of this response.
+ *
+ * @return {Error}
+ * @api public
+ */
+
+Response.prototype.toError = function(){
+  var req = this.req;
+  var method = req.method;
+  var url = req.url;
+
+  var msg = 'cannot ' + method + ' ' + url + ' (' + this.status + ')';
+  var err = new Error(msg);
+  err.status = this.status;
+  err.method = method;
+  err.url = url;
+
+  return err;
+};
+
+/**
+ * Expose `Response`.
+ */
+
+request.Response = Response;
+
+/**
+ * Initialize a new `Request` with the given `method` and `url`.
+ *
+ * @param {String} method
+ * @param {String} url
+ * @api public
+ */
+
+function Request(method, url) {
+  var self = this;
+  this._query = this._query || [];
+  this.method = method;
+  this.url = url;
+  this.header = {}; // preserves header name case
+  this._header = {}; // coerces header names to lowercase
+  this.on('end', function(){
+    var err = null;
+    var res = null;
+
+    try {
+      res = new Response(self);
+    } catch(e) {
+      err = new Error('Parser is unable to parse the response');
+      err.parse = true;
+      err.original = e;
+      // issue #675: return the raw response if the response parsing fails
+      err.rawResponse = self.xhr && self.xhr.responseText ? self.xhr.responseText : null;
+      // issue #876: return the http status code if the response parsing fails
+      err.statusCode = self.xhr && self.xhr.status ? self.xhr.status : null;
+      return self.callback(err);
+    }
+
+    self.emit('response', res);
+
+    if (err) {
+      return self.callback(err, res);
+    }
+
+    if (res.status >= 200 && res.status < 300) {
+      return self.callback(err, res);
+    }
+
+    var new_err = new Error(res.statusText || 'Unsuccessful HTTP response');
+    new_err.original = err;
+    new_err.response = res;
+    new_err.status = res.status;
+
+    self.callback(new_err, res);
+  });
+}
+
+/**
+ * Mixin `Emitter` and `requestBase`.
+ */
+
+Emitter(Request.prototype);
+for (var key in requestBase) {
+  Request.prototype[key] = requestBase[key];
+}
+
+/**
+ * Abort the request, and clear potential timeout.
+ *
+ * @return {Request}
+ * @api public
+ */
+
+Request.prototype.abort = function(){
+  if (this.aborted) return;
+  this.aborted = true;
+  this.xhr.abort();
+  this.clearTimeout();
+  this.emit('abort');
+  return this;
+};
+
+/**
+ * Set Content-Type to `type`, mapping values from `request.types`.
+ *
+ * Examples:
+ *
+ *      superagent.types.xml = 'application/xml';
+ *
+ *      request.post('/')
+ *        .type('xml')
+ *        .send(xmlstring)
+ *        .end(callback);
+ *
+ *      request.post('/')
+ *        .type('application/xml')
+ *        .send(xmlstring)
+ *        .end(callback);
+ *
+ * @param {String} type
+ * @return {Request} for chaining
+ * @api public
+ */
+
+Request.prototype.type = function(type){
+  this.set('Content-Type', request.types[type] || type);
+  return this;
+};
+
+/**
+ * Set responseType to `val`. Presently valid responseTypes are 'blob' and 
+ * 'arraybuffer'.
+ *
+ * Examples:
+ *
+ *      req.get('/')
+ *        .responseType('blob')
+ *        .end(callback);
+ *
+ * @param {String} val
+ * @return {Request} for chaining
+ * @api public
+ */
+
+Request.prototype.responseType = function(val){
+  this._responseType = val;
+  return this;
+};
+
+/**
+ * Set Accept to `type`, mapping values from `request.types`.
+ *
+ * Examples:
+ *
+ *      superagent.types.json = 'application/json';
+ *
+ *      request.get('/agent')
+ *        .accept('json')
+ *        .end(callback);
+ *
+ *      request.get('/agent')
+ *        .accept('application/json')
+ *        .end(callback);
+ *
+ * @param {String} accept
+ * @return {Request} for chaining
+ * @api public
+ */
+
+Request.prototype.accept = function(type){
+  this.set('Accept', request.types[type] || type);
+  return this;
+};
+
+/**
+ * Set Authorization field value with `user` and `pass`.
+ *
+ * @param {String} user
+ * @param {String} pass
+ * @param {Object} options with 'type' property 'auto' or 'basic' (default 'basic')
+ * @return {Request} for chaining
+ * @api public
+ */
+
+Request.prototype.auth = function(user, pass, options){
+  if (!options) {
+    options = {
+      type: 'basic'
+    }
+  }
+
+  switch (options.type) {
+    case 'basic':
+      var str = btoa(user + ':' + pass);
+      this.set('Authorization', 'Basic ' + str);
+    break;
+
+    case 'auto':
+      this.username = user;
+      this.password = pass;
+    break;
+  }
+  return this;
+};
+
+/**
+* Add query-string `val`.
+*
+* Examples:
+*
+*   request.get('/shoes')
+*     .query('size=10')
+*     .query({ color: 'blue' })
+*
+* @param {Object|String} val
+* @return {Request} for chaining
+* @api public
+*/
+
+Request.prototype.query = function(val){
+  if ('string' != typeof val) val = serialize(val);
+  if (val) this._query.push(val);
+  return this;
+};
+
+/**
+ * Queue the given `file` as an attachment to the specified `field`,
+ * with optional `filename`.
+ *
+ * ``` js
+ * request.post('/upload')
+ *   .attach(new Blob(['<a id="a"><b id="b">hey!</b></a>'], { type: "text/html"}))
+ *   .end(callback);
+ * ```
+ *
+ * @param {String} field
+ * @param {Blob|File} file
+ * @param {String} filename
+ * @return {Request} for chaining
+ * @api public
+ */
+
+Request.prototype.attach = function(field, file, filename){
+  if (!this._formData) this._formData = new root.FormData();
+  this._formData.append(field, file, filename || file.name);
+  return this;
+};
+
+/**
+ * Send `data` as the request body, defaulting the `.type()` to "json" when
+ * an object is given.
+ *
+ * Examples:
+ *
+ *       // manual json
+ *       request.post('/user')
+ *         .type('json')
+ *         .send('{"name":"tj"}')
+ *         .end(callback)
+ *
+ *       // auto json
+ *       request.post('/user')
+ *         .send({ name: 'tj' })
+ *         .end(callback)
+ *
+ *       // manual x-www-form-urlencoded
+ *       request.post('/user')
+ *         .type('form')
+ *         .send('name=tj')
+ *         .end(callback)
+ *
+ *       // auto x-www-form-urlencoded
+ *       request.post('/user')
+ *         .type('form')
+ *         .send({ name: 'tj' })
+ *         .end(callback)
+ *
+ *       // defaults to x-www-form-urlencoded
+  *      request.post('/user')
+  *        .send('name=tobi')
+  *        .send('species=ferret')
+  *        .end(callback)
+ *
+ * @param {String|Object} data
+ * @return {Request} for chaining
+ * @api public
+ */
+
+Request.prototype.send = function(data){
+  var obj = isObject(data);
+  var type = this._header['content-type'];
+
+  // merge
+  if (obj && isObject(this._data)) {
+    for (var key in data) {
+      this._data[key] = data[key];
+    }
+  } else if ('string' == typeof data) {
+    if (!type) this.type('form');
+    type = this._header['content-type'];
+    if ('application/x-www-form-urlencoded' == type) {
+      this._data = this._data
+        ? this._data + '&' + data
+        : data;
+    } else {
+      this._data = (this._data || '') + data;
+    }
+  } else {
+    this._data = data;
+  }
+
+  if (!obj || isHost(data)) return this;
+  if (!type) this.type('json');
+  return this;
+};
+
+/**
+ * Invoke the callback with `err` and `res`
+ * and handle arity check.
+ *
+ * @param {Error} err
+ * @param {Response} res
+ * @api private
+ */
+
+Request.prototype.callback = function(err, res){
+  var fn = this._callback;
+  this.clearTimeout();
+  fn(err, res);
+};
+
+/**
+ * Invoke callback with x-domain error.
+ *
+ * @api private
+ */
+
+Request.prototype.crossDomainError = function(){
+  var err = new Error('Request has been terminated\nPossible causes: the network is offline, Origin is not allowed by Access-Control-Allow-Origin, the page is being unloaded, etc.');
+  err.crossDomain = true;
+
+  err.status = this.status;
+  err.method = this.method;
+  err.url = this.url;
+
+  this.callback(err);
+};
+
+/**
+ * Invoke callback with timeout error.
+ *
+ * @api private
+ */
+
+Request.prototype.timeoutError = function(){
+  var timeout = this._timeout;
+  var err = new Error('timeout of ' + timeout + 'ms exceeded');
+  err.timeout = timeout;
+  this.callback(err);
+};
+
+/**
+ * Enable transmission of cookies with x-domain requests.
+ *
+ * Note that for this to work the origin must not be
+ * using "Access-Control-Allow-Origin" with a wildcard,
+ * and also must set "Access-Control-Allow-Credentials"
+ * to "true".
+ *
+ * @api public
+ */
+
+Request.prototype.withCredentials = function(){
+  this._withCredentials = true;
+  return this;
+};
+
+/**
+ * Initiate request, invoking callback `fn(res)`
+ * with an instanceof `Response`.
+ *
+ * @param {Function} fn
+ * @return {Request} for chaining
+ * @api public
+ */
+
+Request.prototype.end = function(fn){
+  var self = this;
+  var xhr = this.xhr = request.getXHR();
+  var query = this._query.join('&');
+  var timeout = this._timeout;
+  var data = this._formData || this._data;
+
+  // store callback
+  this._callback = fn || noop;
+
+  // state change
+  xhr.onreadystatechange = function(){
+    if (4 != xhr.readyState) return;
+
+    // In IE9, reads to any property (e.g. status) off of an aborted XHR will
+    // result in the error "Could not complete the operation due to error c00c023f"
+    var status;
+    try { status = xhr.status } catch(e) { status = 0; }
+
+    if (0 == status) {
+      if (self.timedout) return self.timeoutError();
+      if (self.aborted) return;
+      return self.crossDomainError();
+    }
+    self.emit('end');
+  };
+
+  // progress
+  var handleProgress = function(e){
+    if (e.total > 0) {
+      e.percent = e.loaded / e.total * 100;
+    }
+    e.direction = 'download';
+    self.emit('progress', e);
+  };
+  if (this.hasListeners('progress')) {
+    xhr.onprogress = handleProgress;
+  }
+  try {
+    if (xhr.upload && this.hasListeners('progress')) {
+      xhr.upload.onprogress = handleProgress;
+    }
+  } catch(e) {
+    // Accessing xhr.upload fails in IE from a web worker, so just pretend it doesn't exist.
+    // Reported here:
+    // https://connect.microsoft.com/IE/feedback/details/837245/xmlhttprequest-upload-throws-invalid-argument-when-used-from-web-worker-context
+  }
+
+  // timeout
+  if (timeout && !this._timer) {
+    this._timer = setTimeout(function(){
+      self.timedout = true;
+      self.abort();
+    }, timeout);
+  }
+
+  // querystring
+  if (query) {
+    query = request.serializeObject(query);
+    this.url += ~this.url.indexOf('?')
+      ? '&' + query
+      : '?' + query;
+  }
+
+  // initiate request
+  if (this.username && this.password) {
+    xhr.open(this.method, this.url, true, this.username, this.password);
+  } else {
+    xhr.open(this.method, this.url, true);
+  }
+
+  // CORS
+  if (this._withCredentials) xhr.withCredentials = true;
+
+  // body
+  if ('GET' != this.method && 'HEAD' != this.method && 'string' != typeof data && !isHost(data)) {
+    // serialize stuff
+    var contentType = this._header['content-type'];
+    var serialize = this._parser || request.serialize[contentType ? contentType.split(';')[0] : ''];
+    if (!serialize && isJSON(contentType)) serialize = request.serialize['application/json'];
+    if (serialize) data = serialize(data);
+  }
+
+  // set header fields
+  for (var field in this.header) {
+    if (null == this.header[field]) continue;
+    xhr.setRequestHeader(field, this.header[field]);
+  }
+
+  if (this._responseType) {
+    xhr.responseType = this._responseType;
+  }
+
+  // send stuff
+  this.emit('request', this);
+
+  // IE11 xhr.send(undefined) sends 'undefined' string as POST payload (instead of nothing)
+  // We need null here if data is undefined
+  xhr.send(typeof data !== 'undefined' ? data : null);
+  return this;
+};
+
+
+/**
+ * Expose `Request`.
+ */
+
+request.Request = Request;
+
+/**
+ * GET `url` with optional callback `fn(res)`.
+ *
+ * @param {String} url
+ * @param {Mixed|Function} data or fn
+ * @param {Function} fn
+ * @return {Request}
+ * @api public
+ */
+
+request.get = function(url, data, fn){
+  var req = request('GET', url);
+  if ('function' == typeof data) fn = data, data = null;
+  if (data) req.query(data);
+  if (fn) req.end(fn);
+  return req;
+};
+
+/**
+ * HEAD `url` with optional callback `fn(res)`.
+ *
+ * @param {String} url
+ * @param {Mixed|Function} data or fn
+ * @param {Function} fn
+ * @return {Request}
+ * @api public
+ */
+
+request.head = function(url, data, fn){
+  var req = request('HEAD', url);
+  if ('function' == typeof data) fn = data, data = null;
+  if (data) req.send(data);
+  if (fn) req.end(fn);
+  return req;
+};
+
+/**
+ * DELETE `url` with optional callback `fn(res)`.
+ *
+ * @param {String} url
+ * @param {Function} fn
+ * @return {Request}
+ * @api public
+ */
+
+function del(url, fn){
+  var req = request('DELETE', url);
+  if (fn) req.end(fn);
+  return req;
+};
+
+request['del'] = del;
+request['delete'] = del;
+
+/**
+ * PATCH `url` with optional `data` and callback `fn(res)`.
+ *
+ * @param {String} url
+ * @param {Mixed} data
+ * @param {Function} fn
+ * @return {Request}
+ * @api public
+ */
+
+request.patch = function(url, data, fn){
+  var req = request('PATCH', url);
+  if ('function' == typeof data) fn = data, data = null;
+  if (data) req.send(data);
+  if (fn) req.end(fn);
+  return req;
+};
+
+/**
+ * POST `url` with optional `data` and callback `fn(res)`.
+ *
+ * @param {String} url
+ * @param {Mixed} data
+ * @param {Function} fn
+ * @return {Request}
+ * @api public
+ */
+
+request.post = function(url, data, fn){
+  var req = request('POST', url);
+  if ('function' == typeof data) fn = data, data = null;
+  if (data) req.send(data);
+  if (fn) req.end(fn);
+  return req;
+};
+
+/**
+ * PUT `url` with optional `data` and callback `fn(res)`.
+ *
+ * @param {String} url
+ * @param {Mixed|Function} data or fn
+ * @param {Function} fn
+ * @return {Request}
+ * @api public
+ */
+
+request.put = function(url, data, fn){
+  var req = request('PUT', url);
+  if ('function' == typeof data) fn = data, data = null;
+  if (data) req.send(data);
+  if (fn) req.end(fn);
+  return req;
+};
+
+},{"./is-object":950,"./request":952,"./request-base":951,"emitter":28,"reduce":948}],950:[function(require,module,exports){
+/**
+ * Check if `obj` is an object.
+ *
+ * @param {Object} obj
+ * @return {Boolean}
+ * @api private
+ */
+
+function isObject(obj) {
+  return null != obj && 'object' == typeof obj;
+}
+
+module.exports = isObject;
+
+},{}],951:[function(require,module,exports){
+/**
+ * Module of mixed-in functions shared between node and client code
+ */
+var isObject = require('./is-object');
+
+var FormData = require('form-data'); // browserify compatible
+
+/**
+ * Clear previous timeout.
+ *
+ * @return {Request} for chaining
+ * @api public
+ */
+
+exports.clearTimeout = function _clearTimeout(){
+  this._timeout = 0;
+  clearTimeout(this._timer);
+  return this;
+};
+
+/**
+ * Force given parser
+ *
+ * Sets the body parser no matter type.
+ *
+ * @param {Function}
+ * @api public
+ */
+
+exports.parse = function parse(fn){
+  this._parser = fn;
+  return this;
+};
+
+/**
+ * Set timeout to `ms`.
+ *
+ * @param {Number} ms
+ * @return {Request} for chaining
+ * @api public
+ */
+
+exports.timeout = function timeout(ms){
+  this._timeout = ms;
+  return this;
+};
+
+/**
+ * Faux promise support
+ *
+ * @param {Function} fulfill
+ * @param {Function} reject
+ * @return {Request}
+ */
+
+exports.then = function then(fulfill, reject) {
+  return this.end(function(err, res) {
+    err ? reject(err) : fulfill(res);
+  });
+}
+
+/**
+ * Allow for extension
+ */
+
+exports.use = function use(fn) {
+  fn(this);
+  return this;
+}
+
+
+/**
+ * Get request header `field`.
+ * Case-insensitive.
+ *
+ * @param {String} field
+ * @return {String}
+ * @api public
+ */
+
+exports.get = function(field){
+  return this._header[field.toLowerCase()];
+};
+
+/**
+ * Get case-insensitive header `field` value.
+ * This is a deprecated internal API. Use `.get(field)` instead.
+ *
+ * (getHeader is no longer used internally by the superagent code base)
+ *
+ * @param {String} field
+ * @return {String}
+ * @api private
+ * @deprecated
+ */
+
+exports.getHeader = exports.get;
+
+/**
+ * Set header `field` to `val`, or multiple fields with one object.
+ * Case-insensitive.
+ *
+ * Examples:
+ *
+ *      req.get('/')
+ *        .set('Accept', 'application/json')
+ *        .set('X-API-Key', 'foobar')
+ *        .end(callback);
+ *
+ *      req.get('/')
+ *        .set({ Accept: 'application/json', 'X-API-Key': 'foobar' })
+ *        .end(callback);
+ *
+ * @param {String|Object} field
+ * @param {String} val
+ * @return {Request} for chaining
+ * @api public
+ */
+
+exports.set = function(field, val){
+  if (isObject(field)) {
+    for (var key in field) {
+      this.set(key, field[key]);
+    }
+    return this;
+  }
+  this._header[field.toLowerCase()] = val;
+  this.header[field] = val;
+  return this;
+};
+
+/**
+ * Remove header `field`.
+ * Case-insensitive.
+ *
+ * Example:
+ *
+ *      req.get('/')
+ *        .unset('User-Agent')
+ *        .end(callback);
+ *
+ * @param {String} field
+ */
+exports.unset = function(field){
+  delete this._header[field.toLowerCase()];
+  delete this.header[field];
+  return this;
+};
+
+/**
+ * Write the field `name` and `val` for "multipart/form-data"
+ * request bodies.
+ *
+ * ``` js
+ * request.post('/upload')
+ *   .field('foo', 'bar')
+ *   .end(callback);
+ * ```
+ *
+ * @param {String} name
+ * @param {String|Blob|File|Buffer|fs.ReadStream} val
+ * @return {Request} for chaining
+ * @api public
+ */
+exports.field = function(name, val) {
+  if (!this._formData) this._formData = new FormData();
+  this._formData.append(name, val);
+  return this;
+};
+
+},{"./is-object":950,"form-data":946}],952:[function(require,module,exports){
+// The node and browser modules expose versions of this with the
+// appropriate constructor function bound as first argument
+/**
+ * Issue a request:
+ *
+ * Examples:
+ *
+ *    request('GET', '/users').end(callback)
+ *    request('/users').end(callback)
+ *    request('/users', callback)
+ *
+ * @param {String} method
+ * @param {String|Function} url or callback
+ * @return {Request}
+ * @api public
+ */
+
+function request(RequestConstructor, method, url) {
+  // callback
+  if ('function' == typeof url) {
+    return new RequestConstructor('GET', method).end(url);
+  }
+
+  // url first
+  if (2 == arguments.length) {
+    return new RequestConstructor('GET', method);
+  }
+
+  return new RequestConstructor(method, url);
+}
+
+module.exports = request;
 
 },{}]},{},[27]);

@@ -9,4 +9,9 @@ router.get('/', (req, res) => {
   res.render('home')
 })
 
+router.get('/scores', (req, res) => {
+  console.log('hit the scores rout!')
+  res.render('scores')
+})
+
 export default router
