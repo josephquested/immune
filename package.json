@@ -6,7 +6,7 @@
   "scripts": {
     "test": "babel-node test/*.js",
     "start": "./node_modules/babel-cli/bin/babel-node.js ./index.js",
-    "createdb": "babel-node ./db/createDB.js",
+    "createdb": "./node_modules/babel-cli/bin/babel-node.js ./db/createDB.js",
     "buildwatch": "watchify ./lib -o public/bundle.js",
     "build": "browserify ./lib -o public/bundle.js",
     "postinstall": "npm run build && npm run createdb"
