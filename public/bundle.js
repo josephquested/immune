@@ -360,15 +360,22 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 exports.default = function () {
   alert('immune system compromised! score: ' + (0, _jquery2.default)('#score').html());
-  // request
-  //   .post('/scores')
-  //   .send($('#score').html())
-  //   .end((err, res) => {
-  //     if (err) throw err
-  //     console.log(res)
-  //   })
 
-  window.location.replace('/scores');
+  var name = undefined;
+  while (name === undefined) {
+    name = prompt("what's your name?", "idk");
+  }
+
+  console.log('done picking name');
+  alert(name);
+  alert((0, _jquery2.default)('#score').html());
+
+  // wtf aren;t they getting passed through sucessfully
+
+  _superagent2.default.post('/scores').send({ name: name, score: (0, _jquery2.default)('#score').html() }).end(function (err, res) {
+    if (err) throw err;
+    window.location.replace('/scores');
+  });
 };
 
 },{"jquery":947,"superagent":949}],9:[function(require,module,exports){

@@ -2,6 +2,9 @@
   <h1 id='score-h1'>• immune •</h1>
   <h2 id='score-h2'> high scores </h2>
   <ol id='scoreboard'>
+    {{#each scores}}
+    <li>{{this.name}}.   {{this.score}}</li>
+    {{/each}}
   </ol>
   <div id="play-button">
     <a href="/" class="play-button">play again</a>

@@ -6,6 +6,7 @@
   "scripts": {
     "test": "babel-node test/*.js",
     "start": "nodemon --exec babel-node ./index.js",
+    "createdb": "babel-node ./db/createDB.js",
     "build": "watchify ./lib -o public/bundle.js"
   },
   "repository": {
